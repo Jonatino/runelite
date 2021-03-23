@@ -1,3 +1,4 @@
+/*
 package net.runelite.mixins.rsps.ports;
 
 import net.runelite.api.mixins.FieldHook;
@@ -14,4 +15,4 @@ public abstract class Js5PortMixin implements RSPlayers {
 		System.out.println("js5 port changed to " + getJs5Port());
 	}
 	
-}
+}*/

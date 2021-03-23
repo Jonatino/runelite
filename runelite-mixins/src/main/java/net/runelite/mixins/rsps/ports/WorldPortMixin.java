@@ -1,3 +1,4 @@
+/*
 package net.runelite.mixins.rsps.ports;
 
 import net.runelite.api.mixins.FieldHook;
@@ -14,4 +15,4 @@ public abstract class WorldPortMixin implements RSSocketInfo {
 		System.out.println("World port changed to " + getWorldPort());
 	}
 	
-}
+}*/

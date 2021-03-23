@@ -11,7 +11,7 @@ public abstract class CurrentPortMixin implements RSArchiveDiskAction {
 	@FieldHook("currentPort")
 	@Inject
 	public void currentPortHook(int idx) {
-		System.out.println("current port changed to " + getCurrentPort());
+		//System.out.println("current port changed to " + getCurrentPort());
 	}
 	
 }
