@@ -247,7 +247,7 @@ public final class Projectile extends Renderable {
 		garbageValue = "23"
 	)
 	@Export("findAndLoadCache")
-	public static void findAndLoadCache(String var0, String var1, int var2, int var3) throws IOException {
+	public static void findAndLoadCache(String subdir, String var1, int var2, int var3) throws IOException {
 		JagexCache.idxCount = var3; // L: 40
 		JagexCache.cacheGamebuild = var2; // L: 41
 
@@ -293,10 +293,10 @@ public final class Projectile extends Renderable {
 		label250:
 		while (var18 < 4) {
 			String var6 = var18 == 0 ? "" : "" + var18; // L: 70
-			JagexCache.JagexCache_locationFile = new File(JagexCache.userHomeDirectory, "jagex_cl_" + var0 + "_" + var1 + var6 + ".dat"); // L: 71
+			JagexCache.JagexCache_locationFile = new File(JagexCache.userHomeDirectory, "jagex_cl_" + subdir + "_" + var1 + var6 + ".dat"); // L: 71
 			String var7 = null; // L: 72
 			String var8 = null; // L: 73
-			boolean var9 = false; // L: 74
+			boolean createNew = false; // L: 74
 			Buffer var11;
 			File var33;
 			if (JagexCache.JagexCache_locationFile.exists()) { // L: 75
@@ -358,10 +358,10 @@ public final class Projectile extends Renderable {
 				label225:
 				for (int var19 = 0; var19 < Timer.cacheSubPaths.length; ++var19) { // L: 117
 					for (int var20 = 0; var20 < MinimapRenderer.cacheParentPaths.length; ++var20) { // L: 118
-						File var21 = new File(MinimapRenderer.cacheParentPaths[var20] + Timer.cacheSubPaths[var19] + File.separatorChar + var0 + File.separatorChar); // L: 119
+						File var21 = new File(MinimapRenderer.cacheParentPaths[var20] + Timer.cacheSubPaths[var19] + File.separatorChar + subdir + File.separatorChar); // L: 119
 						if (var21.exists() && class23.isWriteable(new File(var21, "test.dat"), true)) { // L: 120 121
 							var7 = var21.toString(); // L: 122
-							var9 = true; // L: 123
+							createNew = true; // L: 123
 							break label225; // L: 124
 						}
 					}
@@ -369,8 +369,8 @@ public final class Projectile extends Renderable {
 			}
 
 			if (var7 == null) { // L: 130
-				var7 = JagexCache.userHomeDirectory + File.separatorChar + "jagexcache" + var6 + File.separatorChar + var0 + File.separatorChar + var1 + File.separatorChar; // L: 131
-				var9 = true; // L: 132
+				var7 = JagexCache.userHomeDirectory + File.separatorChar + "jagexcache" + var6 + File.separatorChar + subdir + File.separatorChar + var1 + File.separatorChar; // L: 131
+				createNew = true; // L: 132
 			}
 
 			File var32;
@@ -394,10 +394,10 @@ public final class Projectile extends Renderable {
 					var29.printStackTrace(); // L: 152
 				}
 
-				var9 = true; // L: 154
+				createNew = true; // L: 154
 			}
 
-			if (var9) { // L: 156
+			if (createNew) { // L: 156
 				var32 = new File(var7); // L: 157
 				var11 = null; // L: 158
 

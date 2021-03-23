@@ -73,14 +73,14 @@ public class BufferedFile {
 	@ObfuscatedSignature(
 		descriptor = "(Lmc;II)V"
 	)
-	public BufferedFile(AccessFile var1, int var2, int var3) throws IOException {
+	public BufferedFile(AccessFile accessFile, int readBufferSize, int writeBufferSize) throws IOException {
 		this.readBufferOffset = -1L; // L: 9
 		this.writeBufferOffset = -1L; // L: 12
 		this.writeBufferLength = 0; // L: 13
-		this.accessFile = var1; // L: 20
-		this.length = this.fileLength = var1.length(); // L: 21
-		this.readBuffer = new byte[var2]; // L: 22
-		this.writeBuffer = new byte[var3]; // L: 23
+		this.accessFile = accessFile; // L: 20
+		this.length = this.fileLength = accessFile.length(); // L: 21
+		this.readBuffer = new byte[readBufferSize]; // L: 22
+		this.writeBuffer = new byte[writeBufferSize]; // L: 23
 		this.offset = 0L; // L: 24
 	} // L: 25
 

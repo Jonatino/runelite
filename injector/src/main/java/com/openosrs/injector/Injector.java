@@ -21,6 +21,7 @@ import com.openosrs.injector.injectors.raw.Occluder;
 import com.openosrs.injector.injectors.raw.RasterizerAlpha;
 import com.openosrs.injector.injectors.raw.RenderDraw;
 import com.openosrs.injector.injectors.raw.ScriptVM;
+import com.openosrs.injector.injectors.raw.rsps.CachePathReplacer;
 import com.openosrs.injector.rsapi.RSApi;
 import com.openosrs.injector.transformers.InjectTransformer;
 import com.openosrs.injector.transformers.Java8Ifier;
@@ -79,6 +80,8 @@ public class Injector extends InjectData implements InjectTaskHandler
 		//inject(new DrawAfterWidgets(this));
 
 		inject(new ScriptVM(this));
+		
+		inject(new CachePathReplacer(this));
 
 		// All GPU raw injectors should probably be combined, especially RenderDraw and Occluder
 		inject(new ClearColorBuffer(this));

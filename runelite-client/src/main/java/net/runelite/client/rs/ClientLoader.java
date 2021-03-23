@@ -499,7 +499,7 @@ public class ClientLoader implements Supplier<Applet>
 				String name = jarEntry.getName();
 				if (name.endsWith(".class"))
 				{
-					name = name.substring(0, name.length() - 6);
+					name = name.substring(0, name.length() - 6).replace('/', '.');
 					classLoader.loadClass(name);
 				}
 			}

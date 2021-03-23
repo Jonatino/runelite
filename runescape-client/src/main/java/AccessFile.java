@@ -30,20 +30,20 @@ public final class AccessFile {
 	@Export("offset")
 	long offset;
 
-	public AccessFile(File var1, String var2, long var3) throws IOException {
-		if (var3 == -1L) { // L: 11
-			var3 = Long.MAX_VALUE;
+	public AccessFile(File file, String permissions, long maxSize) throws IOException {
+		if (maxSize == -1L) { // L: 11
+			maxSize = Long.MAX_VALUE;
 		}
 
-		if (var1.length() > var3) { // L: 12
-			var1.delete(); // L: 13
+		if (file.length() > maxSize) { // L: 12
+			file.delete(); // L: 13
 		}
 
-		this.file = new RandomAccessFile(var1, var2); // L: 15
-		this.maxSize = var3; // L: 16
+		this.file = new RandomAccessFile(file, permissions); // L: 15
+		this.maxSize = maxSize; // L: 16
 		this.offset = 0L; // L: 17
 		int var5 = this.file.read(); // L: 18
-		if (var5 != -1 && !var2.equals("r")) { // L: 19
+		if (var5 != -1 && !permissions.equals("r")) { // L: 19
 			this.file.seek(0L); // L: 20
 			this.file.write(var5); // L: 21
 		}
