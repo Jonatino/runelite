@@ -4,21 +4,21 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lc")
+@ObfuscatedName("lu")
 @Implements("AbstractRasterProvider")
 public abstract class AbstractRasterProvider {
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@Export("pixels")
 	public int[] pixels;
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedGetter(
-		intValue = -1159583033
+		intValue = -1111630003
 	)
 	@Export("width")
 	public int width;
-	@ObfuscatedName("y")
+	@ObfuscatedName("t")
 	@ObfuscatedGetter(
-		intValue = -1839293839
+		intValue = -1276876573
 	)
 	@Export("height")
 	public int height;
@@ -29,23 +29,23 @@ public abstract class AbstractRasterProvider {
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
 		descriptor = "(III)V",
-		garbageValue = "2060006654"
+		garbageValue = "1343964035"
 	)
 	@Export("drawFull")
 	public abstract void drawFull(int var1, int var2);
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "(IIIII)V",
-		garbageValue = "-1656973228"
+		descriptor = "(IIIIB)V",
+		garbageValue = "-8"
 	)
 	@Export("draw")
 	public abstract void draw(int var1, int var2, int var3, int var4);
 
-	@ObfuscatedName("x")
+	@ObfuscatedName("q")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "1592611264"
+		garbageValue = "1374263653"
 	)
 	@Export("apply")
 	public final void apply() {

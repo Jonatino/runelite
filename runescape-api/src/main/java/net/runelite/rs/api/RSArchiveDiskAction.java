@@ -1,3 +1,12 @@
 package net.runelite.rs.api;
 
-public interface RSArchiveDiskAction {}
+import net.runelite.mapping.Import;
+
+public interface RSArchiveDiskAction {
+	
+	@Import("currentPort")
+	int getCurrentPort();
+	
+	@Import("currentPort")
+	void setCurrentPort(int currentPort);
+}

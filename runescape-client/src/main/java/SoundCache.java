@@ -3,36 +3,45 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dy")
+@ObfuscatedName("ds")
 @Implements("SoundCache")
 public class SoundCache {
 	@ObfuscatedName("n")
+	@Export("ByteArrayPool_alternativeSizes")
+	public static int[] ByteArrayPool_alternativeSizes;
+	@ObfuscatedName("cq")
 	@ObfuscatedSignature(
-		descriptor = "Lig;"
+		descriptor = "Lbv;"
+	)
+	@Export("mouseRecorder")
+	static MouseRecorder mouseRecorder;
+	@ObfuscatedName("h")
+	@ObfuscatedSignature(
+		descriptor = "Lib;"
 	)
 	@Export("soundEffectIndex")
 	AbstractArchive soundEffectIndex;
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "Lig;"
+		descriptor = "Lib;"
 	)
 	@Export("musicSampleIndex")
 	AbstractArchive musicSampleIndex;
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Lls;"
 	)
 	@Export("musicSamples")
 	NodeHashTable musicSamples;
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Lls;"
 	)
 	@Export("rawSounds")
 	NodeHashTable rawSounds;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lig;Lig;)V"
+		descriptor = "(Lib;Lib;)V"
 	)
 	public SoundCache(AbstractArchive var1, AbstractArchive var2) {
 		this.musicSamples = new NodeHashTable(256); // L: 9
@@ -41,10 +50,10 @@ public class SoundCache {
 		this.musicSampleIndex = var2; // L: 14
 	} // L: 15
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(II[II)Ldm;",
-		garbageValue = "-166733310"
+		descriptor = "(II[II)Ldf;",
+		garbageValue = "-2076179570"
 	)
 	@Export("getSoundEffect0")
 	RawSound getSoundEffect0(int var1, int var2, int[] var3) {
@@ -63,8 +72,8 @@ public class SoundCache {
 			} else {
 				var7 = var8.toRawSound(); // L: 26
 				this.rawSounds.put(var7, var5); // L: 27
-				if (var3 != null) {
-					var3[0] -= var7.samples.length; // L: 28
+				if (var3 != null) { // L: 28
+					var3[0] -= var7.samples.length;
 				}
 
 				return var7; // L: 29
@@ -74,8 +83,8 @@ public class SoundCache {
 
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "(II[IS)Ldm;",
-		garbageValue = "-10083"
+		descriptor = "(II[II)Ldf;",
+		garbageValue = "1195097760"
 	)
 	@Export("getMusicSample0")
 	RawSound getMusicSample0(int var1, int var2, int[] var3) {
@@ -109,10 +118,10 @@ public class SoundCache {
 		}
 	}
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "(I[IB)Ldm;",
-		garbageValue = "15"
+		descriptor = "(I[II)Ldf;",
+		garbageValue = "122861408"
 	)
 	@Export("getSoundEffect")
 	public RawSound getSoundEffect(int var1, int[] var2) {
@@ -125,10 +134,10 @@ public class SoundCache {
 		}
 	}
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedSignature(
-		descriptor = "(I[II)Ldm;",
-		garbageValue = "-1589130009"
+		descriptor = "(I[II)Ldf;",
+		garbageValue = "-2010455709"
 	)
 	@Export("getMusicSample")
 	public RawSound getMusicSample(int var1, int[] var2) {
@@ -140,27 +149,4 @@ public class SoundCache {
 			throw new RuntimeException(); // L: 61
 		}
 	}
-
-	@ObfuscatedName("b")
-	@ObfuscatedSignature(
-		descriptor = "(II)Ljava/lang/String;",
-		garbageValue = "1989438161"
-	)
-	@Export("inventoryQuantityFormat")
-	static final String inventoryQuantityFormat(int var0) {
-		if (var0 < 100000) { // L: 413
-			return "<col=ffff00>" + var0 + "</col>";
-		} else {
-			return var0 < 10000000 ? "<col=ffffff>" + var0 / 1000 + "K" + "</col>" : "<col=00ff80>" + var0 / 1000000 + "M" + "</col>"; // L: 414 415
-		}
-	}
-
-	@ObfuscatedName("gh")
-	@ObfuscatedSignature(
-		descriptor = "(Lcv;II)V",
-		garbageValue = "-701578069"
-	)
-	static final void method2689(Actor var0, int var1) {
-		ParamComposition.worldToScreen(var0.x, var0.y, var1); // L: 4879
-	} // L: 4880
 }

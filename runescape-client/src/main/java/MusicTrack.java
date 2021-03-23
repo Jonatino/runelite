@@ -3,12 +3,12 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hr")
+@ObfuscatedName("hg")
 @Implements("MusicTrack")
 public class MusicTrack extends Node {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Lls;"
 	)
 	@Export("table")
 	NodeHashTable table;
@@ -17,7 +17,7 @@ public class MusicTrack extends Node {
 	byte[] midi;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;)V"
+		descriptor = "(Lkj;)V"
 	)
 	MusicTrack(Buffer var1) {
 		var1.offset = var1.array.length - 3; // L: 22
@@ -336,7 +336,7 @@ public class MusicTrack extends Node {
 	} // L: 271
 
 	@ObfuscatedName("v")
-	void method4125() {
+	void method3956() {
 		if (this.table == null) { // L: 274
 			this.table = new NodeHashTable(16); // L: 275
 			int[] var1 = new int[16]; // L: 276
@@ -353,7 +353,7 @@ public class MusicTrack extends Node {
 				var4.markTrackPosition(var6); // L: 286
 			}
 
-			label56:
+			label54:
 			do {
 				while (true) {
 					var6 = var4.getPrioritizedTrack(); // L: 289
@@ -365,7 +365,7 @@ public class MusicTrack extends Node {
 						if (var8 == 1) { // L: 294
 							var4.setTrackDone(); // L: 295
 							var4.markTrackPosition(var6); // L: 296
-							continue label56;
+							continue label54;
 						}
 
 						int var9 = var8 & 240; // L: 300
@@ -416,18 +416,18 @@ public class MusicTrack extends Node {
 		}
 	} // L: 331
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@Export("clear")
 	void clear() {
 		this.table = null; // L: 334
 	} // L: 335
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(Lig;II)Lhr;"
+		descriptor = "(Lib;II)Lhg;"
 	)
 	@Export("readTrack")
-	public static MusicTrack readTrack(AbstractArchive var0, int var1, int var2) {
+	static MusicTrack readTrack(AbstractArchive var0, int var1, int var2) {
 		byte[] var3 = var0.takeFile(var1, var2); // L: 16
 		return var3 == null ? null : new MusicTrack(new Buffer(var3)); // L: 17
 	}

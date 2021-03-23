@@ -4,41 +4,42 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("av")
+@ObfuscatedName("az")
 @Implements("WorldMapEvent")
 public class WorldMapEvent {
-	@ObfuscatedName("rk")
-	@ObfuscatedGetter(
-		intValue = -687726109
-	)
-	static int field380;
-	@ObfuscatedName("k")
+	@ObfuscatedName("t")
 	@ObfuscatedSignature(
-		descriptor = "[Lme;"
+		descriptor = "Llo;"
 	)
-	@Export("JagexCache_idxFiles")
-	public static BufferedFile[] JagexCache_idxFiles;
-	@ObfuscatedName("n")
+	@Export("titleboxSprite")
+	static IndexedSprite titleboxSprite;
+	@ObfuscatedName("iz")
 	@ObfuscatedGetter(
-		intValue = 477038655
+		intValue = 972918301
+	)
+	@Export("selectedItemId")
+	static int selectedItemId;
+	@ObfuscatedName("h")
+	@ObfuscatedGetter(
+		intValue = 1211419281
 	)
 	@Export("mapElement")
 	public int mapElement;
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "Lhd;"
+		descriptor = "Lhs;"
 	)
 	@Export("coord1")
 	public Coord coord1;
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "Lhd;"
+		descriptor = "Lhs;"
 	)
 	@Export("coord2")
 	public Coord coord2;
 
 	@ObfuscatedSignature(
-		descriptor = "(ILhd;Lhd;)V"
+		descriptor = "(ILhs;Lhs;)V"
 	)
 	public WorldMapEvent(int var1, Coord var2, Coord var3) {
 		this.mapElement = var1; // L: 11
@@ -46,47 +47,80 @@ public class WorldMapEvent {
 		this.coord2 = var3; // L: 13
 	} // L: 14
 
-	@ObfuscatedName("y")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-852874949"
-	)
-	public static void method851() {
-		SpotAnimationDefinition.SpotAnimationDefinition_cached.clear(); // L: 117
-		SpotAnimationDefinition.SpotAnimationDefinition_cachedModels.clear(); // L: 118
-	} // L: 119
-
-	@ObfuscatedName("k")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
 		descriptor = "(B)V",
-		garbageValue = "32"
+		garbageValue = "1"
 	)
-	public static void method850() {
-		Widget.Widget_cachedSprites.clear(); // L: 720
-		Widget.Widget_cachedModels.clear(); // L: 721
-		Widget.Widget_cachedFonts.clear(); // L: 722
-		Widget.Widget_cachedSpriteMasks.clear(); // L: 723
-	} // L: 724
+	public static void method809() {
+		while (true) {
+			ArchiveDiskAction var0;
+			synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue) { // L: 64
+				var0 = (ArchiveDiskAction)ArchiveDiskActionHandler.ArchiveDiskActionHandler_responseQueue.removeLast(); // L: 65
+			} // L: 66
 
-	@ObfuscatedName("iv")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Ljava/lang/String;IIIIZB)V",
-		garbageValue = "-21"
-	)
-	@Export("insertMenuItem")
-	static final void insertMenuItem(String var0, String var1, int var2, int var3, int var4, int var5, boolean var6) {
-		if (!Client.isMenuOpen) { // L: 9001
-			if (Client.menuOptionsCount < 500) { // L: 9002
-				Client.menuActions[Client.menuOptionsCount] = var0; // L: 9003
-				Client.menuTargets[Client.menuOptionsCount] = var1; // L: 9004
-				Client.menuOpcodes[Client.menuOptionsCount] = var2; // L: 9005
-				Client.menuIdentifiers[Client.menuOptionsCount] = var3; // L: 9006
-				Client.menuArguments1[Client.menuOptionsCount] = var4; // L: 9007
-				Client.menuArguments2[Client.menuOptionsCount] = var5; // L: 9008
-				Client.menuShiftClick[Client.menuOptionsCount] = var6; // L: 9009
-				++Client.menuOptionsCount; // L: 9010
+			if (var0 == null) {
+				return; // L: 67
 			}
 
+			var0.archive.load(var0.archiveDisk, (int)var0.key, var0.data, false); // L: 68
 		}
-	} // L: 9012
+	}
+
+	@ObfuscatedName("x")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "787195295"
+	)
+	public static void method807() {
+		if (KeyHandler.KeyHandler_instance != null) { // L: 156
+			synchronized(KeyHandler.KeyHandler_instance) { // L: 157
+				KeyHandler.KeyHandler_instance = null; // L: 158
+			} // L: 159
+		}
+
+	} // L: 161
+
+	@ObfuscatedName("kq")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "1393718801"
+	)
+	static final void method810(int var0) {
+		var0 = Math.min(Math.max(var0, 0), 255); // L: 10652
+		if (var0 != Timer.clientPreferences.musicVolume) { // L: 10653
+			if (Timer.clientPreferences.musicVolume == 0 && Client.currentTrackGroupId != -1) { // L: 10654
+				Interpreter.method2082(class217.archive6, Client.currentTrackGroupId, 0, var0, false); // L: 10655
+				Client.field883 = false; // L: 10656
+			} else if (var0 == 0) { // L: 10658
+				WorldMapRegion.method588(); // L: 10659
+				Client.field883 = false; // L: 10660
+			} else if (class206.musicPlayerStatus != 0) { // L: 10663
+				GrandExchangeEvent.musicTrackVolume = var0;
+			} else {
+				class206.midiPcmStream.setPcmStreamVolume(var0); // L: 10664
+			}
+
+			Timer.clientPreferences.musicVolume = var0; // L: 10666
+			GrandExchangeOffer.savePreferences(); // L: 10667
+		}
+
+	} // L: 10669
+
+	@ObfuscatedName("lv")
+	@ObfuscatedSignature(
+		descriptor = "(Lkj;IB)V",
+		garbageValue = "-67"
+	)
+	static void method808(Buffer var0, int var1) {
+		AbstractSocket.method5846(var0.array, var1); // L: 11139
+		if (JagexCache.JagexCache_randomDat != null) { // L: 11141
+			try {
+				JagexCache.JagexCache_randomDat.seek(0L); // L: 11143
+				JagexCache.JagexCache_randomDat.write(var0.array, var1, 24); // L: 11144
+			} catch (Exception var3) { // L: 11146
+			}
+		}
+
+	} // L: 11149
 }

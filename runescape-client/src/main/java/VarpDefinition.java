@@ -4,24 +4,24 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("il")
+@ObfuscatedName("is")
 @Implements("VarpDefinition")
 public class VarpDefinition extends DualNode {
-	@ObfuscatedName("n")
-	@ObfuscatedSignature(
-		descriptor = "Lig;"
+	@ObfuscatedName("v")
+	@ObfuscatedGetter(
+		intValue = 447928959
 	)
-	@Export("VarpDefinition_archive")
-	public static AbstractArchive VarpDefinition_archive;
-	@ObfuscatedName("d")
+	@Export("VarpDefinition_fileCount")
+	public static int VarpDefinition_fileCount;
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "Lex;"
+		descriptor = "Lez;"
 	)
 	@Export("VarpDefinition_cached")
 	static EvictingDualNodeHashTable VarpDefinition_cached;
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedGetter(
-		intValue = -921079377
+		intValue = -1862551275
 	)
 	@Export("type")
 	public int type;
@@ -36,8 +36,8 @@ public class VarpDefinition extends DualNode {
 
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;I)V",
-		garbageValue = "-1864493120"
+		descriptor = "(Lkj;I)V",
+		garbageValue = "-1194573420"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -51,10 +51,10 @@ public class VarpDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;IB)V",
-		garbageValue = "54"
+		descriptor = "(Lkj;II)V",
+		garbageValue = "263828873"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -64,25 +64,28 @@ public class VarpDefinition extends DualNode {
 
 	} // L: 38
 
-	@ObfuscatedName("ez")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "498467917"
+		descriptor = "(II)V",
+		garbageValue = "789122507"
 	)
-	static boolean method4552() {
-		if (Client.archiveLoaders != null && Client.archiveLoadersDone < Client.archiveLoaders.size()) { // L: 1389
-			while (Client.archiveLoadersDone < Client.archiveLoaders.size()) { // L: 1390
-				ArchiveLoader var0 = (ArchiveLoader)Client.archiveLoaders.get(Client.archiveLoadersDone); // L: 1391
-				if (!var0.isLoaded()) {
-					return false; // L: 1392
+	@Export("runWidgetOnLoadListener")
+	static void runWidgetOnLoadListener(int var0) {
+		if (var0 != -1) { // L: 3902
+			if (class41.loadInterface(var0)) { // L: 3903
+				Widget[] var1 = class9.Widget_interfaceComponents[var0]; // L: 3904
+
+				for (int var2 = 0; var2 < var1.length; ++var2) { // L: 3905
+					Widget var3 = var1[var2]; // L: 3906
+					if (var3.onLoad != null) { // L: 3907
+						ScriptEvent var4 = new ScriptEvent(); // L: 3908
+						var4.widget = var3; // L: 3909
+						var4.args = var3.onLoad; // L: 3910
+						AttackOption.runScript(var4, 5000000); // L: 3911
+					}
 				}
 
-				++Client.archiveLoadersDone; // L: 1393
 			}
-
-			return true; // L: 1395
-		} else {
-			return true;
 		}
-	}
+	} // L: 3914
 }

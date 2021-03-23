@@ -2,12 +2,17 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("fy")
+@ObfuscatedName("fm")
 @Implements("BuddyRankComparator")
 public class BuddyRankComparator extends AbstractUserComparator {
-	@ObfuscatedName("n")
+	@ObfuscatedName("da")
+	@ObfuscatedSignature(
+		descriptor = "Lil;"
+	)
+	@Export("archive7")
+	static Archive archive7;
+	@ObfuscatedName("h")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -15,10 +20,10 @@ public class BuddyRankComparator extends AbstractUserComparator {
 		this.reversed = var1; // L: 10
 	} // L: 11
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(Lky;Lky;B)I",
-		garbageValue = "-42"
+		descriptor = "(Lkz;Lkz;I)I",
+		garbageValue = "1171495407"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -33,87 +38,46 @@ public class BuddyRankComparator extends AbstractUserComparator {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2); // L: 21
 	}
 
-	@ObfuscatedName("x")
+	@ObfuscatedName("ih")
 	@ObfuscatedSignature(
-		descriptor = "(ILcl;ZB)I",
-		garbageValue = "1"
+		descriptor = "(IIS)V",
+		garbageValue = "9125"
 	)
-	static int method3622(int var0, Script var1, boolean var2) {
-		Widget var6;
-		if (var0 != ScriptOpcodes.CC_CALLONRESIZE && var0 != ScriptOpcodes.IF_CALLONRESIZE) { // L: 1146
-			int var4;
-			if (var0 == 1928) { // L: 1163
-				var6 = var2 ? class277.scriptDotWidget : Interpreter.scriptActiveWidget; // L: 1164
-				var4 = Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]; // L: 1165
-				if (var4 >= 1 && var4 <= 10) { // L: 1166
-					ApproximateRouteStrategy.widgetDefaultMenuAction(var4, var6.id, var6.childIndex, var6.itemId, ""); // L: 1169
-					return 1; // L: 1170
-				} else {
-					throw new RuntimeException(); // L: 1167
-				}
-			} else if (var0 == 2928) { // L: 1172
-				Interpreter.Interpreter_intStackSize -= 3; // L: 1173
-				int var3 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize]; // L: 1174
-				var4 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 1]; // L: 1175
-				int var5 = Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 2]; // L: 1176
-				if (var5 >= 1 && var5 <= 10) { // L: 1177
-					ApproximateRouteStrategy.widgetDefaultMenuAction(var5, var3, var4, class237.getWidget(var3).itemId, ""); // L: 1180
-					return 1; // L: 1181
-				} else {
-					throw new RuntimeException(); // L: 1178
-				}
-			} else {
-				return 2; // L: 1183
-			}
-		} else if (Interpreter.field1123 >= 10) { // L: 1147
-			throw new RuntimeException(); // L: 1148
-		} else {
-			if (var0 >= 2000) { // L: 1151
-				var6 = class237.getWidget(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]); // L: 1152
-			} else {
-				var6 = var2 ? class277.scriptDotWidget : Interpreter.scriptActiveWidget; // L: 1154
-			}
+	static void method3522(int var0, int var1) {
+		int var2 = GrandExchangeOfferTotalQuantityComparator.fontBold12.stringWidth("Choose Option"); // L: 7440
 
-			if (var6.onResize == null) { // L: 1155
-				return 0;
-			} else {
-				ScriptEvent var7 = new ScriptEvent(); // L: 1156
-				var7.widget = var6; // L: 1157
-				var7.args = var6.onResize; // L: 1158
-				var7.field593 = Interpreter.field1123 + 1; // L: 1159
-				Client.scriptEvents.addFirst(var7); // L: 1160
-				return 1; // L: 1161
+		int var3;
+		int var4;
+		for (var3 = 0; var3 < Client.menuOptionsCount; ++var3) { // L: 7441
+			var4 = GrandExchangeOfferTotalQuantityComparator.fontBold12.stringWidth(ArchiveLoader.method1230(var3)); // L: 7442
+			if (var4 > var2) { // L: 7443
+				var2 = var4;
 			}
 		}
-	}
 
-	@ObfuscatedName("g")
-	@ObfuscatedSignature(
-		descriptor = "(ILcl;ZI)I",
-		garbageValue = "-866624945"
-	)
-	static int method3621(int var0, Script var1, boolean var2) {
-		Widget var3 = class237.getWidget(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]); // L: 1187
-		if (var0 == ScriptOpcodes.IF_GETX) { // L: 1188
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.x; // L: 1189
-			return 1; // L: 1190
-		} else if (var0 == ScriptOpcodes.IF_GETY) { // L: 1192
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.y; // L: 1193
-			return 1; // L: 1194
-		} else if (var0 == ScriptOpcodes.IF_GETWIDTH) { // L: 1196
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.width; // L: 1197
-			return 1; // L: 1198
-		} else if (var0 == ScriptOpcodes.IF_GETHEIGHT) { // L: 1200
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.height; // L: 1201
-			return 1; // L: 1202
-		} else if (var0 == ScriptOpcodes.IF_GETHIDE) { // L: 1204
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.isHidden ? 1 : 0; // L: 1205
-			return 1; // L: 1206
-		} else if (var0 == ScriptOpcodes.IF_GETLAYER) { // L: 1208
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.parentId; // L: 1209
-			return 1; // L: 1210
-		} else {
-			return 2; // L: 1212
+		var2 += 8; // L: 7445
+		var3 = Client.menuOptionsCount * 15 + 22; // L: 7446
+		var4 = var0 - var2 / 2; // L: 7447
+		if (var2 + var4 > IgnoreList.canvasWidth) { // L: 7448
+			var4 = IgnoreList.canvasWidth - var2;
 		}
-	}
+
+		if (var4 < 0) { // L: 7449
+			var4 = 0;
+		}
+
+		int var5 = var1; // L: 7450
+		if (var3 + var1 > ModelData0.canvasHeight) { // L: 7451
+			var5 = ModelData0.canvasHeight - var3;
+		}
+
+		if (var5 < 0) { // L: 7452
+			var5 = 0;
+		}
+
+		AbstractUserComparator.menuX = var4; // L: 7453
+		DynamicObject.menuY = var5; // L: 7454
+		Occluder.menuWidth = var2; // L: 7455
+		class182.menuHeight = Client.menuOptionsCount * 15 + 22; // L: 7456
+	} // L: 7457
 }

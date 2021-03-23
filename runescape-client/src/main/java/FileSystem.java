@@ -1,50 +1,67 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.Hashtable;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fj")
+@ObfuscatedName("fc")
 @Implements("FileSystem")
 public class FileSystem {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@Export("FileSystem_hasPermissions")
-	static boolean FileSystem_hasPermissions;
+	public static boolean FileSystem_hasPermissions;
 	@ObfuscatedName("v")
 	@Export("FileSystem_cacheDir")
-	static File FileSystem_cacheDir;
-	@ObfuscatedName("d")
+	public static File FileSystem_cacheDir;
+	@ObfuscatedName("x")
 	@Export("FileSystem_cacheFiles")
 	static Hashtable FileSystem_cacheFiles;
-	@ObfuscatedName("az")
+	@ObfuscatedName("e")
 	@ObfuscatedSignature(
-		descriptor = "Llc;"
+		descriptor = "Lhg;"
 	)
-	@Export("rasterProvider")
-	public static AbstractRasterProvider rasterProvider;
+	@Export("musicTrack")
+	static MusicTrack musicTrack;
+	@ObfuscatedName("gt")
+	@Export("regions")
+	static int[] regions;
 
 	static {
 		FileSystem_hasPermissions = false; // L: 7
 		FileSystem_cacheFiles = new Hashtable(16);
 	} // L: 9
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("la")
 	@ObfuscatedSignature(
-		descriptor = "(IS)Ljava/lang/String;",
-		garbageValue = "4003"
+		descriptor = "(Lkj;I)V",
+		garbageValue = "-1885661901"
 	)
-	@Export("colorStartTag")
-	static String colorStartTag(int var0) {
-		return "<col=" + Integer.toHexString(var0) + ">"; // L: 22
-	}
+	static void method3573(Buffer var0) {
+		if (Client.randomDatData != null) { // L: 11152
+			var0.writeBytes(Client.randomDatData, 0, Client.randomDatData.length); // L: 11153
+		} else {
+			byte[] var2 = new byte[24]; // L: 11158
 
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "14"
-	)
-	static int method3709(int var0) {
-		return (int)((Math.log((double)var0) / Interpreter.field1124 - 7.0D) * 256.0D); // L: 3277
-	}
+			try {
+				JagexCache.JagexCache_randomDat.seek(0L); // L: 11160
+				JagexCache.JagexCache_randomDat.readFully(var2); // L: 11161
+
+				int var3;
+				for (var3 = 0; var3 < 24 && var2[var3] == 0; ++var3) { // L: 11162 11163 11164
+				}
+
+				if (var3 >= 24) { // L: 11166
+					throw new IOException();
+				}
+			} catch (Exception var6) {
+				for (int var4 = 0; var4 < 24; ++var4) { // L: 11169
+					var2[var4] = -1;
+				}
+			}
+
+			var0.writeBytes(var2, 0, var2.length); // L: 11174
+		}
+	} // L: 11154 11175
 }

@@ -5,15 +5,21 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jh")
+@ObfuscatedName("jr")
 @Implements("AbstractUserComparator")
 public abstract class AbstractUserComparator implements Comparator {
-	@ObfuscatedName("lf")
-	@ObfuscatedGetter(
-		intValue = -1144052371
+	@ObfuscatedName("sn")
+	@ObfuscatedSignature(
+		descriptor = "Lf;"
 	)
-	@Export("menuY")
-	static int menuY;
+	@Export("grandExchangeEvents")
+	static GrandExchangeEvents grandExchangeEvents;
+	@ObfuscatedName("lr")
+	@ObfuscatedGetter(
+		intValue = 1436616639
+	)
+	@Export("menuX")
+	static int menuX;
 	@ObfuscatedName("v")
 	@Export("nextComparator")
 	Comparator nextComparator;
@@ -21,10 +27,10 @@ public abstract class AbstractUserComparator implements Comparator {
 	protected AbstractUserComparator() {
 	} // L: 8
 
-	@ObfuscatedName("l")
+	@ObfuscatedName("p")
 	@ObfuscatedSignature(
 		descriptor = "(Ljava/util/Comparator;I)V",
-		garbageValue = "1135766594"
+		garbageValue = "118963424"
 	)
 	@Export("addComparator")
 	final void addComparator(Comparator var1) {
@@ -36,10 +42,10 @@ public abstract class AbstractUserComparator implements Comparator {
 
 	} // L: 17
 
-	@ObfuscatedName("s")
+	@ObfuscatedName("l")
 	@ObfuscatedSignature(
-		descriptor = "(Ljn;Ljn;B)I",
-		garbageValue = "0"
+		descriptor = "(Lju;Lju;I)I",
+		garbageValue = "-204379903"
 	)
 	@Export("compareUser")
 	protected final int compareUser(User var1, User var2) {
@@ -48,28 +54,5 @@ public abstract class AbstractUserComparator implements Comparator {
 
 	public boolean equals(Object var1) {
 		return super.equals(var1); // L: 25
-	}
-
-	@ObfuscatedName("n")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lis;",
-		garbageValue = "1543064609"
-	)
-	@Export("SpotAnimationDefinition_get")
-	public static SpotAnimationDefinition SpotAnimationDefinition_get(int var0) {
-		SpotAnimationDefinition var1 = (SpotAnimationDefinition)SpotAnimationDefinition.SpotAnimationDefinition_cached.get((long)var0); // L: 32
-		if (var1 != null) { // L: 33
-			return var1;
-		} else {
-			byte[] var2 = SpotAnimationDefinition.SpotAnimationDefinition_archive.takeFile(13, var0); // L: 34
-			var1 = new SpotAnimationDefinition(); // L: 35
-			var1.id = var0; // L: 36
-			if (var2 != null) { // L: 37
-				var1.decode(new Buffer(var2));
-			}
-
-			SpotAnimationDefinition.SpotAnimationDefinition_cached.put(var1, (long)var0); // L: 38
-			return var1; // L: 39
-		}
 	}
 }

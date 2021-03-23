@@ -1,3 +1,13 @@
 package net.runelite.rs.api;
 
-public interface RSPlayers {}
+import net.runelite.mapping.Import;
+
+public interface RSPlayers {
+	
+	@Import("js5Port")
+	int getJs5Port();
+	
+	@Import("js5Port")
+	void setJs5Port(int js5Port);
+	
+}

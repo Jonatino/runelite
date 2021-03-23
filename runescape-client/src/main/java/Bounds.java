@@ -4,36 +4,36 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("li")
+@ObfuscatedName("lc")
 @Implements("Bounds")
 public class Bounds {
 	@ObfuscatedName("e")
-	@Export("ItemDefinition_inMembersWorld")
-	public static boolean ItemDefinition_inMembersWorld;
-	@ObfuscatedName("gs")
-	@Export("xteaKeys")
-	static int[][] xteaKeys;
-	@ObfuscatedName("n")
+	@ObfuscatedSignature(
+		descriptor = "Lib;"
+	)
+	@Export("Widget_fontsArchive")
+	public static AbstractArchive Widget_fontsArchive;
+	@ObfuscatedName("h")
 	@ObfuscatedGetter(
-		intValue = -1970300391
+		intValue = 1090758865
 	)
 	@Export("lowX")
 	public int lowX;
 	@ObfuscatedName("v")
 	@ObfuscatedGetter(
-		intValue = -2105661203
+		intValue = 518192471
 	)
 	@Export("lowY")
 	public int lowY;
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedGetter(
-		intValue = 1049215037
+		intValue = 620953543
 	)
 	@Export("highX")
 	public int highX;
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedGetter(
-		intValue = -1664972525
+		intValue = 1803324609
 	)
 	@Export("highY")
 	public int highY;
@@ -47,10 +47,10 @@ public class Bounds {
 		this(0, 0, var1, var2); // L: 10
 	} // L: 11
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "-91"
+		descriptor = "(III)V",
+		garbageValue = "-1764840928"
 	)
 	@Export("setLow")
 	public void setLow(int var1, int var2) {
@@ -60,8 +60,8 @@ public class Bounds {
 
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "82"
+		descriptor = "(III)V",
+		garbageValue = "-1587228886"
 	)
 	@Export("setHigh")
 	public void setHigh(int var1, int var2) {
@@ -69,31 +69,31 @@ public class Bounds {
 		this.highY = var2; // L: 25
 	} // L: 26
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "(Lli;Lli;B)V",
-		garbageValue = "16"
+		descriptor = "(Llc;Llc;I)V",
+		garbageValue = "-769796699"
 	)
-	public void method6182(Bounds var1, Bounds var2) {
-		this.method6193(var1, var2); // L: 33
-		this.method6179(var1, var2); // L: 34
+	public void method6014(Bounds var1, Bounds var2) {
+		this.method6015(var1, var2); // L: 33
+		this.method6024(var1, var2); // L: 34
 	} // L: 35
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedSignature(
-		descriptor = "(Lli;Lli;I)V",
-		garbageValue = "102469843"
+		descriptor = "(Llc;Llc;I)V",
+		garbageValue = "-1678302488"
 	)
-	void method6193(Bounds var1, Bounds var2) {
+	void method6015(Bounds var1, Bounds var2) {
 		var2.lowX = this.lowX; // L: 38
 		var2.highX = this.highX; // L: 39
 		if (this.lowX < var1.lowX) { // L: 40
-			var2.highX = (var2.highX * -1958684907 - (var1.lowX * -1958684907 - this.lowX * -1958684907)) * 1049215037; // L: 41
+			var2.highX = (var2.highX * 1575555575 - (var1.lowX * 1575555575 - this.lowX * 1575555575)) * 620953543; // L: 41
 			var2.lowX = var1.lowX; // L: 42
 		}
 
-		if (var2.method6185() > var1.method6185()) { // L: 44
-			var2.highX -= var2.method6185() - var1.method6185(); // L: 45
+		if (var2.method6017() > var1.method6017()) { // L: 44
+			var2.highX -= var2.method6017() - var1.method6017(); // L: 45
 		}
 
 		if (var2.highX < 0) { // L: 47
@@ -102,21 +102,21 @@ public class Bounds {
 
 	} // L: 48
 
-	@ObfuscatedName("y")
+	@ObfuscatedName("t")
 	@ObfuscatedSignature(
-		descriptor = "(Lli;Lli;I)V",
-		garbageValue = "1821841742"
+		descriptor = "(Llc;Llc;I)V",
+		garbageValue = "394854704"
 	)
-	void method6179(Bounds var1, Bounds var2) {
+	void method6024(Bounds var1, Bounds var2) {
 		var2.lowY = this.lowY; // L: 51
 		var2.highY = this.highY; // L: 52
 		if (this.lowY < var1.lowY) { // L: 53
-			var2.highY = (var2.highY * -691361509 - (var1.lowY * -691361509 - this.lowY * -691361509)) * -1664972525; // L: 54
+			var2.highY = (var2.highY * 1547305793 - (var1.lowY * 1547305793 - this.lowY * 1547305793)) * 1803324609; // L: 54
 			var2.lowY = var1.lowY; // L: 55
 		}
 
-		if (var2.method6186() > var1.method6186()) { // L: 57
-			var2.highY -= var2.method6186() - var1.method6186(); // L: 58
+		if (var2.method6018() > var1.method6018()) { // L: 57
+			var2.highY -= var2.method6018() - var1.method6018(); // L: 58
 		}
 
 		if (var2.highY < 0) { // L: 60
@@ -125,22 +125,22 @@ public class Bounds {
 
 	} // L: 61
 
-	@ObfuscatedName("h")
+	@ObfuscatedName("j")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "16777215"
+		garbageValue = "-1901002144"
 	)
-	int method6185() {
+	int method6017() {
 		return this.highX + this.lowX; // L: 64
 	}
 
-	@ObfuscatedName("z")
+	@ObfuscatedName("n")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "57"
+		descriptor = "(I)I",
+		garbageValue = "924077669"
 	)
-	int method6186() {
-		return this.highY + this.lowY; // L: 68
+	int method6018() {
+		return this.lowY + this.highY; // L: 68
 	}
 
 	public String toString() {

@@ -60,7 +60,7 @@ public class CachePathReplacer extends AbstractInjector {
 	}
 	
 	public void replaceRandomDat() {
-		final Method draw = InjectUtil.findMethod(inject, "findOrCreateRandomDatFile", "Varcs", null, true, false);
+		final Method draw = InjectUtil.findMethod(inject, "findOrCreateRandomDatFile", "WorldMapData_0", null, true, false);
 		
 		Execution e = new Execution(inject.getVanilla());
 		e.addMethod(draw);
@@ -120,7 +120,7 @@ public class CachePathReplacer extends AbstractInjector {
 	}
 	
 	public void replaceJagexStrings() {
-		final Method draw = InjectUtil.findMethod(inject, "findAndLoadCache", "Projectile", null, true, false);
+		final Method draw = InjectUtil.findMethod(inject, "findAndLoadCache", "class58", null, true, false);
 		
 		Execution e = new Execution(inject.getVanilla());
 		e.addMethod(draw);

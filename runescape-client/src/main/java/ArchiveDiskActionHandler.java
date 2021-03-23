@@ -4,88 +4,107 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("if")
+@ObfuscatedName("ij")
 @Implements("ArchiveDiskActionHandler")
 public class ArchiveDiskActionHandler implements Runnable {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "Lji;"
+		descriptor = "Ljp;"
 	)
 	@Export("ArchiveDiskActionHandler_requestQueue")
-	public static NodeDeque ArchiveDiskActionHandler_requestQueue;
+	static NodeDeque ArchiveDiskActionHandler_requestQueue;
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "Lji;"
+		descriptor = "Ljp;"
 	)
 	@Export("ArchiveDiskActionHandler_responseQueue")
-	public static NodeDeque ArchiveDiskActionHandler_responseQueue;
-	@ObfuscatedName("d")
+	static NodeDeque ArchiveDiskActionHandler_responseQueue;
+	@ObfuscatedName("x")
 	@ObfuscatedGetter(
-		intValue = -1788680015
+		intValue = -39259267
 	)
-	public static int field3187;
-	@ObfuscatedName("c")
+	public static int field3178;
+	@ObfuscatedName("w")
 	@Export("ArchiveDiskActionHandler_lock")
 	public static Object ArchiveDiskActionHandler_lock;
-	@ObfuscatedName("y")
-	@Export("ArchiveDiskActionHandler_thread")
-	static Thread ArchiveDiskActionHandler_thread;
+	@ObfuscatedName("u")
+	@Export("Tiles_saturation")
+	static int[] Tiles_saturation;
 
 	static {
 		ArchiveDiskActionHandler_requestQueue = new NodeDeque(); // L: 9
 		ArchiveDiskActionHandler_responseQueue = new NodeDeque(); // L: 10
-		field3187 = 0; // L: 11
+		field3178 = 0; // L: 11
 		ArchiveDiskActionHandler_lock = new Object();
 	} // L: 12
 
 	ArchiveDiskActionHandler() {
-	} // L: 15
+	}
 
 	public void run() {
 		try {
 			while (true) {
 				ArchiveDiskAction var1;
-				synchronized(ArchiveDiskActionHandler_requestQueue) { // L: 43
-					var1 = (ArchiveDiskAction)ArchiveDiskActionHandler_requestQueue.last(); // L: 44
-				} // L: 45
+				synchronized(ArchiveDiskActionHandler_requestQueue) { // L: 76
+					var1 = (ArchiveDiskAction)ArchiveDiskActionHandler_requestQueue.last(); // L: 77
+				} // L: 78
 
-				if (var1 != null) { // L: 46
-					if (var1.type == 0) { // L: 47
-						var1.archiveDisk.write((int)var1.key, var1.data, var1.data.length); // L: 48
-						synchronized(ArchiveDiskActionHandler_requestQueue) { // L: 49
-							var1.remove(); // L: 50
-						} // L: 51
-					} else if (var1.type == 1) { // L: 53
-						var1.data = var1.archiveDisk.read((int)var1.key); // L: 54
-						synchronized(ArchiveDiskActionHandler_requestQueue) { // L: 55
-							ArchiveDiskActionHandler_responseQueue.addFirst(var1); // L: 56
-						} // L: 57
+				if (var1 != null) { // L: 79
+					if (var1.type == 0) { // L: 80
+						var1.archiveDisk.write((int)var1.key, var1.data, var1.data.length); // L: 81
+						synchronized(ArchiveDiskActionHandler_requestQueue) { // L: 82
+							var1.remove(); // L: 83
+						} // L: 84
+					} else if (var1.type == 1) { // L: 86
+						var1.data = var1.archiveDisk.read((int)var1.key); // L: 87
+						synchronized(ArchiveDiskActionHandler_requestQueue) { // L: 88
+							ArchiveDiskActionHandler_responseQueue.addFirst(var1); // L: 89
+						} // L: 90
 					}
 
-					synchronized(ArchiveDiskActionHandler_lock) { // L: 59
-						if (field3187 <= 1) { // L: 60
-							field3187 = 0; // L: 61
-							ArchiveDiskActionHandler_lock.notifyAll(); // L: 62
-							return; // L: 63
+					synchronized(ArchiveDiskActionHandler_lock) { // L: 92
+						if (field3178 <= 1) { // L: 93
+							field3178 = 0; // L: 94
+							ArchiveDiskActionHandler_lock.notifyAll(); // L: 95
+							return; // L: 96
 						}
 
-						field3187 = 600; // L: 65
+						field3178 = 600; // L: 98
 					}
 				} else {
-					ApproximateRouteStrategy.sleepExact(100L); // L: 69
-					synchronized(ArchiveDiskActionHandler_lock) { // L: 70
-						if (field3187 <= 1) { // L: 71
-							field3187 = 0; // L: 72
-							ArchiveDiskActionHandler_lock.notifyAll(); // L: 73
-							return; // L: 74
+					class236.sleepExact(100L); // L: 102
+					synchronized(ArchiveDiskActionHandler_lock) { // L: 103
+						if (field3178 <= 1) { // L: 104
+							field3178 = 0; // L: 105
+							ArchiveDiskActionHandler_lock.notifyAll(); // L: 106
+							return; // L: 107
 						}
 
-						--field3187; // L: 76
+						--field3178; // L: 109
 					}
 				}
 			}
-		} catch (Exception var13) { // L: 81
-			SequenceDefinition.RunException_sendStackTrace((String)null, var13); // L: 82
+		} catch (Exception var13) { // L: 114
+			PlayerComposition.RunException_sendStackTrace((String)null, var13); // L: 115
 		}
-	} // L: 84
+	} // L: 117
+
+	@ObfuscatedName("v")
+	@ObfuscatedSignature(
+		descriptor = "(DDII)[D",
+		garbageValue = "961736597"
+	)
+	public static double[] method4294(double var0, double var2, int var4) {
+		int var5 = var4 * 2 + 1; // L: 13
+		double[] var6 = new double[var5]; // L: 14
+		int var7 = -var4;
+
+		for (int var8 = 0; var7 <= var4; ++var8) {
+			double var11 = FriendSystem.method1972(((double)var7 - var0) / var2) / var2; // L: 20
+			var6[var8] = var11; // L: 22
+			++var7; // L: 15
+		}
+
+		return var6; // L: 24
+	}
 }

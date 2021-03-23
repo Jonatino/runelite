@@ -7,7 +7,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("jf")
 @Implements("IterableDualNodeQueue")
 public class IterableDualNodeQueue implements Iterable {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
 		descriptor = "Lgj;"
 	)
@@ -26,7 +26,7 @@ public class IterableDualNodeQueue implements Iterable {
 		this.sentinel.nextDual = this.sentinel; // L: 12
 	} // L: 13
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@Export("clear")
 	public void clear() {
 		while (this.sentinel.previousDual != this.sentinel) { // L: 16
@@ -51,7 +51,7 @@ public class IterableDualNodeQueue implements Iterable {
 		var1.previousDual.nextDual = var1; // L: 26
 	} // L: 27
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedSignature(
 		descriptor = "()Lgj;"
 	)
@@ -66,7 +66,7 @@ public class IterableDualNodeQueue implements Iterable {
 		}
 	}
 
-	@ObfuscatedName("y")
+	@ObfuscatedName("t")
 	@ObfuscatedSignature(
 		descriptor = "()Lgj;"
 	)
@@ -75,7 +75,7 @@ public class IterableDualNodeQueue implements Iterable {
 		return this.previousOrLast((DualNode)null); // L: 45
 	}
 
-	@ObfuscatedName("h")
+	@ObfuscatedName("j")
 	@ObfuscatedSignature(
 		descriptor = "(Lgj;)Lgj;"
 	)
@@ -97,7 +97,7 @@ public class IterableDualNodeQueue implements Iterable {
 		}
 	}
 
-	@ObfuscatedName("z")
+	@ObfuscatedName("n")
 	@ObfuscatedSignature(
 		descriptor = "()Lgj;"
 	)
@@ -117,7 +117,7 @@ public class IterableDualNodeQueue implements Iterable {
 		return new IterableDualNodeQueueIterator(this); // L: 71
 	}
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
 		descriptor = "(Lgj;Lgj;)V"
 	)

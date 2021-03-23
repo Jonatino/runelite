@@ -4,42 +4,54 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gk")
+@ObfuscatedName("gv")
 @Implements("PacketBufferNode")
 public class PacketBufferNode extends Node {
-	@ObfuscatedName("y")
+	@ObfuscatedName("so")
+	@ObfuscatedGetter(
+		intValue = -1389539327
+	)
+	@Export("foundItemIdCount")
+	static int foundItemIdCount;
+	@ObfuscatedName("t")
 	@ObfuscatedSignature(
-		descriptor = "[Lgk;"
+		descriptor = "[Lgv;"
 	)
 	@Export("PacketBufferNode_packetBufferNodes")
-	public static PacketBufferNode[] PacketBufferNode_packetBufferNodes;
-	@ObfuscatedName("h")
+	static PacketBufferNode[] PacketBufferNode_packetBufferNodes;
+	@ObfuscatedName("j")
 	@ObfuscatedGetter(
-		intValue = -547850915
+		intValue = 388445817
 	)
 	@Export("PacketBufferNode_packetBufferNodeCount")
-	public static int PacketBufferNode_packetBufferNodeCount;
-	@ObfuscatedName("n")
+	static int PacketBufferNode_packetBufferNodeCount;
+	@ObfuscatedName("dk")
 	@ObfuscatedSignature(
-		descriptor = "Lgd;"
+		descriptor = "Lil;"
+	)
+	@Export("archive12")
+	static Archive archive12;
+	@ObfuscatedName("h")
+	@ObfuscatedSignature(
+		descriptor = "Lgb;"
 	)
 	@Export("clientPacket")
-	public ClientPacket clientPacket;
+	ClientPacket clientPacket;
 	@ObfuscatedName("v")
 	@ObfuscatedGetter(
-		intValue = 60073813
+		intValue = -1047967593
 	)
 	@Export("clientPacketLength")
-	public int clientPacketLength;
-	@ObfuscatedName("d")
+	int clientPacketLength;
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "Lkd;"
+		descriptor = "Lky;"
 	)
 	@Export("packetBuffer")
 	public PacketBuffer packetBuffer;
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedGetter(
-		intValue = -646251635
+		intValue = -3253035
 	)
 	@Export("index")
 	public int index;
@@ -49,15 +61,23 @@ public class PacketBufferNode extends Node {
 		PacketBufferNode_packetBufferNodeCount = 0; // L: 14
 	}
 
-	@ObfuscatedName("v")
+	PacketBufferNode() {
+	} // L: 19
+
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-2134338868"
+		descriptor = "(B)V",
+		garbageValue = "-111"
 	)
 	@Export("release")
 	public void release() {
-		if (PacketBufferNode_packetBufferNodeCount < PacketBufferNode_packetBufferNodes.length) { // L: 45
-			PacketBufferNode_packetBufferNodes[++PacketBufferNode_packetBufferNodeCount - 1] = this; // L: 46
+		if (PacketBufferNode_packetBufferNodeCount < PacketBufferNode_packetBufferNodes.length) { // L: 61
+			PacketBufferNode_packetBufferNodes[++PacketBufferNode_packetBufferNodeCount - 1] = this; // L: 62
 		}
-	} // L: 47
+	} // L: 63
+
+	@ObfuscatedName("h")
+	static boolean method3682(long var0) {
+		return Widget.Entity_unpackSceneX(var0) == 2; // L: 44
+	}
 }

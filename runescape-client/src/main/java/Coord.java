@@ -4,32 +4,30 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hd")
+@ObfuscatedName("hs")
 @Implements("Coord")
 public class Coord {
-	@ObfuscatedName("q")
-	static int[] field2560;
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedGetter(
-		intValue = 1010419141
+		intValue = -578473323
 	)
 	@Export("plane")
 	public int plane;
 	@ObfuscatedName("v")
 	@ObfuscatedGetter(
-		intValue = 1636543291
+		intValue = -1743960415
 	)
 	@Export("x")
 	public int x;
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedGetter(
-		intValue = -1486415971
+		intValue = -1369689255
 	)
 	@Export("y")
 	public int y;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lhd;)V"
+		descriptor = "(Lhs;)V"
 	)
 	public Coord(Coord var1) {
 		this.plane = var1.plane; // L: 15
@@ -52,12 +50,12 @@ public class Coord {
 			this.y = var1 & 16383; // L: 25
 		}
 
-	} // L: 27
+	}
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "71745539"
+		descriptor = "(B)I",
+		garbageValue = "-27"
 	)
 	@Export("packed")
 	public int packed() {
@@ -66,35 +64,35 @@ public class Coord {
 
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "(Lhd;S)Z",
-		garbageValue = "144"
+		descriptor = "(Lhs;I)Z",
+		garbageValue = "902297370"
 	)
 	@Export("equalsCoord")
 	boolean equalsCoord(Coord var1) {
-		if (this.plane != var1.plane) { // L: 40
+		if (this.plane != var1.plane) {
 			return false;
-		} else if (this.x != var1.x) { // L: 41
+		} else if (this.x != var1.x) {
 			return false;
 		} else {
-			return this.y == var1.y; // L: 42
+			return this.y == var1.y;
 		}
 	}
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;B)Ljava/lang/String;",
-		garbageValue = "31"
+		descriptor = "(Ljava/lang/String;I)Ljava/lang/String;",
+		garbageValue = "-1856185425"
 	)
 	@Export("toString")
 	String toString(String var1) {
-		return this.plane + var1 + (this.x >> 6) + var1 + (this.y >> 6) + var1 + (this.x & 63) + var1 + (this.y & 63);
+		return this.plane + var1 + (this.x >> 6) + var1 + (this.y >> 6) + var1 + (this.x & 63) + var1 + (this.y & 63); // L: 55
 	}
 
 	public boolean equals(Object var1) {
-		if (this == var1) { // L: 34
+		if (this == var1) {
 			return true;
 		} else {
-			return !(var1 instanceof Coord) ? false : this.equalsCoord((Coord)var1); // L: 35 36
+			return !(var1 instanceof Coord) ? false : this.equalsCoord((Coord)var1); // L: 36
 		}
 	}
 
@@ -106,39 +104,32 @@ public class Coord {
 		return this.toString(","); // L: 51
 	}
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
 		descriptor = "(II)I",
-		garbageValue = "1310695522"
+		garbageValue = "-676384531"
 	)
-	@Export("iLog")
-	public static int iLog(int var0) {
-		int var1 = 0; // L: 54
-		if (var0 < 0 || var0 >= 65536) { // L: 55
-			var0 >>>= 16; // L: 56
-			var1 += 16; // L: 57
+	@Export("getVarbit")
+	public static int getVarbit(int var0) {
+		VarbitComposition var2 = (VarbitComposition) VarbitComposition.VarbitDefinition_cached.get((long)var0); // L: 26
+		VarbitComposition var1;
+		if (var2 != null) { // L: 27
+			var1 = var2; // L: 28
+		} else {
+			byte[] var3 = VarbitComposition.VarbitDefinition_archive.takeFile(14, var0); // L: 31
+			var2 = new VarbitComposition(); // L: 32
+			if (var3 != null) { // L: 33
+				var2.decode(new Buffer(var3));
+			}
+
+			VarbitComposition.VarbitDefinition_cached.put(var2, (long)var0); // L: 34
+			var1 = var2; // L: 35
 		}
 
-		if (var0 >= 256) { // L: 59
-			var0 >>>= 8; // L: 60
-			var1 += 8; // L: 61
-		}
-
-		if (var0 >= 16) { // L: 63
-			var0 >>>= 4; // L: 64
-			var1 += 4; // L: 65
-		}
-
-		if (var0 >= 4) { // L: 67
-			var0 >>>= 2; // L: 68
-			var1 += 2; // L: 69
-		}
-
-		if (var0 >= 1) { // L: 71
-			var0 >>>= 1; // L: 72
-			++var1; // L: 73
-		}
-
-		return var0 + var1; // L: 75
+		int var7 = var1.baseVar; // L: 38
+		int var4 = var1.startBit; // L: 39
+		int var5 = var1.endBit; // L: 40
+		int var6 = Varps.Varps_masks[var5 - var4]; // L: 41
+		return Varps.Varps_main[var7] >> var4 & var6; // L: 42
 	}
 }

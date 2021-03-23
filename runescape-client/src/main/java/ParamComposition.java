@@ -7,31 +7,31 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("jl")
 @Implements("ParamComposition")
 public class ParamComposition extends DualNode {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "Lig;"
+		descriptor = "Lib;"
 	)
 	@Export("ParamDefinition_archive")
 	static AbstractArchive ParamDefinition_archive;
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "Lex;"
+		descriptor = "Lez;"
 	)
 	@Export("ParamDefinition_cached")
-	public static EvictingDualNodeHashTable ParamDefinition_cached;
-	@ObfuscatedName("d")
+	static EvictingDualNodeHashTable ParamDefinition_cached;
+	@ObfuscatedName("x")
 	@Export("type")
 	char type;
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedGetter(
-		intValue = -551037179
+		intValue = -1005886373
 	)
 	@Export("defaultInt")
 	public int defaultInt;
-	@ObfuscatedName("y")
+	@ObfuscatedName("t")
 	@Export("defaultStr")
 	public String defaultStr;
-	@ObfuscatedName("h")
+	@ObfuscatedName("j")
 	@Export("autoDisable")
 	boolean autoDisable;
 
@@ -43,109 +43,141 @@ public class ParamComposition extends DualNode {
 		this.autoDisable = true; // L: 16
 	} // L: 18
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1000046844"
+		descriptor = "(B)V",
+		garbageValue = "10"
 	)
 	@Export("postDecode")
 	void postDecode() {
 	} // L: 35
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;I)V",
-		garbageValue = "1362546091"
+		descriptor = "(Lkj;I)V",
+		garbageValue = "65535"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
 		while (true) {
 			int var2 = var1.readUnsignedByte(); // L: 39
 			if (var2 == 0) { // L: 40
-				return; // L: 43
+				return;
 			}
 
-			this.decodeNext(var1, var2); // L: 41
+			this.decodeNext(var1, var2);
 		}
 	}
 
-	@ObfuscatedName("y")
+	@ObfuscatedName("t")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;II)V",
-		garbageValue = "1500921565"
+		descriptor = "(Lkj;II)V",
+		garbageValue = "1000544289"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
-		if (var2 == 1) { // L: 46
-			byte var4 = var1.readByte(); // L: 48
-			int var5 = var4 & 255; // L: 50
-			if (var5 == 0) { // L: 51
+		if (var2 == 1) {
+			byte var4 = var1.readByte();
+			int var5 = var4 & 255;
+			if (var5 == 0) {
 				throw new IllegalArgumentException("" + Integer.toString(var5, 16));
 			}
 
-			if (var5 >= 128 && var5 < 160) { // L: 52
-				char var6 = class298.cp1252AsciiExtension[var5 - 128]; // L: 53
-				if (var6 == 0) { // L: 54
+			if (var5 >= 128 && var5 < 160) {
+				char var6 = class298.cp1252AsciiExtension[var5 - 128];
+				if (var6 == 0) {
 					var6 = '?';
 				}
 
-				var5 = var6; // L: 55
+				var5 = var6;
 			}
 
-			char var3 = (char)var5; // L: 57
-			this.type = var3; // L: 59
-		} else if (var2 == 2) { // L: 61
+			char var3 = (char)var5;
+			this.type = var3;
+		} else if (var2 == 2) {
 			this.defaultInt = var1.readInt();
-		} else if (var2 == 4) { // L: 62
+		} else if (var2 == 4) {
 			this.autoDisable = false;
-		} else if (var2 == 5) { // L: 63
+		} else if (var2 == 5) {
 			this.defaultStr = var1.readStringCp1252NullTerminated();
 		}
 
-	} // L: 65
+	}
 
-	@ObfuscatedName("h")
+	@ObfuscatedName("j")
 	@ObfuscatedSignature(
-		descriptor = "(S)Z",
-		garbageValue = "31310"
+		descriptor = "(B)Z",
+		garbageValue = "0"
 	)
 	@Export("isString")
 	public boolean isString() {
 		return this.type == 's'; // L: 68
 	}
 
-	@ObfuscatedName("gc")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(IIII)V",
-		garbageValue = "-1478943473"
+		descriptor = "(Lib;I)V",
+		garbageValue = "1899658312"
 	)
-	@Export("worldToScreen")
-	static final void worldToScreen(int var0, int var1, int var2) {
-		if (var0 >= 128 && var1 >= 128 && var0 <= 13056 && var1 <= 13056) { // L: 4883
-			int var3 = WorldMapRegion.getTileHeight(var0, var1, class90.Client_plane) - var2; // L: 4888
-			var0 -= SecureRandomFuture.cameraX; // L: 4889
-			var3 -= ArchiveLoader.cameraY; // L: 4890
-			var1 -= ObjectSound.cameraZ; // L: 4891
-			int var4 = Rasterizer3D.Rasterizer3D_sine[KeyHandler.cameraPitch]; // L: 4892
-			int var5 = Rasterizer3D.Rasterizer3D_cosine[KeyHandler.cameraPitch]; // L: 4893
-			int var6 = Rasterizer3D.Rasterizer3D_sine[class39.cameraYaw]; // L: 4894
-			int var7 = Rasterizer3D.Rasterizer3D_cosine[class39.cameraYaw]; // L: 4895
-			int var8 = var6 * var1 + var0 * var7 >> 16; // L: 4896
-			var1 = var7 * var1 - var0 * var6 >> 16; // L: 4897
-			var0 = var8; // L: 4898
-			var8 = var5 * var3 - var4 * var1 >> 16; // L: 4899
-			var1 = var5 * var1 + var3 * var4 >> 16; // L: 4900
-			if (var1 >= 50) { // L: 4902
-				Client.viewportTempX = var0 * Client.viewportZoom / var1 + Client.viewportWidth / 2; // L: 4903
-				Client.viewportTempY = var8 * Client.viewportZoom / var1 + Client.viewportHeight / 2; // L: 4904
-			} else {
-				Client.viewportTempX = -1; // L: 4907
-				Client.viewportTempY = -1; // L: 4908
+	public static void method4526(AbstractArchive var0) {
+		StructComposition.StructDefinition_archive = var0; // L: 19
+	} // L: 20
+
+	@ObfuscatedName("v")
+	@ObfuscatedSignature(
+		descriptor = "(II)Ljy;",
+		garbageValue = "-1708661851"
+	)
+	@Export("SequenceDefinition_get")
+	public static SequenceDefinition SequenceDefinition_get(int var0) {
+		SequenceDefinition var1 = (SequenceDefinition)SequenceDefinition.SequenceDefinition_cached.get((long)var0); // L: 41
+		if (var1 != null) { // L: 42
+			return var1;
+		} else {
+			byte[] var2 = SequenceDefinition.SequenceDefinition_archive.takeFile(12, var0); // L: 43
+			var1 = new SequenceDefinition(); // L: 44
+			if (var2 != null) { // L: 45
+				var1.decode(new Buffer(var2));
 			}
 
-		} else {
-			Client.viewportTempX = -1; // L: 4884
-			Client.viewportTempY = -1; // L: 4885
+			var1.postDecode(); // L: 46
+			SequenceDefinition.SequenceDefinition_cached.put(var1, (long)var0); // L: 47
+			return var1; // L: 48
 		}
-	} // L: 4886 4910
+	}
+
+	@ObfuscatedName("x")
+	@Export("base37DecodeLong")
+	public static String base37DecodeLong(long var0) {
+		if (var0 > 0L && var0 < 6582952005840035281L) { // L: 49
+			if (var0 % 37L == 0L) { // L: 50
+				return null;
+			} else {
+				int var2 = 0; // L: 51
+
+				for (long var3 = var0; var3 != 0L; var3 /= 37L) { // L: 52 53 55
+					++var2; // L: 54
+				}
+
+				StringBuilder var5;
+				char var8;
+				for (var5 = new StringBuilder(var2); 0L != var0; var5.append(var8)) { // L: 57 58 67
+					long var6 = var0; // L: 59
+					var0 /= 37L; // L: 60
+					var8 = class299.base37Table[(int)(var6 - var0 * 37L)]; // L: 61
+					if (var8 == '_') { // L: 62
+						int var9 = var5.length() - 1; // L: 63
+						var5.setCharAt(var9, Character.toUpperCase(var5.charAt(var9))); // L: 64
+						var8 = 160; // L: 65
+					}
+				}
+
+				var5.reverse(); // L: 69
+				var5.setCharAt(0, Character.toUpperCase(var5.charAt(0))); // L: 70
+				return var5.toString(); // L: 71
+			}
+		} else {
+			return null;
+		}
+	}
 }

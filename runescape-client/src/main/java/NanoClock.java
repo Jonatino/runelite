@@ -4,12 +4,12 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fx")
+@ObfuscatedName("fb")
 @Implements("NanoClock")
 public class NanoClock extends Clock {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedGetter(
-		longValue = 7306161736253436303L
+		longValue = 4167164667386910969L
 	)
 	@Export("lastTimeNano")
 	long lastTimeNano;
@@ -18,10 +18,10 @@ public class NanoClock extends Clock {
 		this.lastTimeNano = System.nanoTime(); // L: 10
 	} // L: 11
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "46"
+		descriptor = "(I)V",
+		garbageValue = "2095078818"
 	)
 	@Export("mark")
 	public void mark() {
@@ -31,21 +31,21 @@ public class NanoClock extends Clock {
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
 		descriptor = "(III)I",
-		garbageValue = "1861957348"
+		garbageValue = "-680717242"
 	)
 	@Export("wait")
 	public int wait(int var1, int var2) {
-		long var3 = (long)var2 * 1000000L; // L: 18
+		long var3 = 1000000L * (long)var2; // L: 18
 		long var5 = this.lastTimeNano - System.nanoTime(); // L: 19
 		if (var5 < var3) { // L: 20
 			var5 = var3;
 		}
 
-		ApproximateRouteStrategy.sleepExact(var5 / 1000000L); // L: 21
+		class236.sleepExact(var5 / 1000000L); // L: 21
 		long var7 = System.nanoTime(); // L: 22
 
 		int var9;
-		for (var9 = 0; var9 < 10 && (var9 < 1 || this.lastTimeNano < var7); this.lastTimeNano += 1000000L * (long)var1) { // L: 23 24 26
+		for (var9 = 0; var9 < 10 && (var9 < 1 || this.lastTimeNano < var7); this.lastTimeNano += (long)var1 * 1000000L) { // L: 23 24 26
 			++var9; // L: 25
 		}
 

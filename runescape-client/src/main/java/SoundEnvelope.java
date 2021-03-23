@@ -3,42 +3,42 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ds")
+@ObfuscatedName("dr")
 @Implements("SoundEnvelope")
 public class SoundEnvelope {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@Export("segments")
 	int segments;
 	@ObfuscatedName("v")
 	@Export("durations")
 	int[] durations;
-	@ObfuscatedName("d")
+	@ObfuscatedName("w")
 	@Export("phases")
 	int[] phases;
-	@ObfuscatedName("c")
+	@ObfuscatedName("t")
 	@Export("start")
 	int start;
-	@ObfuscatedName("y")
-	@Export("max")
-	int max;
-	@ObfuscatedName("h")
+	@ObfuscatedName("j")
 	@Export("end")
 	int end;
-	@ObfuscatedName("z")
+	@ObfuscatedName("n")
 	@Export("form")
 	int form;
-	@ObfuscatedName("e")
+	@ObfuscatedName("p")
 	@Export("ticks")
 	int ticks;
-	@ObfuscatedName("q")
+	@ObfuscatedName("l")
 	@Export("phaseIndex")
 	int phaseIndex;
-	@ObfuscatedName("l")
+	@ObfuscatedName("z")
 	@Export("step")
 	int step;
-	@ObfuscatedName("s")
+	@ObfuscatedName("u")
 	@Export("amplitude")
 	int amplitude;
+	@ObfuscatedName("e")
+	@Export("max")
+	int max;
 
 	SoundEnvelope() {
 		this.segments = 2; // L: 21
@@ -50,9 +50,9 @@ public class SoundEnvelope {
 		this.phases[1] = 65535; // L: 27
 	} // L: 28
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;)V"
+		descriptor = "(Lkj;)V"
 	)
 	@Export("decode")
 	final void decode(Buffer var1) {
@@ -64,7 +64,7 @@ public class SoundEnvelope {
 
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;)V"
+		descriptor = "(Lkj;)V"
 	)
 	@Export("decodeSegments")
 	final void decodeSegments(Buffer var1) {
@@ -79,7 +79,7 @@ public class SoundEnvelope {
 
 	} // L: 45
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@Export("reset")
 	final void reset() {
 		this.ticks = 0; // L: 48
@@ -89,7 +89,7 @@ public class SoundEnvelope {
 		this.max = 0; // L: 52
 	} // L: 53
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@Export("doStep")
 	final int doStep(int var1) {
 		if (this.max >= this.ticks) { // L: 56

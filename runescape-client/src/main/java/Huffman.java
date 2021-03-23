@@ -2,18 +2,17 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("hp")
+@ObfuscatedName("hu")
 @Implements("Huffman")
 public class Huffman {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@Export("masks")
 	int[] masks;
 	@ObfuscatedName("v")
 	@Export("bits")
 	byte[] bits;
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@Export("keys")
 	int[] keys;
 
@@ -100,10 +99,10 @@ public class Huffman {
 
 	} // L: 60
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "([BII[BIB)I",
-		garbageValue = "-79"
+		descriptor = "([BII[BII)I",
+		garbageValue = "2127333577"
 	)
 	@Export("compress")
 	int compress(byte[] var1, int var2, int var3, byte[] var4, int var5) {
@@ -121,7 +120,7 @@ public class Huffman {
 			int var11 = var7 >> 3; // L: 71
 			int var12 = var7 & 7; // L: 72
 			var6 &= -var12 >> 31; // L: 73
-			int var13 = (var12 + var10 - 1 >> 3) + var11; // L: 74
+			int var13 = (var10 + var12 - 1 >> 3) + var11; // L: 74
 			var12 += 24; // L: 76
 			var4[var11] = (byte)(var6 |= var9 >>> var12); // L: 77
 			if (var11 < var13) { // L: 78
@@ -154,7 +153,7 @@ public class Huffman {
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
 		descriptor = "([BI[BIII)I",
-		garbageValue = "1393765026"
+		garbageValue = "-556309350"
 	)
 	@Export("decompress")
 	int decompress(byte[] var1, int var2, byte[] var3, int var4, int var5) {
@@ -266,21 +265,21 @@ public class Huffman {
 
 				if ((var9 = this.keys[var6]) < 0) { // L: 152
 					var3[var4++] = (byte)(~var9); // L: 153
-					if (var4 >= var5) { // L: 154
+					if (var4 >= var5) {
 						break;
 					}
 
-					var6 = 0; // L: 155
+					var6 = 0;
 				}
 
-				if ((var8 & 1) != 0) { // L: 157
+				if ((var8 & 1) != 0) {
 					var6 = this.keys[var6];
 				} else {
-					++var6; // L: 158
+					++var6;
 				}
 
-				if ((var9 = this.keys[var6]) < 0) { // L: 159
-					var3[var4++] = (byte)(~var9); // L: 160
+				if ((var9 = this.keys[var6]) < 0) {
+					var3[var4++] = (byte)(~var9);
 					if (var4 >= var5) { // L: 161
 						break;
 					}
@@ -291,42 +290,73 @@ public class Huffman {
 				++var7; // L: 105
 			}
 
-			return var7 + 1 - var2; // L: 165
+			return var7 + 1 - var2;
 		}
 	}
 
-	@ObfuscatedName("i")
+	@ObfuscatedName("j")
 	@ObfuscatedSignature(
-		descriptor = "(ILcl;ZB)I",
-		garbageValue = "124"
+		descriptor = "(Lkj;IIIIIII)V",
+		garbageValue = "109073521"
 	)
-	static int method4157(int var0, Script var1, boolean var2) {
-		Widget var3 = var2 ? class277.scriptDotWidget : Interpreter.scriptActiveWidget; // L: 1125
-		if (var0 == ScriptOpcodes.CC_GETTARGETMASK) { // L: 1126
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = MusicPatch.Widget_unpackTargetMask(class60.getWidgetFlags(var3)); // L: 1127
-			return 1; // L: 1128
-		} else if (var0 != ScriptOpcodes.CC_GETOP) { // L: 1130
-			if (var0 == ScriptOpcodes.CC_GETOPBASE) { // L: 1137
-				if (var3.dataText == null) { // L: 1138
-					Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = "";
-				} else {
-					Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = var3.dataText; // L: 1139
+	@Export("loadTerrain")
+	static final void loadTerrain(Buffer var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+		int var7;
+		if (var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) { // L: 154
+			Tiles.Tiles_renderFlags[var1][var2][var3] = 0; // L: 155
+
+			while (true) {
+				var7 = var0.readUnsignedByte(); // L: 157
+				if (var7 == 0) { // L: 158
+					if (var1 == 0) {
+						Tiles.Tiles_heights[0][var2][var3] = -PcmPlayer.method2544(932731 + var2 + var4, var3 + 556238 + var5) * 8; // L: 159
+					} else {
+						Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - 240; // L: 160
+					}
+					break;
 				}
 
-				return 1; // L: 1140
-			} else {
-				return 2; // L: 1142
+				if (var7 == 1) { // L: 163
+					int var8 = var0.readUnsignedByte(); // L: 164
+					if (var8 == 1) { // L: 165
+						var8 = 0;
+					}
+
+					if (var1 == 0) { // L: 166
+						Tiles.Tiles_heights[0][var2][var3] = -var8 * 8;
+					} else {
+						Tiles.Tiles_heights[var1][var2][var3] = Tiles.Tiles_heights[var1 - 1][var2][var3] - var8 * 8; // L: 167
+					}
+					break;
+				}
+
+				if (var7 <= 49) { // L: 170
+					Tiles.field508[var1][var2][var3] = var0.readByte(); // L: 171
+					class9.field40[var1][var2][var3] = (byte)((var7 - 2) / 4); // L: 172
+					Username.field3663[var1][var2][var3] = (byte)(var7 - 2 + var6 & 3); // L: 173
+				} else if (var7 <= 81) { // L: 176
+					Tiles.Tiles_renderFlags[var1][var2][var3] = (byte)(var7 - 49); // L: 177
+				} else {
+					Tiles.field514[var1][var2][var3] = (byte)(var7 - 81); // L: 180
+				}
 			}
 		} else {
-			int var4 = Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]; // L: 1131
-			--var4; // L: 1132
-			if (var3.actions != null && var4 < var3.actions.length && var3.actions[var4] != null) { // L: 1133
-				Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = var3.actions[var4]; // L: 1134
-			} else {
-				Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = "";
-			}
+			while (true) {
+				var7 = var0.readUnsignedByte(); // L: 185
+				if (var7 == 0) { // L: 186
+					break;
+				}
 
-			return 1; // L: 1135
+				if (var7 == 1) { // L: 187
+					var0.readUnsignedByte(); // L: 188
+					break;
+				}
+
+				if (var7 <= 49) { // L: 191
+					var0.readUnsignedByte();
+				}
+			}
 		}
-	}
+
+	} // L: 194
 }

@@ -1,5 +1,5 @@
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("b")
+@ObfuscatedName("e")
 public interface class11 {
 }

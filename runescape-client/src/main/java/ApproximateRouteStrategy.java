@@ -1,6 +1,5 @@
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.ScriptOpcodes;
@@ -8,419 +7,393 @@ import net.runelite.rs.ScriptOpcodes;
 @ObfuscatedName("ba")
 @Implements("ApproximateRouteStrategy")
 public class ApproximateRouteStrategy extends RouteStrategy {
-	@ObfuscatedName("iv")
-	@ObfuscatedGetter(
-		intValue = -1513110219
-	)
-	@Export("oculusOrbFocalPointY")
-	static int oculusOrbFocalPointY;
-	@ObfuscatedName("ls")
-	@ObfuscatedGetter(
-		intValue = 318238525
-	)
-	@Export("menuX")
-	static int menuX;
-
 	ApproximateRouteStrategy() {
-	} // L: 11728
+	} // L: 11273
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(IIILfe;I)Z",
-		garbageValue = "1148121553"
+		descriptor = "(IIILfo;B)Z",
+		garbageValue = "104"
 	)
 	@Export("hasArrived")
 	public boolean hasArrived(int var1, int var2, int var3, CollisionMap var4) {
-		return var2 == super.approxDestinationX && var3 == super.approxDestinationY; // L: 11731
+		return var2 == super.approxDestinationX && var3 == super.approxDestinationY; // L: 11276
 	}
 
-	@ObfuscatedName("n")
-	@Export("sleepExact")
-	public static final void sleepExact(long var0) {
-		if (var0 > 0L) { // L: 9
-			if (0L == var0 % 10L) { // L: 10
-				long var2 = var0 - 1L; // L: 11
-
-				try {
-					Thread.sleep(var2); // L: 14
-				} catch (InterruptedException var8) { // L: 16
-				}
-
-				try {
-					Thread.sleep(1L); // L: 20
-				} catch (InterruptedException var7) { // L: 22
-				}
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(ILcs;ZI)I",
+		garbageValue = "-1846731136"
+	)
+	static int method1302(int var0, Script var1, boolean var2) {
+		if (var0 == ScriptOpcodes.FRIEND_COUNT) { // L: 1971
+			if (MilliClock.friendSystem.field1069 == 0) { // L: 1972
+				Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = -2;
+			} else if (MilliClock.friendSystem.field1069 == 1) { // L: 1973
+				Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = -1;
 			} else {
-				try {
-					Thread.sleep(var0); // L: 27
-				} catch (InterruptedException var6) { // L: 29
-				}
+				Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = MilliClock.friendSystem.friendsList.getSize(); // L: 1974
 			}
 
-		}
-	} // L: 31
-
-	@ObfuscatedName("n")
-	@ObfuscatedSignature(
-		descriptor = "(I)[Lci;",
-		garbageValue = "-915685508"
-	)
-	static AttackOption[] method1310() {
-		return new AttackOption[]{AttackOption.AttackOption_hidden, AttackOption.AttackOption_alwaysRightClick, AttackOption.AttackOption_leftClickWhereAvailable, AttackOption.AttackOption_dependsOnCombatLevels}; // L: 11682
-	}
-
-	@ObfuscatedName("z")
-	@ObfuscatedSignature(
-		descriptor = "(I)Lly;",
-		garbageValue = "-1904582422"
-	)
-	public static IndexedSprite method1304() {
-		IndexedSprite var0 = new IndexedSprite(); // L: 151
-		var0.width = class336.SpriteBuffer_spriteWidth; // L: 152
-		var0.height = class336.SpriteBuffer_spriteHeight; // L: 153
-		var0.xOffset = class105.SpriteBuffer_xOffsets[0]; // L: 154
-		var0.yOffset = class336.SpriteBuffer_yOffsets[0]; // L: 155
-		var0.subWidth = class336.SpriteBuffer_spriteWidths[0]; // L: 156
-		var0.subHeight = class225.SpriteBuffer_spriteHeights[0]; // L: 157
-		var0.palette = HorizontalAlignment.SpriteBuffer_spritePalette; // L: 158
-		var0.pixels = class2.SpriteBuffer_pixels[0]; // L: 159
-		class105.SpriteBuffer_xOffsets = null; // L: 161
-		class336.SpriteBuffer_yOffsets = null; // L: 162
-		class336.SpriteBuffer_spriteWidths = null; // L: 163
-		class225.SpriteBuffer_spriteHeights = null; // L: 164
-		HorizontalAlignment.SpriteBuffer_spritePalette = null; // L: 165
-		class2.SpriteBuffer_pixels = null; // L: 166
-		return var0; // L: 168
-	}
-
-	@ObfuscatedName("ay")
-	@ObfuscatedSignature(
-		descriptor = "(ILcl;ZB)I",
-		garbageValue = "-109"
-	)
-	static int method1313(int var0, Script var1, boolean var2) {
-		if (var0 == ScriptOpcodes.SOUND_SYNTH) { // L: 1737
-			Interpreter.Interpreter_intStackSize -= 3; // L: 1738
-			class58.queueSoundEffect(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize], Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 1], Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 2]); // L: 1739
-			return 1; // L: 1740
-		} else if (var0 == ScriptOpcodes.SOUND_SONG) { // L: 1742
-			AbstractSocket.playSong(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize]); // L: 1743
-			return 1; // L: 1744
-		} else if (var0 == ScriptOpcodes.SOUND_JINGLE) { // L: 1746
-			Interpreter.Interpreter_intStackSize -= 2; // L: 1747
-			NPC.method2180(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize], Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 1]); // L: 1748
-			return 1; // L: 1749
+			return 1; // L: 1975
 		} else {
 			int var3;
-			if (var0 == 3203) { // L: 1751
-				var3 = Math.min(Math.max(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize], 0), 100); // L: 1752
-				class194.method3820(Math.round(2.55F * (float)var3)); // L: 1753
-				return 1; // L: 1754
-			} else if (var0 == 3204) { // L: 1756
-				Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = Math.round((float)WorldMapSectionType.clientPreferences.musicVolume / 2.55F); // L: 1757
-				return 1; // L: 1758
-			} else if (var0 == 3205) { // L: 1760
-				var3 = Math.min(Math.max(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize], 0), 100); // L: 1761
-				FrameProvider.updateSoundEffectVolume(Math.round(1.27F * (float)var3)); // L: 1762
-				return 1; // L: 1763
-			} else if (var0 == 3206) { // L: 1765
-				Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = Math.round((float)WorldMapSectionType.clientPreferences.soundEffectsVolume / 1.27F); // L: 1766
-				return 1; // L: 1767
-			} else if (var0 == 3207) { // L: 1769
-				var3 = Math.min(Math.max(Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize], 0), 100); // L: 1770
-				WorldMapData_1.method810(Math.round((float)var3 * 1.27F)); // L: 1771
-				return 1; // L: 1772
-			} else if (var0 == 3208) { // L: 1774
-				Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = Math.round((float)WorldMapSectionType.clientPreferences.areaSoundEffectsVolume / 1.27F); // L: 1775
-				return 1; // L: 1776
-			} else {
-				return 2; // L: 1778
-			}
-		}
-	}
-
-	@ObfuscatedName("ah")
-	@ObfuscatedSignature(
-		descriptor = "(ILcl;ZB)I",
-		garbageValue = "-107"
-	)
-	static int method1315(int var0, Script var1, boolean var2) {
-		if (var0 == ScriptOpcodes.VIEWPORT_SETFOV) { // L: 3281
-			Interpreter.Interpreter_intStackSize -= 2; // L: 3282
-			Client.field779 = (short)Canvas.method935(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize]); // L: 3283
-			if (Client.field779 <= 0) { // L: 3284
-				Client.field779 = 256;
-			}
-
-			Client.field913 = (short)Canvas.method935(Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 1]); // L: 3285
-			if (Client.field913 <= 0) { // L: 3286
-				Client.field913 = 256;
-			}
-
-			return 1; // L: 3287
-		} else if (var0 == ScriptOpcodes.VIEWPORT_SETZOOM) { // L: 3289
-			Interpreter.Interpreter_intStackSize -= 2; // L: 3290
-			Client.zoomHeight = (short)Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize]; // L: 3291
-			if (Client.zoomHeight <= 0) { // L: 3292
-				Client.zoomHeight = 256;
-			}
-
-			Client.zoomWidth = (short)Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 1]; // L: 3293
-			if (Client.zoomWidth <= 0) { // L: 3294
-				Client.zoomWidth = 320;
-			}
-
-			return 1; // L: 3295
-		} else if (var0 == ScriptOpcodes.VIEWPORT_CLAMPFOV) { // L: 3297
-			Interpreter.Interpreter_intStackSize -= 4; // L: 3298
-			Client.field916 = (short)Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize]; // L: 3299
-			if (Client.field916 <= 0) { // L: 3300
-				Client.field916 = 1;
-			}
-
-			Client.field690 = (short)Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 1]; // L: 3301
-			if (Client.field690 <= 0) { // L: 3302
-				Client.field690 = 32767;
-			} else if (Client.field690 < Client.field916) { // L: 3303
-				Client.field690 = Client.field916;
-			}
-
-			Client.field918 = (short)Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 2]; // L: 3304
-			if (Client.field918 <= 0) { // L: 3305
-				Client.field918 = 1;
-			}
-
-			Client.field846 = (short)Interpreter.Interpreter_intStack[Interpreter.Interpreter_intStackSize + 3]; // L: 3306
-			if (Client.field846 <= 0) { // L: 3307
-				Client.field846 = 32767;
-			} else if (Client.field846 < Client.field918) { // L: 3308
-				Client.field846 = Client.field918;
-			}
-
-			return 1; // L: 3309
-		} else if (var0 == ScriptOpcodes.VIEWPORT_GETEFFECTIVESIZE) { // L: 3311
-			if (Client.viewportWidget != null) { // L: 3312
-				MenuAction.setViewportShape(0, 0, Client.viewportWidget.width, Client.viewportWidget.height, false); // L: 3313
-				Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = Client.viewportWidth; // L: 3314
-				Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = Client.viewportHeight; // L: 3315
-			} else {
-				Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = -1; // L: 3318
-				Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = -1; // L: 3319
-			}
-
-			return 1; // L: 3321
-		} else if (var0 == ScriptOpcodes.VIEWPORT_GETZOOM) { // L: 3323
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = Client.zoomHeight; // L: 3324
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = Client.zoomWidth; // L: 3325
-			return 1; // L: 3326
-		} else if (var0 == ScriptOpcodes.VIEWPORT_GETFOV) { // L: 3328
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = FileSystem.method3709(Client.field779); // L: 3329
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = FileSystem.method3709(Client.field913); // L: 3330
-			return 1; // L: 3331
-		} else if (var0 == 6220) { // L: 3333
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = 0; // L: 3334
-			return 1; // L: 3335
-		} else if (var0 == 6221) { // L: 3337
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = 0; // L: 3338
-			return 1; // L: 3339
-		} else if (var0 == 6222) { // L: 3341
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = GrandExchangeOfferTotalQuantityComparator.canvasWidth; // L: 3342
-			return 1; // L: 3343
-		} else if (var0 == 6223) { // L: 3345
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = class25.canvasHeight; // L: 3346
-			return 1; // L: 3347
-		} else {
-			return 2; // L: 3349
-		}
-	}
-
-	@ObfuscatedName("bq")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)I",
-		garbageValue = "1969316699"
-	)
-	public static int method1314(String var0) {
-		return var0.length() + 2; // L: 130
-	}
-
-	@ObfuscatedName("iz")
-	@ObfuscatedSignature(
-		descriptor = "(IIIILjava/lang/String;B)V",
-		garbageValue = "45"
-	)
-	@Export("widgetDefaultMenuAction")
-	static void widgetDefaultMenuAction(int var0, int var1, int var2, int var3, String var4) {
-		Widget var5 = ArchiveLoader.getWidgetChild(var1, var2); // L: 8898
-		if (var5 != null) { // L: 8899
-			if (var5.onOp != null) { // L: 8900
-				ScriptEvent var6 = new ScriptEvent(); // L: 8901
-				var6.widget = var5; // L: 8902
-				var6.opIndex = var0; // L: 8903
-				var6.targetName = var4; // L: 8904
-				var6.args = var5.onOp; // L: 8905
-				PacketWriter.runScriptEvent(var6); // L: 8906
-			}
-
-			boolean var8 = true; // L: 8908
-			if (var5.contentType > 0) { // L: 8909
-				var8 = WorldMapLabelSize.method254(var5);
-			}
-
-			if (var8) { // L: 8910
-				if (MidiPcmStream.method3972(class60.getWidgetFlags(var5), var0 - 1)) { // L: 8911
-					PacketBufferNode var7;
-					if (var0 == 1) { // L: 8914
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2320, Client.packetWriter.isaacCipher); // L: 8916
-						var7.packetBuffer.writeInt(var1); // L: 8917
-						var7.packetBuffer.writeShort(var2); // L: 8918
-						var7.packetBuffer.writeShort(var3); // L: 8919
-						Client.packetWriter.addNode(var7); // L: 8920
-					}
-
-					if (var0 == 2) { // L: 8922
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2291, Client.packetWriter.isaacCipher); // L: 8924
-						var7.packetBuffer.writeInt(var1); // L: 8925
-						var7.packetBuffer.writeShort(var2); // L: 8926
-						var7.packetBuffer.writeShort(var3); // L: 8927
-						Client.packetWriter.addNode(var7); // L: 8928
-					}
-
-					if (var0 == 3) { // L: 8930
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2326, Client.packetWriter.isaacCipher); // L: 8932
-						var7.packetBuffer.writeInt(var1); // L: 8933
-						var7.packetBuffer.writeShort(var2); // L: 8934
-						var7.packetBuffer.writeShort(var3); // L: 8935
-						Client.packetWriter.addNode(var7); // L: 8936
-					}
-
-					if (var0 == 4) { // L: 8938
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2248, Client.packetWriter.isaacCipher); // L: 8940
-						var7.packetBuffer.writeInt(var1); // L: 8941
-						var7.packetBuffer.writeShort(var2); // L: 8942
-						var7.packetBuffer.writeShort(var3); // L: 8943
-						Client.packetWriter.addNode(var7); // L: 8944
-					}
-
-					if (var0 == 5) { // L: 8946
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2254, Client.packetWriter.isaacCipher); // L: 8948
-						var7.packetBuffer.writeInt(var1); // L: 8949
-						var7.packetBuffer.writeShort(var2); // L: 8950
-						var7.packetBuffer.writeShort(var3); // L: 8951
-						Client.packetWriter.addNode(var7); // L: 8952
-					}
-
-					if (var0 == 6) { // L: 8954
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2280, Client.packetWriter.isaacCipher); // L: 8956
-						var7.packetBuffer.writeInt(var1); // L: 8957
-						var7.packetBuffer.writeShort(var2); // L: 8958
-						var7.packetBuffer.writeShort(var3); // L: 8959
-						Client.packetWriter.addNode(var7); // L: 8960
-					}
-
-					if (var0 == 7) { // L: 8962
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2258, Client.packetWriter.isaacCipher); // L: 8964
-						var7.packetBuffer.writeInt(var1); // L: 8965
-						var7.packetBuffer.writeShort(var2); // L: 8966
-						var7.packetBuffer.writeShort(var3); // L: 8967
-						Client.packetWriter.addNode(var7); // L: 8968
-					}
-
-					if (var0 == 8) { // L: 8970
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2328, Client.packetWriter.isaacCipher); // L: 8972
-						var7.packetBuffer.writeInt(var1); // L: 8973
-						var7.packetBuffer.writeShort(var2); // L: 8974
-						var7.packetBuffer.writeShort(var3); // L: 8975
-						Client.packetWriter.addNode(var7); // L: 8976
-					}
-
-					if (var0 == 9) { // L: 8978
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2253, Client.packetWriter.isaacCipher); // L: 8980
-						var7.packetBuffer.writeInt(var1); // L: 8981
-						var7.packetBuffer.writeShort(var2); // L: 8982
-						var7.packetBuffer.writeShort(var3); // L: 8983
-						Client.packetWriter.addNode(var7); // L: 8984
-					}
-
-					if (var0 == 10) { // L: 8986
-						var7 = WorldMapSprite.getPacketBufferNode(ClientPacket.field2300, Client.packetWriter.isaacCipher); // L: 8988
-						var7.packetBuffer.writeInt(var1); // L: 8989
-						var7.packetBuffer.writeShort(var2); // L: 8990
-						var7.packetBuffer.writeShort(var3); // L: 8991
-						Client.packetWriter.addNode(var7); // L: 8992
-					}
-
-				}
-			}
-		}
-	} // L: 8912 8994
-
-	@ObfuscatedName("jt")
-	@ObfuscatedSignature(
-		descriptor = "([Lhz;II)V",
-		garbageValue = "-1753877400"
-	)
-	@Export("drawModelComponents")
-	static final void drawModelComponents(Widget[] var0, int var1) {
-		for (int var2 = 0; var2 < var0.length; ++var2) { // L: 11032
-			Widget var3 = var0[var2]; // L: 11033
-			if (var3 != null && var3.parentId == var1 && (!var3.isIf3 || !DevicePcmPlayerProvider.isComponentHidden(var3))) { // L: 11034 11035 11036
-				int var5;
-				if (var3.type == 0) { // L: 11037
-					if (!var3.isIf3 && DevicePcmPlayerProvider.isComponentHidden(var3) && var3 != Canvas.mousedOverWidgetIf1) { // L: 11038
-						continue;
-					}
-
-					drawModelComponents(var0, var3.id); // L: 11039
-					if (var3.children != null) { // L: 11040
-						drawModelComponents(var3.children, var3.id);
-					}
-
-					InterfaceParent var4 = (InterfaceParent)Client.interfaceParents.get((long)var3.id); // L: 11041
-					if (var4 != null) { // L: 11042
-						var5 = var4.group; // L: 11043
-						if (WorldMapCacheName.loadInterface(var5)) { // L: 11045
-							drawModelComponents(DefaultsGroup.Widget_interfaceComponents[var5], -1); // L: 11046
-						}
-					}
+			if (var0 == ScriptOpcodes.FRIEND_GETNAME) {
+				var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 1978
+				if (MilliClock.friendSystem.method1939() && var3 >= 0 && var3 < MilliClock.friendSystem.friendsList.getSize()) { // L: 1979
+					Friend var8 = (Friend)MilliClock.friendSystem.friendsList.get(var3); // L: 1980
+					Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = var8.getName(); // L: 1981
+					Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = var8.getPreviousName(); // L: 1982
+				} else {
+					Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = ""; // L: 1985
+					Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = ""; // L: 1986
 				}
 
-				if (var3.type == 6) { // L: 11050
-					if (var3.sequenceId != -1 || var3.sequenceId2 != -1) { // L: 11051
-						boolean var7 = GrandExchangeOfferWorldComparator.runCs1(var3); // L: 11052
-						if (var7) { // L: 11054
-							var5 = var3.sequenceId2;
-						} else {
-							var5 = var3.sequenceId; // L: 11055
-						}
+				return 1; // L: 1988
+			} else if (var0 == ScriptOpcodes.FRIEND_GETWORLD) {
+				var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 1991
+				if (MilliClock.friendSystem.method1939() && var3 >= 0 && var3 < MilliClock.friendSystem.friendsList.getSize()) { // L: 1992
+					Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = ((Buddy)MilliClock.friendSystem.friendsList.get(var3)).world; // L: 1993
+				} else {
+					Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 0; // L: 1995
+				}
 
-						if (var5 != -1) { // L: 11056
-							SequenceDefinition var6 = InterfaceParent.SequenceDefinition_get(var5); // L: 11057
+				return 1; // L: 1996
+			} else if (var0 == ScriptOpcodes.FRIEND_GETRANK) {
+				var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 1999
+				if (MilliClock.friendSystem.method1939() && var3 >= 0 && var3 < MilliClock.friendSystem.friendsList.getSize()) { // L: 2000
+					Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = ((Buddy)MilliClock.friendSystem.friendsList.get(var3)).rank; // L: 2001
+				} else {
+					Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 0; // L: 2003
+				}
 
-							for (var3.modelFrameCycle += Client.field808; var3.modelFrameCycle > var6.frameLengths[var3.modelFrame]; IsaacCipher.invalidateWidget(var3)) { // L: 11058 11059 11066
-								var3.modelFrameCycle -= var6.frameLengths[var3.modelFrame]; // L: 11060
-								++var3.modelFrame; // L: 11061
-								if (var3.modelFrame >= var6.frameIds.length) { // L: 11062
-									var3.modelFrame -= var6.frameCount; // L: 11063
-									if (var3.modelFrame < 0 || var3.modelFrame >= var6.frameIds.length) { // L: 11064
-										var3.modelFrame = 0;
-									}
-								}
+				return 1; // L: 2004
+			} else {
+				String var5;
+				if (var0 == ScriptOpcodes.FRIEND_SETRANK) {
+					var5 = Interpreter.Interpreter_stringStack[--Interpreter.Interpreter_stringStackSize]; // L: 2007
+					int var6 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 2008
+					GrandExchangeOfferOwnWorldComparator.method1359(var5, var6); // L: 2009
+					return 1; // L: 2010
+				} else if (var0 == ScriptOpcodes.FRIEND_ADD) {
+					var5 = Interpreter.Interpreter_stringStack[--Interpreter.Interpreter_stringStackSize]; // L: 2013
+					MilliClock.friendSystem.addFriend(var5); // L: 2014
+					return 1; // L: 2015
+				} else if (var0 == ScriptOpcodes.FRIEND_DEL) {
+					var5 = Interpreter.Interpreter_stringStack[--Interpreter.Interpreter_stringStackSize]; // L: 2018
+					MilliClock.friendSystem.removeFriend(var5); // L: 2019
+					return 1; // L: 2020
+				} else if (var0 == ScriptOpcodes.IGNORE_ADD) {
+					var5 = Interpreter.Interpreter_stringStack[--Interpreter.Interpreter_stringStackSize]; // L: 2023
+					MilliClock.friendSystem.addIgnore(var5); // L: 2024
+					return 1; // L: 2025
+				} else if (var0 == ScriptOpcodes.IGNORE_DEL) {
+					var5 = Interpreter.Interpreter_stringStack[--Interpreter.Interpreter_stringStackSize]; // L: 2028
+					MilliClock.friendSystem.removeIgnore(var5); // L: 2029
+					return 1; // L: 2030
+				} else if (var0 == ScriptOpcodes.FRIEND_TEST) {
+					var5 = Interpreter.Interpreter_stringStack[--Interpreter.Interpreter_stringStackSize]; // L: 2033
+					var5 = class22.method220(var5); // L: 2034
+					Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = MilliClock.friendSystem.isFriended(new Username(var5, GrandExchangeOfferUnitPriceComparator.loginType), false) ? 1 : 0; // L: 2035
+					return 1; // L: 2036
+				} else if (var0 == ScriptOpcodes.CLAN_GETCHATDISPLAYNAME) {
+					if (WorldMapArea.clanChat != null) { // L: 2039
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = WorldMapArea.clanChat.name; // L: 2040
+					} else {
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = ""; // L: 2042
+					}
+
+					return 1; // L: 2043
+				} else if (var0 == ScriptOpcodes.CLAN_GETCHATCOUNT) {
+					if (WorldMapArea.clanChat != null) { // L: 2046
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = WorldMapArea.clanChat.getSize(); // L: 2047
+					} else {
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 0; // L: 2049
+					}
+
+					return 1; // L: 2050
+				} else if (var0 == ScriptOpcodes.CLAN_GETCHATUSERNAME) {
+					var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 2053
+					if (WorldMapArea.clanChat != null && var3 < WorldMapArea.clanChat.getSize()) { // L: 2054
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = WorldMapArea.clanChat.get(var3).getUsername().getName(); // L: 2055
+					} else {
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = ""; // L: 2057
+					}
+
+					return 1; // L: 2058
+				} else if (var0 == ScriptOpcodes.CLAN_GETCHATUSERWORLD) {
+					var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 2061
+					if (WorldMapArea.clanChat != null && var3 < WorldMapArea.clanChat.getSize()) { // L: 2062
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = ((Buddy)WorldMapArea.clanChat.get(var3)).getWorld(); // L: 2063
+					} else {
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 0; // L: 2065
+					}
+
+					return 1; // L: 2066
+				} else if (var0 == ScriptOpcodes.CLAN_GETCHATUSERRANK) {
+					var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 2069
+					if (WorldMapArea.clanChat != null && var3 < WorldMapArea.clanChat.getSize()) { // L: 2070
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = ((Buddy)WorldMapArea.clanChat.get(var3)).rank; // L: 2071
+					} else {
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 0; // L: 2073
+					}
+
+					return 1; // L: 2074
+				} else if (var0 == ScriptOpcodes.CLAN_GETCHATMINKICK) {
+					Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = WorldMapArea.clanChat != null ? WorldMapArea.clanChat.minKick : 0; // L: 2077
+					return 1; // L: 2078
+				} else if (var0 == ScriptOpcodes.CLAN_KICKUSER) {
+					var5 = Interpreter.Interpreter_stringStack[--Interpreter.Interpreter_stringStackSize]; // L: 2081
+					Tiles.clanKickUser(var5); // L: 2082
+					return 1; // L: 2083
+				} else if (var0 == ScriptOpcodes.CLAN_GETCHATRANK) {
+					Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = WorldMapArea.clanChat != null ? WorldMapArea.clanChat.rank * 120160835 * 1015634539 : 0; // L: 2086
+					return 1; // L: 2087
+				} else if (var0 == ScriptOpcodes.CLAN_JOINCHAT) {
+					var5 = Interpreter.Interpreter_stringStack[--Interpreter.Interpreter_stringStackSize]; // L: 2090
+					Varcs.Clan_joinChat(var5); // L: 2091
+					return 1; // L: 2092
+				} else if (var0 == ScriptOpcodes.CLAN_LEAVECHAT) {
+					BZip2State.Clan_leaveChat(); // L: 2095
+					return 1; // L: 2096
+				} else if (var0 == ScriptOpcodes.IGNORE_COUNT) {
+					if (!MilliClock.friendSystem.method1939()) { // L: 2099
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = -1;
+					} else {
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = MilliClock.friendSystem.ignoreList.getSize(); // L: 2100
+					}
+
+					return 1; // L: 2101
+				} else if (var0 == ScriptOpcodes.IGNORE_GETNAME) {
+					var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 2104
+					if (MilliClock.friendSystem.method1939() && var3 >= 0 && var3 < MilliClock.friendSystem.ignoreList.getSize()) { // L: 2105
+						Ignored var4 = (Ignored)MilliClock.friendSystem.ignoreList.get(var3); // L: 2106
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = var4.getName(); // L: 2107
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = var4.getPreviousName(); // L: 2108
+					} else {
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = ""; // L: 2111
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = ""; // L: 2112
+					}
+
+					return 1; // L: 2114
+				} else if (var0 == ScriptOpcodes.IGNORE_TEST) {
+					var5 = Interpreter.Interpreter_stringStack[--Interpreter.Interpreter_stringStackSize]; // L: 2117
+					var5 = class22.method220(var5); // L: 2118
+					Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = MilliClock.friendSystem.isIgnored(new Username(var5, GrandExchangeOfferUnitPriceComparator.loginType)) ? 1 : 0; // L: 2119
+					return 1; // L: 2120
+				} else if (var0 == ScriptOpcodes.CLAN_ISSELF) {
+					var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 2123
+					if (WorldMapArea.clanChat != null && var3 < WorldMapArea.clanChat.getSize() && WorldMapArea.clanChat.get(var3).getUsername().equals(PlayerComposition.localPlayer.username)) { // L: 2124
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 1; // L: 2125
+					} else {
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 0; // L: 2127
+					}
+
+					return 1; // L: 2128
+				} else if (var0 == ScriptOpcodes.CLAN_GETCHATOWNERNAME) {
+					if (WorldMapArea.clanChat != null && WorldMapArea.clanChat.owner != null) { // L: 2131
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = WorldMapArea.clanChat.owner; // L: 2132
+					} else {
+						Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = ""; // L: 2134
+					}
+
+					return 1; // L: 2135
+				} else if (var0 == ScriptOpcodes.CLAN_ISFRIEND) {
+					var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 2138
+					if (WorldMapArea.clanChat != null && var3 < WorldMapArea.clanChat.getSize() && ((ClanMate)WorldMapArea.clanChat.get(var3)).isFriend()) { // L: 2139
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 1; // L: 2140
+					} else {
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 0; // L: 2142
+					}
+
+					return 1; // L: 2143
+				} else if (var0 != ScriptOpcodes.CLAN_ISIGNORE) {
+					if (var0 == 3628) {
+						MilliClock.friendSystem.friendsList.removeComparator(); // L: 2154
+						return 1; // L: 2155
+					} else {
+						boolean var7;
+						if (var0 == 3629) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2158
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator1(var7)); // L: 2159
+							return 1; // L: 2160
+						} else if (var0 == 3630) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2163
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator2(var7)); // L: 2164
+							return 1; // L: 2165
+						} else if (var0 == 3631) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2168
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator3(var7)); // L: 2169
+							return 1; // L: 2170
+						} else if (var0 == 3632) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2173
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator4(var7)); // L: 2174
+							return 1; // L: 2175
+						} else if (var0 == 3633) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2178
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator5(var7)); // L: 2179
+							return 1; // L: 2180
+						} else if (var0 == 3634) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2183
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator6(var7)); // L: 2184
+							return 1; // L: 2185
+						} else if (var0 == 3635) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2188
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator7(var7)); // L: 2189
+							return 1; // L: 2190
+						} else if (var0 == 3636) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2193
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator8(var7)); // L: 2194
+							return 1; // L: 2195
+						} else if (var0 == 3637) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2198
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator9(var7)); // L: 2199
+							return 1; // L: 2200
+						} else if (var0 == 3638) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2203
+							MilliClock.friendSystem.friendsList.addComparator(new UserComparator10(var7)); // L: 2204
+							return 1; // L: 2205
+						} else if (var0 == 3639) {
+							MilliClock.friendSystem.friendsList.sort(); // L: 2208
+							return 1; // L: 2209
+						} else if (var0 == 3640) {
+							MilliClock.friendSystem.ignoreList.removeComparator(); // L: 2212
+							return 1; // L: 2213
+						} else if (var0 == 3641) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2216
+							MilliClock.friendSystem.ignoreList.addComparator(new UserComparator1(var7)); // L: 2217
+							return 1; // L: 2218
+						} else if (var0 == 3642) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2221
+							MilliClock.friendSystem.ignoreList.addComparator(new UserComparator2(var7)); // L: 2222
+							return 1; // L: 2223
+						} else if (var0 == 3643) {
+							MilliClock.friendSystem.ignoreList.sort(); // L: 2226
+							return 1; // L: 2227
+						} else if (var0 == 3644) {
+							if (WorldMapArea.clanChat != null) { // L: 2230
+								WorldMapArea.clanChat.removeComparator(); // L: 2231
 							}
+
+							return 1; // L: 2233
+						} else if (var0 == 3645) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2236
+							if (WorldMapArea.clanChat != null) { // L: 2237
+								WorldMapArea.clanChat.addComparator(new UserComparator1(var7)); // L: 2238
+							}
+
+							return 1; // L: 2240
+						} else if (var0 == 3646) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2243
+							if (WorldMapArea.clanChat != null) { // L: 2244
+								WorldMapArea.clanChat.addComparator(new UserComparator2(var7)); // L: 2245
+							}
+
+							return 1; // L: 2247
+						} else if (var0 == 3647) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2250
+							if (WorldMapArea.clanChat != null) { // L: 2251
+								WorldMapArea.clanChat.addComparator(new UserComparator3(var7)); // L: 2252
+							}
+
+							return 1; // L: 2254
+						} else if (var0 == 3648) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2257
+							if (WorldMapArea.clanChat != null) { // L: 2258
+								WorldMapArea.clanChat.addComparator(new UserComparator4(var7)); // L: 2259
+							}
+
+							return 1; // L: 2261
+						} else if (var0 == 3649) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2264
+							if (WorldMapArea.clanChat != null) { // L: 2265
+								WorldMapArea.clanChat.addComparator(new UserComparator5(var7)); // L: 2266
+							}
+
+							return 1; // L: 2268
+						} else if (var0 == 3650) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2271
+							if (WorldMapArea.clanChat != null) { // L: 2272
+								WorldMapArea.clanChat.addComparator(new UserComparator6(var7)); // L: 2273
+							}
+
+							return 1; // L: 2275
+						} else if (var0 == 3651) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2278
+							if (WorldMapArea.clanChat != null) { // L: 2279
+								WorldMapArea.clanChat.addComparator(new UserComparator7(var7)); // L: 2280
+							}
+
+							return 1; // L: 2282
+						} else if (var0 == 3652) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2285
+							if (WorldMapArea.clanChat != null) { // L: 2286
+								WorldMapArea.clanChat.addComparator(new UserComparator8(var7)); // L: 2287
+							}
+
+							return 1; // L: 2289
+						} else if (var0 == 3653) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2292
+							if (WorldMapArea.clanChat != null) { // L: 2293
+								WorldMapArea.clanChat.addComparator(new UserComparator9(var7)); // L: 2294
+							}
+
+							return 1; // L: 2296
+						} else if (var0 == 3654) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2299
+							if (WorldMapArea.clanChat != null) { // L: 2300
+								WorldMapArea.clanChat.addComparator(new UserComparator10(var7)); // L: 2301
+							}
+
+							return 1; // L: 2303
+						} else if (var0 == 3655) {
+							if (WorldMapArea.clanChat != null) { // L: 2306
+								WorldMapArea.clanChat.sort(); // L: 2307
+							}
+
+							return 1; // L: 2309
+						} else if (var0 == 3656) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2312
+							MilliClock.friendSystem.friendsList.addComparator(new BuddyRankComparator(var7)); // L: 2313
+							return 1; // L: 2314
+						} else if (var0 == 3657) {
+							var7 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize] == 1; // L: 2317
+							if (WorldMapArea.clanChat != null) { // L: 2318
+								WorldMapArea.clanChat.addComparator(new BuddyRankComparator(var7)); // L: 2319
+							}
+
+							return 1; // L: 2321
+						} else {
+							return 2; // L: 2323
 						}
 					}
-
-					if (var3.field2649 != 0 && !var3.isIf3) { // L: 11070
-						int var8 = var3.field2649 >> 16; // L: 11071
-						var5 = var3.field2649 << 16 >> 16; // L: 11072
-						var8 *= Client.field808; // L: 11073
-						var5 *= Client.field808; // L: 11074
-						var3.modelAngleX = var8 + var3.modelAngleX & 2047; // L: 11075
-						var3.modelAngleY = var5 + var3.modelAngleY & 2047; // L: 11076
-						IsaacCipher.invalidateWidget(var3); // L: 11077
+				} else {
+					var3 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 2146
+					if (WorldMapArea.clanChat != null && var3 < WorldMapArea.clanChat.getSize() && ((ClanMate)WorldMapArea.clanChat.get(var3)).isIgnored()) { // L: 2147
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 1; // L: 2148
+					} else {
+						Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = 0; // L: 2150
 					}
+
+					return 1; // L: 2151
 				}
 			}
 		}
+	}
 
-	} // L: 11081
+	@ObfuscatedName("ip")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-1035519670"
+	)
+	@Export("addCancelMenuEntry")
+	static void addCancelMenuEntry() {
+		Client.menuOptionsCount = 0; // L: 7313
+		Client.isMenuOpen = false; // L: 7314
+		Client.menuActions[0] = "Cancel"; // L: 7316
+		Client.menuTargets[0] = ""; // L: 7317
+		Client.menuOpcodes[0] = 1006; // L: 7318
+		Client.menuShiftClick[0] = false; // L: 7319
+		Client.menuOptionsCount = 1; // L: 7320
+	} // L: 7321
 }

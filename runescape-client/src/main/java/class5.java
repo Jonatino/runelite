@@ -1,30 +1,33 @@
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("h")
+@ObfuscatedName("j")
 public class class5 implements class12 {
-	@ObfuscatedName("n")
+	class5() {
+	} // L: 8
+
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;)Lkx;"
+		descriptor = "(Lkj;)Lkj;"
 	)
-	public Buffer vmethod120(Buffer var1) {
-		Buffer var2 = new Buffer(100); // L: 9
-		this.method63(var1, var2); // L: 10
-		return var2; // L: 11
+	public Buffer vmethod123(Buffer var1) {
+		Buffer var2 = new Buffer(100); // L: 11
+		this.method61(var1, var2); // L: 12
+		return var2; // L: 13
 	}
 
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;Lkx;)V"
+		descriptor = "(Lkj;Lkj;)V"
 	)
-	void method63(Buffer var1, Buffer var2) {
-		class10 var3 = new class10(var1); // L: 15
-		class6 var4 = new class6(var3); // L: 16
+	void method61(Buffer var1, Buffer var2) {
+		class10 var3 = new class10(var1); // L: 17
+		class6 var4 = new class6(var3); // L: 18
 
 		long var5;
-		for (var5 = 0L; !var4.method64(var3.method111(), var3.method115(), var5); ++var5) { // L: 17 18 19
+		for (var5 = 0L; !var4.method64(var3.method114(), var3.method121(), var5); ++var5) { // L: 19 20 21
 		}
 
-		var2.writeLong(var5); // L: 21
-	} // L: 22
+		var2.writeLong(var5); // L: 23
+	} // L: 24
 }

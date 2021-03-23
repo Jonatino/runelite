@@ -4,84 +4,95 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("q")
+@ObfuscatedName("l")
 public class class8 implements Callable {
-	@ObfuscatedName("h")
+	@ObfuscatedName("l")
 	@ObfuscatedGetter(
-		intValue = 880738975
+		intValue = 1988326555
 	)
-	static int field45;
-	@ObfuscatedName("z")
+	@Export("gameCyclesToDo")
+	protected static int gameCyclesToDo;
+	@ObfuscatedName("bk")
 	@ObfuscatedSignature(
-		descriptor = "Lig;"
+		descriptor = "Llo;"
 	)
-	@Export("ItemDefinition_modelArchive")
-	public static AbstractArchive ItemDefinition_modelArchive;
-	@ObfuscatedName("du")
-	@Export("mouseCam")
-	static boolean mouseCam;
-	@ObfuscatedName("dq")
+	@Export("worldSelectRightSprite")
+	static IndexedSprite worldSelectRightSprite;
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "Liy;"
+		descriptor = "Lkj;"
 	)
-	@Export("archive5")
-	static Archive archive5;
-	@ObfuscatedName("n")
-	@ObfuscatedSignature(
-		descriptor = "Lkx;"
-	)
-	final Buffer field48;
+	final Buffer field35;
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "La;"
+		descriptor = "Lm;"
 	)
-	final class12 field44;
+	final class12 field32;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Ll;"
+		descriptor = "Lz;"
 	)
 	final class9 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Ll;Lkx;La;)V"
+		descriptor = "(Lz;Lkj;Lm;)V"
 	)
 	class8(class9 var1, Buffer var2, class12 var3) {
 		this.this$0 = var1; // L: 47
-		this.field48 = var2; // L: 48
-		this.field44 = var3; // L: 49
+		this.field35 = var2; // L: 48
+		this.field32 = var3; // L: 49
 	} // L: 50
 
 	public Object call() {
-		return this.field44.vmethod120(this.field48); // L: 53
+		return this.field32.vmethod123(this.field35); // L: 53
 	}
 
-	@ObfuscatedName("z")
+	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1606674389"
+		descriptor = "(III)I",
+		garbageValue = "-497960753"
 	)
-	static void method88() {
-		if (Client.Login_isUsernameRemembered && Login.Login_username != null && Login.Login_username.length() > 0) { // L: 245
-			Login.currentLoginField = 1; // L: 246
+	@Export("ItemContainer_getCount")
+	static int ItemContainer_getCount(int var0, int var1) {
+		ItemContainer var2 = (ItemContainer)ItemContainer.itemContainers.get((long)var0); // L: 21
+		if (var2 == null) { // L: 22
+			return 0;
 		} else {
-			Login.currentLoginField = 0; // L: 249
+			return var1 >= 0 && var1 < var2.quantities.length ? var2.quantities[var1] : 0; // L: 23 24
 		}
+	}
 
-	} // L: 251
-
-	@ObfuscatedName("fc")
+	@ObfuscatedName("jh")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1683075564"
+		descriptor = "(Lhe;I)Z",
+		garbageValue = "-2010469963"
 	)
-	static final void method90() {
-		if (Client.logoutTimer > 0) { // L: 2639
-			SecureRandomCallable.logOut(); // L: 2640
+	@Export("runCs1")
+	static final boolean runCs1(Widget var0) {
+		if (var0.cs1Comparisons == null) { // L: 9587
+			return false;
 		} else {
-			Client.timer.method5206(); // L: 2643
-			ItemContainer.updateGameState(40); // L: 2644
-			UserComparator6.field2008 = Client.packetWriter.getSocket(); // L: 2645
-			Client.packetWriter.removeSocket(); // L: 2646
+			for (int var1 = 0; var1 < var0.cs1Comparisons.length; ++var1) { // L: 9588
+				int var2 = HealthBarDefinition.method4512(var0, var1); // L: 9589
+				int var3 = var0.cs1ComparisonValues[var1]; // L: 9590
+				if (var0.cs1Comparisons[var1] == 2) { // L: 9591
+					if (var2 >= var3) { // L: 9592
+						return false;
+					}
+				} else if (var0.cs1Comparisons[var1] == 3) { // L: 9594
+					if (var2 <= var3) { // L: 9595
+						return false;
+					}
+				} else if (var0.cs1Comparisons[var1] == 4) { // L: 9597
+					if (var2 == var3) { // L: 9598
+						return false;
+					}
+				} else if (var3 != var2) { // L: 9600
+					return false;
+				}
+			}
+
+			return true; // L: 9602
 		}
-	} // L: 2641 2647
+	}
 }

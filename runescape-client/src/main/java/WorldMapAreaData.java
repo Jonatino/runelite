@@ -6,31 +6,26 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("au")
+@ObfuscatedName("ay")
 @Implements("WorldMapAreaData")
 public class WorldMapAreaData extends WorldMapArea {
-	@ObfuscatedName("nz")
-	@ObfuscatedSignature(
-		descriptor = "[Lhz;"
-	)
-	static Widget[] field362;
-	@ObfuscatedName("a")
+	@ObfuscatedName("m")
 	@Export("worldMapData0Set")
 	HashSet worldMapData0Set;
-	@ObfuscatedName("w")
+	@ObfuscatedName("c")
 	@Export("worldMapData1Set")
 	HashSet worldMapData1Set;
-	@ObfuscatedName("k")
+	@ObfuscatedName("i")
 	@Export("iconList")
 	List iconList;
 
 	WorldMapAreaData() {
 	} // L: 14
 
-	@ObfuscatedName("cn")
+	@ObfuscatedName("cm")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;Lkx;IZI)V",
-		garbageValue = "1841942277"
+		descriptor = "(Lkj;Lkj;IZI)V",
+		garbageValue = "-303993957"
 	)
 	@Export("init")
 	void init(Buffer var1, Buffer var2, int var3, boolean var4) {
@@ -69,10 +64,10 @@ public class WorldMapAreaData extends WorldMapArea {
 		this.initIconsList(var2, var4); // L: 42
 	} // L: 43
 
-	@ObfuscatedName("cj")
+	@ObfuscatedName("cz")
 	@ObfuscatedSignature(
-		descriptor = "(Lkx;ZI)V",
-		garbageValue = "-1098628565"
+		descriptor = "(Lkj;ZB)V",
+		garbageValue = "54"
 	)
 	@Export("initIconsList")
 	void initIconsList(Buffer var1, boolean var2) {
@@ -80,7 +75,7 @@ public class WorldMapAreaData extends WorldMapArea {
 		int var3 = var1.readUnsignedShort(); // L: 47
 
 		for (int var4 = 0; var4 < var3; ++var4) { // L: 48
-			int var5 = var1.method5833(); // L: 49
+			int var5 = var1.method5559(); // L: 49
 			Coord var6 = new Coord(var1.readInt()); // L: 50
 			boolean var7 = var1.readUnsignedByte() == 1; // L: 51
 			if (var2 || !var7) { // L: 52
@@ -90,53 +85,23 @@ public class WorldMapAreaData extends WorldMapArea {
 
 	} // L: 56
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "(II)Ljg;",
-		garbageValue = "1068014822"
+		descriptor = "(CLgi;I)I",
+		garbageValue = "-2004067316"
 	)
-	@Export("getObjectDefinition")
-	public static ObjectComposition getObjectDefinition(int var0) {
-		ObjectComposition var1 = (ObjectComposition)ObjectComposition.ObjectDefinition_cached.get((long)var0); // L: 79
-		if (var1 != null) { // L: 80
-			return var1;
-		} else {
-			byte[] var2 = ObjectComposition.ObjectDefinition_archive.takeFile(6, var0); // L: 81
-			var1 = new ObjectComposition(); // L: 82
-			var1.id = var0; // L: 83
-			if (var2 != null) { // L: 84
-				var1.decode(new Buffer(var2));
-			}
-
-			var1.postDecode(); // L: 85
-			if (var1.isSolid) { // L: 86
-				var1.interactType = 0; // L: 87
-				var1.boolean1 = false; // L: 88
-			}
-
-			ObjectComposition.ObjectDefinition_cached.put(var1, (long)var0); // L: 90
-			return var1; // L: 91
+	@Export("lowercaseChar")
+	static int lowercaseChar(char var0, Language var1) {
+		int var2 = var0 << 4; // L: 143
+		if (Character.isUpperCase(var0) || Character.isTitleCase(var0)) { // L: 144
+			var0 = Character.toLowerCase(var0); // L: 145
+			var2 = (var0 << 4) + 1; // L: 146
 		}
+
+		if (var0 == 241 && var1 == Language.Language_ES) { // L: 148
+			var2 = 1762;
+		}
+
+		return var2; // L: 149
 	}
-
-	@ObfuscatedName("c")
-	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-91"
-	)
-	public static void method782() {
-		if (class297.NetCache_socket != null) { // L: 102
-			class297.NetCache_socket.close();
-		}
-
-	} // L: 103
-
-	@ObfuscatedName("b")
-	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "1"
-	)
-	static final void method781() {
-		class300.method5473("Your ignore list is full. Max of 100 for free users, and 400 for members"); // L: 154
-	} // L: 155
 }

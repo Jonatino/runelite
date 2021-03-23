@@ -1,42 +1,40 @@
-import java.awt.Desktop;
-import java.awt.Desktop.Action;
-import java.awt.image.BufferedImage;
-import java.awt.image.PixelGrabber;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import javax.imageio.ImageIO;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("aq")
+@ObfuscatedName("as")
 @Implements("WorldMapRectangle")
 public final class WorldMapRectangle {
-	@ObfuscatedName("n")
+	@ObfuscatedName("sa")
+	@ObfuscatedSignature(
+		descriptor = "Lma;"
+	)
+	@Export("worldMap")
+	static WorldMap worldMap;
+	@ObfuscatedName("h")
 	@ObfuscatedGetter(
-		intValue = -1552197653
+		intValue = 841729037
 	)
 	@Export("width")
 	int width;
 	@ObfuscatedName("v")
 	@ObfuscatedGetter(
-		intValue = 522429537
+		intValue = 618067361
 	)
 	@Export("height")
 	int height;
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedGetter(
-		intValue = 1426976537
+		intValue = -1268324115
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedGetter(
-		intValue = -1260779731
+		intValue = 235337233
 	)
 	@Export("y")
 	int y;
@@ -53,135 +51,156 @@ public final class WorldMapRectangle {
 		this.this$0 = var1; // L: 303
 	}
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("f")
 	@ObfuscatedSignature(
-		descriptor = "([BI)Llm;",
-		garbageValue = "-1825283733"
+		descriptor = "(ILcs;ZI)I",
+		garbageValue = "470419605"
 	)
-	@Export("convertJpgToSprite")
-	public static final SpritePixels convertJpgToSprite(byte[] var0) {
-		BufferedImage var1 = null; // L: 20
-
-		try {
-			var1 = ImageIO.read(new ByteArrayInputStream(var0)); // L: 22
-			int var2 = var1.getWidth(); // L: 23
-			int var3 = var1.getHeight(); // L: 24
-			int[] var4 = new int[var3 * var2]; // L: 25
-			PixelGrabber var5 = new PixelGrabber(var1, 0, 0, var2, var3, var4, 0, var2); // L: 26
-			var5.grabPixels(); // L: 27
-			return new SpritePixels(var4, var2, var3);
-		} catch (IOException var7) { // L: 30
-		} catch (InterruptedException var8) {
-		}
-
-		return new SpritePixels(0, 0); // L: 32
-	}
-
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;ZZI)V",
-		garbageValue = "1269350728"
-	)
-	@Export("openURL")
-	public static void openURL(String var0, boolean var1, boolean var2) {
-		if (var1) { // L: 28
-			if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Action.BROWSE)) { // L: 29
-				try {
-					Desktop.getDesktop().browse(new URI(var0)); // L: 31
-					return; // L: 52
-				} catch (Exception var4) { // L: 34
+	static int method331(int var0, Script var1, boolean var2) {
+		Widget var3 = var2 ? PlayerComposition.scriptDotWidget : VarcInt.scriptActiveWidget; // L: 1124
+		if (var0 == ScriptOpcodes.CC_GETTARGETMASK) { // L: 1125
+			Interpreter.Interpreter_intStack[++VarcInt.Interpreter_intStackSize - 1] = ServerPacket.Widget_unpackTargetMask(FaceNormal.getWidgetFlags(var3)); // L: 1126
+			return 1; // L: 1127
+		} else if (var0 != ScriptOpcodes.CC_GETOP) { // L: 1129
+			if (var0 == ScriptOpcodes.CC_GETOPBASE) { // L: 1136
+				if (var3.dataText == null) { // L: 1137
+					Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = "";
+				} else {
+					Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = var3.dataText; // L: 1138
 				}
-			}
 
-			if (class60.field454.startsWith("win")) { // L: 36
-				ClientPreferences.method1972(var0, 0); // L: 38
-			} else if (class60.field454.startsWith("mac")) { // L: 42
-				class204.method3888(var0, 1, "openjs"); // L: 43
+				return 1; // L: 1139
 			} else {
-				ClientPreferences.method1972(var0, 2); // L: 46
+				return 2; // L: 1141
 			}
 		} else {
-			ClientPreferences.method1972(var0, 3); // L: 49
-		}
+			int var4 = Interpreter.Interpreter_intStack[--VarcInt.Interpreter_intStackSize]; // L: 1130
+			--var4; // L: 1131
+			if (var3.actions != null && var4 < var3.actions.length && var3.actions[var4] != null) { // L: 1132
+				Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = var3.actions[var4]; // L: 1133
+			} else {
+				Interpreter.Interpreter_stringStack[++Interpreter.Interpreter_stringStackSize - 1] = "";
+			}
 
+			return 1; // L: 1134
+		}
 	}
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Ljava/lang/String;ZI)Lmc;",
-		garbageValue = "59696754"
+		descriptor = "([BIII)I",
+		garbageValue = "-738122321"
 	)
-	@Export("getPreferencesFile")
-	public static AccessFile getPreferencesFile(String var0, String var1, boolean var2) {
-		File var3 = new File(JagexCache.cacheDir, "preferences" + var0 + ".dat"); // L: 221
-		if (var3.exists()) { // L: 222
-			try {
-				AccessFile var10 = new AccessFile(var3, "rw", 10000L); // L: 224
-				return var10; // L: 225
-			} catch (IOException var9) { // L: 227
-			}
+	static int method334(byte[] var0, int var1, int var2) {
+		int var3 = -1; // L: 45
+
+		for (int var4 = var1; var4 < var2; ++var4) { // L: 46
+			var3 = var3 >>> 8 ^ Buffer.crc32Table[(var3 ^ var0[var4]) & 255]; // L: 47
 		}
 
-		String var4 = ""; // L: 229
-		if (JagexCache.cacheGamebuild == 33) { // L: 230
-			var4 = "_rc";
-		} else if (JagexCache.cacheGamebuild == 34) { // L: 231
-			var4 = "_wip";
-		}
-
-		File var5 = new File(JagexCache.userHomeDirectory, "jagex_" + var1 + "_preferences" + var0 + var4 + ".dat"); // L: 232
-		AccessFile var6;
-		if (!var2 && var5.exists()) { // L: 233
-			try {
-				var6 = new AccessFile(var5, "rw", 10000L); // L: 235
-				return var6; // L: 236
-			} catch (IOException var8) { // L: 238
-			}
-		}
-
-		try {
-			var6 = new AccessFile(var3, "rw", 10000L); // L: 241
-			return var6; // L: 242
-		} catch (IOException var7) { // L: 244
-			throw new RuntimeException(); // L: 245
-		}
+		var3 = ~var3; // L: 49
+		return var3; // L: 50
 	}
 
-	@ObfuscatedName("fo")
+	@ObfuscatedName("fu")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1194982929"
+		garbageValue = "1843949362"
 	)
-	static final void method354() {
-		int var0 = Players.Players_count; // L: 3493
-		int[] var1 = Players.Players_indices; // L: 3494
+	@Export("logOut")
+	static final void logOut() {
+		Client.packetWriter.close(); // L: 2860
+		FloorOverlayDefinition.FloorOverlayDefinition_cached.clear(); // L: 2863
+		MusicPatchPcmStream.method3953(); // L: 2865
+		UserComparator2.method5959(); // L: 2866
+		ObjectComposition.ObjectDefinition_cached.clear(); // L: 2868
+		ObjectComposition.ObjectDefinition_cachedModelData.clear(); // L: 2869
+		ObjectComposition.ObjectDefinition_cachedEntities.clear(); // L: 2870
+		ObjectComposition.ObjectDefinition_cachedModels.clear(); // L: 2871
+		WorldMapIcon_1.method339(); // L: 2873
+		TileItem.method2187(); // L: 2874
+		SequenceDefinition.SequenceDefinition_cached.clear(); // L: 2876
+		SequenceDefinition.SequenceDefinition_cachedFrames.clear(); // L: 2877
+		WallDecoration.method3379(); // L: 2879
+		VarbitComposition.VarbitDefinition_cached.clear(); // L: 2881
+		WorldMapID.method601(); // L: 2883
+		HealthBarDefinition.method4509(); // L: 2884
+		VarcInt.method4426(); // L: 2885
+		StructComposition.StructDefinition_cached.clear(); // L: 2887
+		StudioGame.method4185(); // L: 2889
+		WorldMapElement.WorldMapElement_cachedSprites.clear(); // L: 2891
+		PlayerComposition.PlayerAppearance_cachedModels.clear(); // L: 2894
+		Widget.Widget_cachedSprites.clear(); // L: 2897
+		Widget.Widget_cachedModels.clear(); // L: 2898
+		Widget.Widget_cachedFonts.clear(); // L: 2899
+		Widget.Widget_cachedSpriteMasks.clear(); // L: 2900
+		((TextureProvider)Rasterizer3D.Rasterizer3D_textureLoader).clear(); // L: 2902
+		Script.Script_cached.clear(); // L: 2903
+		SceneTilePaint.archive0.clearFiles(); // L: 2904
+		WorldMapSprite.archive1.clearFiles(); // L: 2905
+		class330.archive3.clearFiles(); // L: 2906
+		class227.archive4.clearFiles(); // L: 2907
+		GameEngine.archive5.clearFiles(); // L: 2908
+		class217.archive6.clearFiles(); // L: 2909
+		BuddyRankComparator.archive7.clearFiles(); // L: 2910
+		Messages.archive8.clearFiles(); // L: 2911
+		GrandExchangeOfferUnitPriceComparator.archive9.clearFiles(); // L: 2912
+		class92.archive10.clearFiles(); // L: 2913
+		ItemContainer.archive11.clearFiles(); // L: 2914
+		PacketBufferNode.archive12.clearFiles(); // L: 2915
+		ArchiveLoader.scene.clear(); // L: 2917
 
-		for (int var2 = 0; var2 < var0; ++var2) { // L: 3495
-			Player var3 = Client.players[var1[var2]]; // L: 3496
-			if (var3 != null) { // L: 3497
-				FrameProvider.updateActorSequence(var3, 1); // L: 3498
+		for (int var0 = 0; var0 < 4; ++var0) { // L: 2918
+			Client.collisionMaps[var0].clear();
+		}
+
+		System.gc(); // L: 2919
+		SecureRandomCallable.method1220(2); // L: 2920
+		Client.currentTrackGroupId = -1; // L: 2921
+		Client.field883 = false; // L: 2922
+
+		for (ObjectSound var1 = (ObjectSound)ObjectSound.objectSounds.last(); var1 != null; var1 = (ObjectSound)ObjectSound.objectSounds.previous()) { // L: 2924
+			if (var1.stream1 != null) { // L: 2925
+				WorldMapManager.pcmStreamMixer.removeSubStream(var1.stream1); // L: 2926
+				var1.stream1 = null; // L: 2927
+			}
+
+			if (var1.stream2 != null) { // L: 2929
+				WorldMapManager.pcmStreamMixer.removeSubStream(var1.stream2); // L: 2930
+				var1.stream2 = null; // L: 2931
 			}
 		}
 
-	} // L: 3501
+		ObjectSound.objectSounds.clear(); // L: 2934
+		WorldMapCacheName.updateGameState(10); // L: 2936
+	} // L: 2937
 
-	@ObfuscatedName("ij")
+	@ObfuscatedName("hn")
 	@ObfuscatedSignature(
-		descriptor = "(II)Ljava/lang/String;",
-		garbageValue = "-1726408780"
+		descriptor = "(I)V",
+		garbageValue = "1899321298"
 	)
-	@Export("formatItemStacks")
-	static final String formatItemStacks(int var0) {
-		String var1 = Integer.toString(var0); // L: 9904
+	static void method332() {
+		int var0 = Players.Players_count; // L: 4714
+		int[] var1 = Players.Players_indices; // L: 4715
 
-		for (int var2 = var1.length() - 3; var2 > 0; var2 -= 3) { // L: 9905
-			var1 = var1.substring(0, var2) + "," + var1.substring(var2); // L: 9906
+		for (int var2 = 0; var2 < var0; ++var2) { // L: 4716
+			if (var1[var2] != Client.combatTargetPlayerIndex && var1[var2] != Client.localPlayerIndex) { // L: 4717
+				ClientPreferences.addPlayerToScene(Client.players[var1[var2]], true); // L: 4718
+			}
 		}
 
-		if (var1.length() > 9) { // L: 9908
-			return " " + FileSystem.colorStartTag(65408) + var1.substring(0, var1.length() - 8) + "M" + " " + " (" + var1 + ")" + "</col>";
-		} else {
-			return var1.length() > 6 ? " " + FileSystem.colorStartTag(16777215) + var1.substring(0, var1.length() - 4) + "K" + " " + " (" + var1 + ")" + "</col>" : " " + FileSystem.colorStartTag(16776960) + var1 + "</col>"; // L: 9909 9910
+	} // L: 4720
+
+	@ObfuscatedName("kb")
+	@ObfuscatedSignature(
+		descriptor = "(III)V",
+		garbageValue = "-159412455"
+	)
+	@Export("runIntfCloseListeners")
+	static final void runIntfCloseListeners(int var0, int var1) {
+		if (class41.loadInterface(var0)) { // L: 10371
+			class51.runComponentCloseListeners(class9.Widget_interfaceComponents[var0], var1); // L: 10372
 		}
-	}
+	} // L: 10373
 }

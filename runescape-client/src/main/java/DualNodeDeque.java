@@ -3,10 +3,10 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jd")
+@ObfuscatedName("ji")
 @Implements("DualNodeDeque")
 public final class DualNodeDeque {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
 		descriptor = "Lgj;"
 	)
@@ -19,7 +19,7 @@ public final class DualNodeDeque {
 		this.sentinel.nextDual = this.sentinel; // L: 10
 	} // L: 11
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
 		descriptor = "(Lgj;)V"
 	)
@@ -51,7 +51,7 @@ public final class DualNodeDeque {
 		var1.previousDual.nextDual = var1; // L: 26
 	} // L: 27
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
 		descriptor = "()Lgj;"
 	)

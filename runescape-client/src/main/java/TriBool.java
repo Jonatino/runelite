@@ -3,30 +3,27 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ka")
+@ObfuscatedName("kn")
 @Implements("TriBool")
 public class TriBool {
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "Lka;"
+		descriptor = "Lkn;"
 	)
 	@Export("TriBool_unknown")
 	public static final TriBool TriBool_unknown;
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "Lka;"
+		descriptor = "Lkn;"
 	)
 	@Export("TriBool_true")
 	public static final TriBool TriBool_true;
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
-		descriptor = "Lka;"
+		descriptor = "Lkn;"
 	)
 	@Export("TriBool_false")
 	public static final TriBool TriBool_false;
-	@ObfuscatedName("z")
-	@Export("ByteArrayPool_alternativeSizes")
-	static int[] ByteArrayPool_alternativeSizes;
 
 	static {
 		TriBool_unknown = new TriBool(); // L: 4
@@ -37,12 +34,19 @@ public class TriBool {
 	TriBool() {
 	} // L: 8
 
-	@ObfuscatedName("kx")
+	@ObfuscatedName("u")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "-107"
+		descriptor = "(CI)Z",
+		garbageValue = "538675617"
 	)
-	public static boolean method5372() {
-		return Client.staffModLevel >= 2; // L: 11616
+	@Export("isCharPrintable")
+	public static boolean isCharPrintable(char var0) {
+		if (var0 >= ' ' && var0 <= '~') { // L: 188
+			return true;
+		} else if (var0 >= 160 && var0 <= 255) {
+			return true; // L: 189
+		} else {
+			return var0 == 8364 || var0 == 338 || var0 == 8212 || var0 == 339 || var0 == 376; // L: 190
+		}
 	}
 }

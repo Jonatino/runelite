@@ -4,12 +4,17 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("em")
+@ObfuscatedName("er")
 @Implements("Renderable")
 public abstract class Renderable extends DualNode {
-	@ObfuscatedName("ce")
+	@ObfuscatedName("nw")
 	@ObfuscatedGetter(
-		intValue = -1481288719
+		intValue = -1743769759
+	)
+	static int field1893;
+	@ObfuscatedName("cq")
+	@ObfuscatedGetter(
+		intValue = 1865957833
 	)
 	@Export("height")
 	public int height;
@@ -18,17 +23,17 @@ public abstract class Renderable extends DualNode {
 		this.height = 1000; // L: 6
 	} // L: 8
 
-	@ObfuscatedName("q")
+	@ObfuscatedName("l")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lef;",
-		garbageValue = "127"
+		descriptor = "(I)Leh;",
+		garbageValue = "-1814248977"
 	)
 	@Export("getModel")
 	protected Model getModel() {
-		return null; // L: 19
+		return null;
 	}
 
-	@ObfuscatedName("cz")
+	@ObfuscatedName("cf")
 	@Export("draw")
 	void draw(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, long var9) {
 		Model var11 = this.getModel(); // L: 11
@@ -37,18 +42,37 @@ public abstract class Renderable extends DualNode {
 			var11.draw(var1, var2, var3, var4, var5, var6, var7, var8, var9); // L: 14
 		}
 
-	} // L: 16
+	}
 
-	@ObfuscatedName("fz")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "1"
+		descriptor = "(Ljava/lang/CharSequence;B)J",
+		garbageValue = "85"
 	)
-	static final void method3417() {
-		if (Client.field889 != class90.Client_plane) { // L: 3402
-			Client.field889 = class90.Client_plane; // L: 3403
-			MinimapRenderer.redrawMiniMapIcons(class90.Client_plane); // L: 3404
+	static long method3340(CharSequence var0) {
+		long var1 = 0L; // L: 16
+		int var3 = var0.length(); // L: 17
+
+		for (int var4 = 0; var4 < var3; ++var4) { // L: 18
+			var1 *= 37L; // L: 19
+			char var5 = var0.charAt(var4); // L: 20
+			if (var5 >= 'A' && var5 <= 'Z') { // L: 21
+				var1 += (long)(var5 + 1 - 65);
+			} else if (var5 >= 'a' && var5 <= 'z') { // L: 22
+				var1 += (long)(var5 + 1 - 97);
+			} else if (var5 >= '0' && var5 <= '9') { // L: 23
+				var1 += (long)(var5 + 27 - 48);
+			}
+
+			if (var1 >= 177917621779460413L) { // L: 24
+				break;
+			}
 		}
 
-	} // L: 3406
+		while (0L == var1 % 37L && var1 != 0L) { // L: 26
+			var1 /= 37L;
+		}
+
+		return var1; // L: 27
+	}
 }

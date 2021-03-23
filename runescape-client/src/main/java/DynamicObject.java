@@ -4,87 +4,96 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cw")
+@ObfuscatedName("cn")
 @Implements("DynamicObject")
-public class DynamicObject extends Renderable {
-	@ObfuscatedName("a")
+public class DynamicObject extends Renderable
+{
+	@ObfuscatedName("rl")
 	@ObfuscatedGetter(
-		intValue = 1608906951
+		intValue = 2126595663
 	)
-	static int field1311;
-	@ObfuscatedName("er")
-	@ObfuscatedGetter(
-		intValue = 1685580933
+	static int field1316;
+	@ObfuscatedName("b")
+	public static String[] field1318;
+	@ObfuscatedName("dv")
+	@ObfuscatedSignature(
+		descriptor = "Lil;"
 	)
-	@Export("currentPort")
-	static int currentPort;
-	@ObfuscatedName("n")
+	@Export("archive2")
+	static Archive archive2;
+	@ObfuscatedName("le")
 	@ObfuscatedGetter(
-		intValue = -1583763067
+		intValue = -517336583
+	)
+	@Export("menuY")
+	static int menuY;
+	@ObfuscatedName("h")
+	@ObfuscatedGetter(
+		intValue = -1717972659
 	)
 	@Export("id")
 	int id;
 	@ObfuscatedName("v")
 	@ObfuscatedGetter(
-		intValue = 1077688157
+		intValue = 345674945
 	)
 	@Export("type")
 	int type;
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedGetter(
-		intValue = -1461018485
+		intValue = 92935987
 	)
 	@Export("orientation")
 	int orientation;
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedGetter(
-		intValue = 242558127
+		intValue = 1741952123
 	)
 	@Export("plane")
 	int plane;
-	@ObfuscatedName("y")
+	@ObfuscatedName("t")
 	@ObfuscatedGetter(
-		intValue = -345704253
+		intValue = 433284603
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("h")
+	@ObfuscatedName("j")
 	@ObfuscatedGetter(
-		intValue = -2021063101
+		intValue = 189208991
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("z")
+	@ObfuscatedName("n")
 	@ObfuscatedSignature(
-		descriptor = "Ljs;"
+		descriptor = "Ljy;"
 	)
 	@Export("sequenceDefinition")
 	SequenceDefinition sequenceDefinition;
-	@ObfuscatedName("e")
+	@ObfuscatedName("p")
 	@ObfuscatedGetter(
-		intValue = -765264835
+		intValue = 1563491791
 	)
 	@Export("frame")
 	int frame;
-	@ObfuscatedName("q")
+	@ObfuscatedName("l")
 	@ObfuscatedGetter(
-		intValue = 1029669135
+		intValue = -542544735
 	)
 	@Export("cycleStart")
 	int cycleStart;
 
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIZLem;)V"
+		descriptor = "(IIIIIIIZLer;)V"
 	)
 	DynamicObject(int var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, Renderable var9) {
-		this.id = var1; // L: 20
+		this.id = var1;
 		this.type = var2; // L: 21
 		this.orientation = var3; // L: 22
 		this.plane = var4; // L: 23
 		this.x = var5; // L: 24
 		this.y = var6; // L: 25
 		if (var7 != -1) { // L: 26
-			this.sequenceDefinition = InterfaceParent.SequenceDefinition_get(var7); // L: 27
+			this.sequenceDefinition = ParamComposition.SequenceDefinition_get(var7); // L: 27
 			this.frame = 0; // L: 28
 			this.cycleStart = Client.cycle - 1; // L: 29
 			if (this.sequenceDefinition.field3548 == 0 && var9 != null && var9 instanceof DynamicObject) { // L: 30
@@ -104,10 +113,10 @@ public class DynamicObject extends Renderable {
 
 	} // L: 43
 
-	@ObfuscatedName("q")
+	@ObfuscatedName("l")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lef;",
-		garbageValue = "127"
+		descriptor = "(I)Leh;",
+		garbageValue = "-1814248977"
 	)
 	@Export("getModel")
 	protected final Model getModel() {
@@ -117,11 +126,11 @@ public class DynamicObject extends Renderable {
 				var1 = 100;
 			}
 
-			label55: {
+			label56: {
 				do {
 					do {
 						if (var1 <= this.sequenceDefinition.frameLengths[this.frame]) { // L: 49
-							break label55;
+							break label56;
 						}
 
 						var1 -= this.sequenceDefinition.frameLengths[this.frame]; // L: 50
@@ -129,7 +138,7 @@ public class DynamicObject extends Renderable {
 					} while(this.frame < this.sequenceDefinition.frameIds.length); // L: 52
 
 					this.frame -= this.sequenceDefinition.frameCount; // L: 53
-				} while(this.frame >= 0 && this.frame < this.sequenceDefinition.frameIds.length); // L: 54
+				} while(this.frame >= 0 && this.frame < this.sequenceDefinition.frameIds.length);
 
 				this.sequenceDefinition = null; // L: 55
 			}
@@ -137,7 +146,7 @@ public class DynamicObject extends Renderable {
 			this.cycleStart = Client.cycle - var1; // L: 60
 		}
 
-		ObjectComposition var12 = WorldMapAreaData.getObjectDefinition(this.id); // L: 62
+		ObjectComposition var12 = WorldMapDecoration.getObjectDefinition(this.id); // L: 62
 		if (var12.transforms != null) { // L: 63
 			var12 = var12.transform();
 		}
@@ -160,10 +169,50 @@ public class DynamicObject extends Renderable {
 			int var6 = (var3 >> 1) + this.y; // L: 77
 			int var7 = (var3 + 1 >> 1) + this.y; // L: 78
 			int[][] var8 = Tiles.Tiles_heights[this.plane]; // L: 79
-			int var9 = var8[var4][var6] + var8[var5][var6] + var8[var4][var7] + var8[var5][var7] >> 2; // L: 80
+			int var9 = var8[var5][var7] + var8[var4][var7] + var8[var5][var6] + var8[var4][var6] >> 2; // L: 80
 			int var10 = (this.x << 7) + (var2 << 6); // L: 81
 			int var11 = (this.y << 7) + (var3 << 6); // L: 82
 			return var12.getModelDynamic(this.type, this.orientation, var8, var10, var9, var11, this.sequenceDefinition, this.frame); // L: 83
 		}
 	}
+
+	@ObfuscatedName("h")
+	@ObfuscatedSignature(
+		descriptor = "([BB)Laq;",
+		garbageValue = "92"
+	)
+	static WorldMapSprite method2300(byte[] var0) {
+		return var0 == null ? new WorldMapSprite() : new WorldMapSprite(WorldMapSection0.convertJpgToSprite(var0).pixels); // L: 19 20
+	}
+
+	@ObfuscatedName("h")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "1772389683"
+	)
+	static int method2304() {
+		return 12; // L: 123
+	}
+
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "([BIB)I",
+		garbageValue = "-35"
+	)
+	public static int method2305(byte[] var0, int var1) {
+		return WorldMapRectangle.method334(var0, 0, var1); // L: 54
+	}
+
+	@ObfuscatedName("ix")
+	@ObfuscatedSignature(
+		descriptor = "(III)V",
+		garbageValue = "-1991750086"
+	)
+	@Export("resumePauseWidget")
+	static void resumePauseWidget(int var0, int var1) {
+		PacketBufferNode var2 = ItemContainer.getPacketBufferNode(ClientPacket.field2266, Client.packetWriter.isaacCipher); // L: 8361
+		var2.packetBuffer.writeInt(var0); // L: 8362
+		var2.packetBuffer.writeShort(var1); // L: 8363
+		Client.packetWriter.addNode(var2); // L: 8364
+	} // L: 8365
 }

@@ -4,58 +4,61 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("bd")
+@ObfuscatedName("bg")
 @Implements("Message")
 public class Message extends DualNode {
-	@ObfuscatedName("bq")
+	@ObfuscatedName("aa")
+	@Export("null_string")
+	protected static String null_string;
+	@ObfuscatedName("gf")
 	@ObfuscatedSignature(
-		descriptor = "Lml;"
+		descriptor = "[Llm;"
 	)
-	@Export("loginType")
-	static LoginType loginType;
-	@ObfuscatedName("n")
+	@Export("headIconPkSprites")
+	static SpritePixels[] headIconPkSpritePixels;
+	@ObfuscatedName("h")
 	@ObfuscatedGetter(
-		intValue = -916897149
+		intValue = -1661930895
 	)
 	@Export("count")
 	int count;
 	@ObfuscatedName("v")
 	@ObfuscatedGetter(
-		intValue = -2019207433
+		intValue = -718562567
 	)
 	@Export("cycle")
 	int cycle;
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedGetter(
-		intValue = 1490859287
+		intValue = 1713352803
 	)
 	@Export("type")
 	int type;
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@Export("sender")
 	String sender;
-	@ObfuscatedName("y")
+	@ObfuscatedName("t")
 	@ObfuscatedSignature(
-		descriptor = "Lkk;"
+		descriptor = "Lki;"
 	)
 	@Export("senderUsername")
 	Username senderUsername;
-	@ObfuscatedName("h")
+	@ObfuscatedName("j")
 	@ObfuscatedSignature(
-		descriptor = "Lka;"
+		descriptor = "Lkn;"
 	)
 	@Export("isFromFriend0")
 	TriBool isFromFriend0;
-	@ObfuscatedName("z")
+	@ObfuscatedName("n")
 	@ObfuscatedSignature(
-		descriptor = "Lka;"
+		descriptor = "Lkn;"
 	)
 	@Export("isFromIgnored0")
 	TriBool isFromIgnored0;
-	@ObfuscatedName("e")
+	@ObfuscatedName("p")
 	@Export("prefix")
 	String prefix;
-	@ObfuscatedName("q")
+	@ObfuscatedName("l")
 	@Export("text")
 	String text;
 
@@ -65,123 +68,104 @@ public class Message extends DualNode {
 		this.set(var1, var2, var3, var4); // L: 19
 	} // L: 20
 
-	@ObfuscatedName("n")
+	@ObfuscatedName("h")
 	@ObfuscatedSignature(
 		descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V",
-		garbageValue = "-313070172"
+		garbageValue = "914812055"
 	)
 	@Export("set")
 	void set(int var1, String var2, String var3, String var4) {
-		int var5 = ++Messages.Messages_count - 1; // L: 25
-		this.count = var5; // L: 27
-		this.cycle = Client.cycle; // L: 28
-		this.type = var1; // L: 29
-		this.sender = var2; // L: 30
-		this.fillSenderUsername(); // L: 31
-		this.prefix = var3; // L: 32
-		this.text = var4; // L: 33
-		this.clearIsFromFriend(); // L: 34
-		this.clearIsFromIgnored(); // L: 35
-	} // L: 36
+		this.count = Login.method2152(); // L: 23
+		this.cycle = Client.cycle; // L: 24
+		this.type = var1; // L: 25
+		this.sender = var2; // L: 26
+		this.fillSenderUsername(); // L: 27
+		this.prefix = var3; // L: 28
+		this.text = var4; // L: 29
+		this.clearIsFromFriend(); // L: 30
+		this.clearIsFromIgnored(); // L: 31
+	} // L: 32
 
 	@ObfuscatedName("v")
 	@ObfuscatedSignature(
 		descriptor = "(B)V",
-		garbageValue = "-22"
+		garbageValue = "4"
 	)
 	@Export("clearIsFromFriend")
 	void clearIsFromFriend() {
-		this.isFromFriend0 = TriBool.TriBool_unknown; // L: 39
-	} // L: 40
+		this.isFromFriend0 = TriBool.TriBool_unknown; // L: 35
+	} // L: 36
 
-	@ObfuscatedName("d")
+	@ObfuscatedName("x")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "-624975397"
+		garbageValue = "2060086850"
 	)
 	@Export("isFromFriend")
 	final boolean isFromFriend() {
-		if (this.isFromFriend0 == TriBool.TriBool_unknown) { // L: 43
-			this.fillIsFromFriend(); // L: 44
+		if (this.isFromFriend0 == TriBool.TriBool_unknown) { // L: 39
+			this.fillIsFromFriend(); // L: 40
 		}
 
-		return this.isFromFriend0 == TriBool.TriBool_true; // L: 46
+		return this.isFromFriend0 == TriBool.TriBool_true; // L: 42
 	}
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("w")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-547685075"
+		descriptor = "(B)V",
+		garbageValue = "-50"
 	)
 	@Export("fillIsFromFriend")
 	void fillIsFromFriend() {
-		this.isFromFriend0 = InterfaceParent.friendSystem.friendsList.contains(this.senderUsername) ? TriBool.TriBool_true : TriBool.TriBool_false; // L: 50
-	} // L: 51
+		this.isFromFriend0 = MilliClock.friendSystem.friendsList.contains(this.senderUsername) ? TriBool.TriBool_true : TriBool.TriBool_false; // L: 46
+	} // L: 47
 
-	@ObfuscatedName("y")
+	@ObfuscatedName("t")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "6"
+		descriptor = "(I)V",
+		garbageValue = "534772186"
 	)
 	@Export("clearIsFromIgnored")
 	void clearIsFromIgnored() {
-		this.isFromIgnored0 = TriBool.TriBool_unknown; // L: 54
-	} // L: 55
+		this.isFromIgnored0 = TriBool.TriBool_unknown; // L: 50
+	} // L: 51
 
-	@ObfuscatedName("h")
+	@ObfuscatedName("j")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "170822627"
+		garbageValue = "2018415105"
 	)
 	@Export("isFromIgnored")
 	final boolean isFromIgnored() {
-		if (this.isFromIgnored0 == TriBool.TriBool_unknown) { // L: 58
-			this.fillIsFromIgnored(); // L: 59
+		if (this.isFromIgnored0 == TriBool.TriBool_unknown) { // L: 54
+			this.fillIsFromIgnored(); // L: 55
 		}
 
-		return this.isFromIgnored0 == TriBool.TriBool_true; // L: 61
+		return this.isFromIgnored0 == TriBool.TriBool_true; // L: 57
 	}
 
-	@ObfuscatedName("z")
+	@ObfuscatedName("n")
 	@ObfuscatedSignature(
 		descriptor = "(B)V",
-		garbageValue = "-33"
+		garbageValue = "-53"
 	)
 	@Export("fillIsFromIgnored")
 	void fillIsFromIgnored() {
-		this.isFromIgnored0 = InterfaceParent.friendSystem.ignoreList.contains(this.senderUsername) ? TriBool.TriBool_true : TriBool.TriBool_false; // L: 65
-	} // L: 66
+		this.isFromIgnored0 = MilliClock.friendSystem.ignoreList.contains(this.senderUsername) ? TriBool.TriBool_true : TriBool.TriBool_false; // L: 61
+	} // L: 62
 
-	@ObfuscatedName("e")
+	@ObfuscatedName("p")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1712388135"
+		garbageValue = "1096024764"
 	)
 	@Export("fillSenderUsername")
 	final void fillSenderUsername() {
-		if (this.sender != null) { // L: 69
-			this.senderUsername = new Username(Calendar.method4153(this.sender), loginType);
+		if (this.sender != null) { // L: 65
+			this.senderUsername = new Username(class22.method220(this.sender), GrandExchangeOfferUnitPriceComparator.loginType);
 		} else {
-			this.senderUsername = null; // L: 70
+			this.senderUsername = null; // L: 66
 		}
 
-	} // L: 71
-
-	@ObfuscatedName("kg")
-	@ObfuscatedSignature(
-		descriptor = "(Lhz;IIIB)V",
-		garbageValue = "1"
-	)
-	@Export("drawCompass")
-	static final void drawCompass(Widget var0, int var1, int var2, int var3) {
-		SpriteMask var4 = var0.getSpriteMask(false); // L: 11389
-		if (var4 != null) { // L: 11390
-			if (Client.minimapState < 3) { // L: 11391
-				LoginScreenAnimation.compass.drawRotatedMaskedCenteredAround(var1, var2, var4.width, var4.height, 25, 25, Client.camAngleY, 256, var4.xStarts, var4.xWidths);
-			} else {
-				Rasterizer2D.Rasterizer2D_fillMaskedRectangle(var1, var2, 0, var4.xStarts, var4.xWidths); // L: 11392
-			}
-
-		}
-	} // L: 11393
+	} // L: 67
 }
