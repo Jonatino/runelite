@@ -5,7 +5,9 @@ import net.runelite.api.mixins.MethodHook;
 import net.runelite.api.mixins.Mixin;
 import net.runelite.api.mixins.Shadow;
 import net.runelite.rs.api.RSClient;
+import org.slf4j.Logger;
 
+import javax.inject.Named;
 import java.math.BigInteger;
 
 @Mixin(RSClient.class)
@@ -27,16 +29,39 @@ public abstract class SocketMixin implements RSClient {
 	private static BigInteger modulus;
 	
 	@Inject
+	@javax.inject.Inject
+	@Named("loadRs")
+	private boolean loadRs;
+	
+	@Inject
+	@javax.inject.Inject
+	@Named("worldHost")
+	private String serverHost;
+	
+	@Inject
+	@javax.inject.Inject
+	@Named("js5Host")
+	private String js5Host;
+	
+	@Inject
 	@MethodHook("doCycleJs5Connect")
 	public void doCycleJs5Connect() {
+		if (loadRs) {
+			System.out.println("What duh fuk");
+			return;
+		}
 		currentPort = DEFAULT_JS5_PORT;
-		worldHost = "js5.pvpherodev.com";
+		worldHost = js5Host;
+		System.out.println("Yo the host is now "+worldHost);
 	}
 	
 	@Inject
 	@MethodHook("doCycleLoggedOut")
 	public void doCycleLoggedOut() {
+		if (loadRs) {
+			return;
+		}
 		currentPort = DEFAULT_WORLD_PORT;
-		worldHost = "127.0.0.1";
+		worldHost = serverHost;
 	}
 }

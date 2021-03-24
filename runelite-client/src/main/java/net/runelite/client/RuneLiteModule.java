@@ -73,7 +73,10 @@ public class RuneLiteModule extends AbstractModule
 	private final boolean safeMode;
 	private final File sessionfile;
 	private final File config;
-
+	private final String worldHost;
+	private final String js5Host;
+	private final boolean loadRs;
+	
 	@Override
 	protected void configure()
 	{
@@ -110,6 +113,10 @@ public class RuneLiteModule extends AbstractModule
 		bind(Logger.class)
 			.annotatedWith(Names.named("Core Logger"))
 			.toInstance(LoggerFactory.getLogger(RuneLite.class));
+		
+		bindConstant().annotatedWith(Names.named("worldHost")).to(worldHost);
+		bindConstant().annotatedWith(Names.named("js5Host")).to(js5Host);
+		bindConstant().annotatedWith(Names.named("loadRs")).to(loadRs);
 	}
 
 	@Provides

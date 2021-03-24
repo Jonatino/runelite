@@ -163,6 +163,10 @@ public class RuneLite
 		parser.accepts("debug", "Show extra debugging output");
 		parser.accepts("safe-mode", "Disables external plugins and the GPU plugin");
 		parser.accepts("insecure-skip-tls-verification", "Disables TLS verification");
+		parser.accepts("live", "Connect to the live PVPHero servers");
+		parser.accepts("world-host", "Specify world host to connect to");
+		parser.accepts("js5-host", "Specify js5 host to connect to");
+		parser.accepts("rs", "Connects to RuneScape");
 
 		final ArgumentAcceptingOptionSpec<File> sessionfile = parser.accepts("sessionfile", "Use a specified session file")
 			.withRequiredArg()
@@ -292,14 +296,28 @@ public class RuneLite
 				args.length == 0 ? "none" : String.join(" ", args));
 
 			final long start = System.currentTimeMillis();
-
+			
+			final String worldHost = options.has("live") || !options.has("world-host")
+					? "play.pvpherodev.com" : options.valueOf("world-host").toString();
+			
+			final String js5Host = options.has("live") || !options.has("js5-host")
+					? "js5.pvpherodev.com" : options.valueOf("js5-host").toString();
+			
+			final boolean loadRs = options.has("rs");
+			
+			log.info("OpenOSRS worldHost={} js5Host={} loadRs={}", worldHost, js5Host, loadRs);
+			
 			injector = Guice.createInjector(new RuneLiteModule(
 				okHttpClient,
 				clientLoader,
 				developerMode,
 				options.has("safe-mode"),
 				options.valueOf(sessionfile),
-				options.valueOf(configfile)));
+				options.valueOf(configfile),
+				worldHost,
+				js5Host,
+				loadRs
+			));
 
 			injector.getInstance(RuneLite.class).start();
 

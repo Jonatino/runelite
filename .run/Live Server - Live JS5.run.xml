@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Live Server - Live JS5" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="net.runelite.client.RuneLite" />
+    <module name="OpenOSRS.runelite-client.main" />
+    <option name="PROGRAM_PARAMETERS" value="--live" />
+    <option name="VM_PARAMETERS" value="-ea" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
