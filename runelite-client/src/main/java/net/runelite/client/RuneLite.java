@@ -163,11 +163,18 @@ public class RuneLite
 		parser.accepts("debug", "Show extra debugging output");
 		parser.accepts("safe-mode", "Disables external plugins and the GPU plugin");
 		parser.accepts("insecure-skip-tls-verification", "Disables TLS verification");
-		parser.accepts("live", "Connect to the live PVPHero servers");
-		parser.accepts("world-host", "Specify world host to connect to");
-		parser.accepts("js5-host", "Specify js5 host to connect to");
-		parser.accepts("rs", "Connects to RuneScape");
-
+		parser.accepts("loadrs", "Connects to RuneScape");
+		
+		final ArgumentAcceptingOptionSpec<String> worldHostInfo = parser
+				.accepts("world-host")
+				.withRequiredArg()
+				.defaultsTo("play.pvpherodev.com");
+		
+		final ArgumentAcceptingOptionSpec<String> js5HostInfo = parser
+				.accepts("js5-host")
+				.withRequiredArg()
+				.defaultsTo("js5.pvpherodev.com");
+		
 		final ArgumentAcceptingOptionSpec<File> sessionfile = parser.accepts("sessionfile", "Use a specified session file")
 			.withRequiredArg()
 			.withValuesConvertedBy(new ConfigFileConverter())
@@ -297,13 +304,9 @@ public class RuneLite
 
 			final long start = System.currentTimeMillis();
 			
-			final String worldHost = options.has("live") || !options.has("world-host")
-					? "play.pvpherodev.com" : options.valueOf("world-host").toString();
-			
-			final String js5Host = options.has("live") || !options.has("js5-host")
-					? "js5.pvpherodev.com" : options.valueOf("js5-host").toString();
-			
-			final boolean loadRs = options.has("rs");
+			final String worldHost = options.valueOf(worldHostInfo);
+			final String js5Host = options.valueOf(js5HostInfo);
+			final boolean loadRs = options.has("loadrs");
 			
 			log.info("OpenOSRS worldHost={} js5Host={} loadRs={}", worldHost, js5Host, loadRs);
 			
