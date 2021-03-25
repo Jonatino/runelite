@@ -34,4 +34,12 @@ public interface RSBuffer extends Buffer, RSNode
 	@Import("writeStringCp1252NullTerminated")
 	@Override
 	void writeStringCp1252NullTerminated(String string);
+
+	@Import("readUnsignedByte")
+	@Override
+	int readUnsignedByte();
+
+	@Import("readStringCp1252NullTerminated")
+	@Override
+	String readStringCp1252NullTerminated() ;
 }

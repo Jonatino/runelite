@@ -47,4 +47,9 @@ public interface Buffer extends Node
 	void writeLong(long var1);
 
 	void writeStringCp1252NullTerminated(String string);
+
+	int readUnsignedByte();
+
+	String readStringCp1252NullTerminated() ;
+
 }

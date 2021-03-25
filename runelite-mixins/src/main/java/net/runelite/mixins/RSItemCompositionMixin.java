@@ -7,9 +7,12 @@ import net.runelite.api.mixins.MethodHook;
 import net.runelite.api.mixins.Mixin;
 import net.runelite.api.mixins.Replace;
 import net.runelite.api.mixins.Shadow;
+import net.runelite.rs.api.RSBuffer;
 import net.runelite.rs.api.RSClient;
 import net.runelite.rs.api.RSItemComposition;
 import net.runelite.rs.api.RSModel;
+
+import java.math.BigInteger;
 
 @Mixin(RSItemComposition.class)
 public abstract class RSItemCompositionMixin implements RSItemComposition
@@ -92,5 +95,23 @@ public abstract class RSItemCompositionMixin implements RSItemComposition
 	{
 		int price = getPrice();
 		return (int) ((float) price * 0.6f);
+	}
+
+	@Copy("decodeNext")
+	@Replace("decodeNext")
+	public void copy$decodeNext(RSBuffer buffer, int opcode)
+	{
+		if (opcode == 250)
+		{
+			int size = buffer.readUnsignedByte();
+			for (int i = 0; i < size; i++) {
+				buffer.readStringCp1252NullTerminated();
+				buffer.readStringCp1252NullTerminated();
+			}
+		}
+		else
+		{
+			copy$decodeNext(buffer, opcode);
+		}
 	}
 }

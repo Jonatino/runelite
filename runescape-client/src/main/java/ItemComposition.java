@@ -363,123 +363,123 @@ public class ItemComposition extends DualNode {
 		garbageValue = "1800832423"
 	)
 	@Export("decodeNext")
-	void decodeNext(Buffer var1, int var2) {
-		if (var2 == 1) { // L: 134
-			this.model = var1.readUnsignedShort();
-		} else if (var2 == 2) { // L: 135
-			this.name = var1.readStringCp1252NullTerminated();
-		} else if (var2 == 4) { // L: 136
-			this.zoom2d = var1.readUnsignedShort();
-		} else if (var2 == 5) { // L: 137
-			this.xan2d = var1.readUnsignedShort();
-		} else if (var2 == 6) { // L: 138
-			this.yan2d = var1.readUnsignedShort();
-		} else if (var2 == 7) { // L: 139
-			this.offsetX2d = var1.readUnsignedShort(); // L: 140
+	void decodeNext(Buffer buffer, int opcode) {
+		if (opcode == 1) { // L: 134
+			this.model = buffer.readUnsignedShort();
+		} else if (opcode == 2) { // L: 135
+			this.name = buffer.readStringCp1252NullTerminated();
+		} else if (opcode == 4) { // L: 136
+			this.zoom2d = buffer.readUnsignedShort();
+		} else if (opcode == 5) { // L: 137
+			this.xan2d = buffer.readUnsignedShort();
+		} else if (opcode == 6) { // L: 138
+			this.yan2d = buffer.readUnsignedShort();
+		} else if (opcode == 7) { // L: 139
+			this.offsetX2d = buffer.readUnsignedShort(); // L: 140
 			if (this.offsetX2d > 32767) { // L: 141
 				this.offsetX2d -= 65536;
 			}
-		} else if (var2 == 8) { // L: 143
-			this.offsetY2d = var1.readUnsignedShort(); // L: 144
+		} else if (opcode == 8) { // L: 143
+			this.offsetY2d = buffer.readUnsignedShort(); // L: 144
 			if (this.offsetY2d > 32767) {
 				this.offsetY2d -= 65536; // L: 145
 			}
-		} else if (var2 == 11) { // L: 147
+		} else if (opcode == 11) { // L: 147
 			this.isStackable = 1;
-		} else if (var2 == 12) { // L: 148
-			this.price = var1.readInt();
-		} else if (var2 == 16) { // L: 149
+		} else if (opcode == 12) { // L: 148
+			this.price = buffer.readInt();
+		} else if (opcode == 16) { // L: 149
 			this.isMembersOnly = true;
-		} else if (var2 == 23) { // L: 150
-			this.maleModel = var1.readUnsignedShort(); // L: 151
-			this.maleOffset = var1.readUnsignedByte(); // L: 152
-		} else if (var2 == 24) { // L: 154
-			this.maleModel1 = var1.readUnsignedShort();
-		} else if (var2 == 25) { // L: 155
-			this.femaleModel = var1.readUnsignedShort(); // L: 156
-			this.femaleOffset = var1.readUnsignedByte(); // L: 157
-		} else if (var2 == 26) { // L: 159
-			this.femaleModel1 = var1.readUnsignedShort();
-		} else if (var2 >= 30 && var2 < 35) { // L: 160
-			this.groundActions[var2 - 30] = var1.readStringCp1252NullTerminated(); // L: 161
-			if (this.groundActions[var2 - 30].equalsIgnoreCase("Hidden")) { // L: 162
-				this.groundActions[var2 - 30] = null;
+		} else if (opcode == 23) { // L: 150
+			this.maleModel = buffer.readUnsignedShort(); // L: 151
+			this.maleOffset = buffer.readUnsignedByte(); // L: 152
+		} else if (opcode == 24) { // L: 154
+			this.maleModel1 = buffer.readUnsignedShort();
+		} else if (opcode == 25) { // L: 155
+			this.femaleModel = buffer.readUnsignedShort(); // L: 156
+			this.femaleOffset = buffer.readUnsignedByte(); // L: 157
+		} else if (opcode == 26) { // L: 159
+			this.femaleModel1 = buffer.readUnsignedShort();
+		} else if (opcode >= 30 && opcode < 35) { // L: 160
+			this.groundActions[opcode - 30] = buffer.readStringCp1252NullTerminated(); // L: 161
+			if (this.groundActions[opcode - 30].equalsIgnoreCase("Hidden")) { // L: 162
+				this.groundActions[opcode - 30] = null;
 			}
-		} else if (var2 >= 35 && var2 < 40) { // L: 164
-			this.inventoryActions[var2 - 35] = var1.readStringCp1252NullTerminated();
+		} else if (opcode >= 35 && opcode < 40) { // L: 164
+			this.inventoryActions[opcode - 35] = buffer.readStringCp1252NullTerminated();
 		} else {
 			int var3;
 			int var4;
-			if (var2 == 40) { // L: 165
-				var3 = var1.readUnsignedByte(); // L: 166
+			if (opcode == 40) { // L: 165
+				var3 = buffer.readUnsignedByte(); // L: 166
 				this.recolorFrom = new short[var3]; // L: 167
 				this.recolorTo = new short[var3]; // L: 168
 
 				for (var4 = 0; var4 < var3; ++var4) { // L: 169
-					this.recolorFrom[var4] = (short)var1.readUnsignedShort(); // L: 170
-					this.recolorTo[var4] = (short)var1.readUnsignedShort(); // L: 171
+					this.recolorFrom[var4] = (short)buffer.readUnsignedShort(); // L: 170
+					this.recolorTo[var4] = (short)buffer.readUnsignedShort(); // L: 171
 				}
-			} else if (var2 == 41) { // L: 174
-				var3 = var1.readUnsignedByte(); // L: 175
+			} else if (opcode == 41) { // L: 174
+				var3 = buffer.readUnsignedByte(); // L: 175
 				this.retextureFrom = new short[var3]; // L: 176
 				this.retextureTo = new short[var3]; // L: 177
 
 				for (var4 = 0; var4 < var3; ++var4) { // L: 178
-					this.retextureFrom[var4] = (short)var1.readUnsignedShort(); // L: 179
-					this.retextureTo[var4] = (short)var1.readUnsignedShort(); // L: 180
+					this.retextureFrom[var4] = (short)buffer.readUnsignedShort(); // L: 179
+					this.retextureTo[var4] = (short)buffer.readUnsignedShort(); // L: 180
 				}
-			} else if (var2 == 42) { // L: 183
-				this.shiftClickIndex = var1.readByte(); // L: 184
-			} else if (var2 == 65) { // L: 186
+			} else if (opcode == 42) { // L: 183
+				this.shiftClickIndex = buffer.readByte(); // L: 184
+			} else if (opcode == 65) { // L: 186
 				this.isTradable = true;
-			} else if (var2 == 78) { // L: 187
-				this.maleModel2 = var1.readUnsignedShort();
-			} else if (var2 == 79) { // L: 188
-				this.femaleModel2 = var1.readUnsignedShort();
-			} else if (var2 == 90) { // L: 189
-				this.maleHeadModel = var1.readUnsignedShort();
-			} else if (var2 == 91) { // L: 190
-				this.femaleHeadModel = var1.readUnsignedShort();
-			} else if (var2 == 92) { // L: 191
-				this.maleHeadModel2 = var1.readUnsignedShort();
-			} else if (var2 == 93) { // L: 192
-				this.femaleHeadModel2 = var1.readUnsignedShort();
-			} else if (var2 == 95) { // L: 193
-				this.zan2d = var1.readUnsignedShort();
-			} else if (var2 == 97) { // L: 194
-				this.note = var1.readUnsignedShort();
-			} else if (var2 == 98) { // L: 195
-				this.noteTemplate = var1.readUnsignedShort();
-			} else if (var2 >= 100 && var2 < 110) { // L: 196
+			} else if (opcode == 78) { // L: 187
+				this.maleModel2 = buffer.readUnsignedShort();
+			} else if (opcode == 79) { // L: 188
+				this.femaleModel2 = buffer.readUnsignedShort();
+			} else if (opcode == 90) { // L: 189
+				this.maleHeadModel = buffer.readUnsignedShort();
+			} else if (opcode == 91) { // L: 190
+				this.femaleHeadModel = buffer.readUnsignedShort();
+			} else if (opcode == 92) { // L: 191
+				this.maleHeadModel2 = buffer.readUnsignedShort();
+			} else if (opcode == 93) { // L: 192
+				this.femaleHeadModel2 = buffer.readUnsignedShort();
+			} else if (opcode == 95) { // L: 193
+				this.zan2d = buffer.readUnsignedShort();
+			} else if (opcode == 97) { // L: 194
+				this.note = buffer.readUnsignedShort();
+			} else if (opcode == 98) { // L: 195
+				this.noteTemplate = buffer.readUnsignedShort();
+			} else if (opcode >= 100 && opcode < 110) { // L: 196
 				if (this.countobj == null) { // L: 197
 					this.countobj = new int[10]; // L: 198
 					this.countco = new int[10]; // L: 199
 				}
 
-				this.countobj[var2 - 100] = var1.readUnsignedShort(); // L: 201
-				this.countco[var2 - 100] = var1.readUnsignedShort(); // L: 202
-			} else if (var2 == 110) { // L: 204
-				this.resizeX = var1.readUnsignedShort();
-			} else if (var2 == 111) { // L: 205
-				this.resizeY = var1.readUnsignedShort();
-			} else if (var2 == 112) { // L: 206
-				this.resizeZ = var1.readUnsignedShort();
-			} else if (var2 == 113) { // L: 207
-				this.ambient = var1.readByte();
-			} else if (var2 == 114) { // L: 208
-				this.contrast = var1.readByte() * 5;
-			} else if (var2 == 115) { // L: 209
-				this.team = var1.readUnsignedByte();
-			} else if (var2 == 139) { // L: 210
-				this.unnotedId = var1.readUnsignedShort();
-			} else if (var2 == 140) { // L: 211
-				this.notedId = var1.readUnsignedShort();
-			} else if (var2 == 148) { // L: 212
-				this.placeholder = var1.readUnsignedShort();
-			} else if (var2 == 149) { // L: 213
-				this.placeholderTemplate = var1.readUnsignedShort();
-			} else if (var2 == 249) { // L: 214
-				this.params = NetSocket.readStringIntParameters(var1, this.params);
+				this.countobj[opcode - 100] = buffer.readUnsignedShort(); // L: 201
+				this.countco[opcode - 100] = buffer.readUnsignedShort(); // L: 202
+			} else if (opcode == 110) { // L: 204
+				this.resizeX = buffer.readUnsignedShort();
+			} else if (opcode == 111) { // L: 205
+				this.resizeY = buffer.readUnsignedShort();
+			} else if (opcode == 112) { // L: 206
+				this.resizeZ = buffer.readUnsignedShort();
+			} else if (opcode == 113) { // L: 207
+				this.ambient = buffer.readByte();
+			} else if (opcode == 114) { // L: 208
+				this.contrast = buffer.readByte() * 5;
+			} else if (opcode == 115) { // L: 209
+				this.team = buffer.readUnsignedByte();
+			} else if (opcode == 139) { // L: 210
+				this.unnotedId = buffer.readUnsignedShort();
+			} else if (opcode == 140) { // L: 211
+				this.notedId = buffer.readUnsignedShort();
+			} else if (opcode == 148) { // L: 212
+				this.placeholder = buffer.readUnsignedShort();
+			} else if (opcode == 149) { // L: 213
+				this.placeholderTemplate = buffer.readUnsignedShort();
+			} else if (opcode == 249) { // L: 214
+				this.params = NetSocket.readStringIntParameters(buffer, this.params);
 			}
 		}
 
