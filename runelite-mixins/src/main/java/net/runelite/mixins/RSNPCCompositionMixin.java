@@ -6,10 +6,13 @@ import static net.runelite.api.HeadIcon.MELEE;
 import static net.runelite.api.HeadIcon.RANGED;
 import static net.runelite.api.HeadIcon.RANGE_MAGE;
 import net.runelite.api.events.NpcActionChanged;
+import net.runelite.api.mixins.Copy;
 import net.runelite.api.mixins.FieldHook;
 import net.runelite.api.mixins.Inject;
 import net.runelite.api.mixins.Mixin;
+import net.runelite.api.mixins.Replace;
 import net.runelite.api.mixins.Shadow;
+import net.runelite.rs.api.RSBuffer;
 import net.runelite.rs.api.RSClient;
 import net.runelite.rs.api.RSNPCComposition;
 
@@ -46,5 +49,23 @@ public abstract class RSNPCCompositionMixin implements RSNPCComposition
 		npcActionChanged.setNpcComposition(this);
 		npcActionChanged.setIdx(idx);
 		client.getCallbacks().post(npcActionChanged);
+	}
+
+	@Copy("decodeNext")
+	@Replace("decodeNext")
+	public void copy$decodeNext(RSBuffer buffer, int opcode)
+	{
+		if (opcode == 250)
+		{
+			int size = buffer.readUnsignedByte();
+			for (int i = 0; i < size; i++) {
+				buffer.readStringCp1252NullTerminated();
+				buffer.readStringCp1252NullTerminated();
+			}
+		}
+		else
+		{
+			copy$decodeNext(buffer, opcode);
+		}
 	}
 }

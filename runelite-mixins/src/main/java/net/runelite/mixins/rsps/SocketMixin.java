@@ -12,49 +12,47 @@ import java.math.BigInteger;
 
 @Mixin(RSClient.class)
 public abstract class SocketMixin implements RSClient {
-	
+
 	@Inject
 	public static final int DEFAULT_WORLD_PORT = 54900;
-	
+
 	@Inject
 	public static final int DEFAULT_JS5_PORT = 54901;
-	
+
 	@Shadow("currentPort")
 	private static int currentPort;
-	
+
 	@Shadow("worldHost")
 	private static String worldHost;
-	
+
 	@Shadow("modulus")
 	private static BigInteger modulus;
-	
+
 	@Inject
 	@javax.inject.Inject
 	@Named("loadRs")
 	private boolean loadRs;
-	
+
 	@Inject
 	@javax.inject.Inject
 	@Named("worldHost")
 	private String serverHost;
-	
+
 	@Inject
 	@javax.inject.Inject
 	@Named("js5Host")
 	private String js5Host;
-	
+
 	@Inject
 	@MethodHook("doCycleJs5Connect")
 	public void doCycleJs5Connect() {
 		if (loadRs) {
-			System.out.println("What duh fuk");
 			return;
 		}
 		currentPort = DEFAULT_JS5_PORT;
 		worldHost = js5Host;
-		System.out.println("Yo the host is now "+worldHost);
 	}
-	
+
 	@Inject
 	@MethodHook("doCycleLoggedOut")
 	public void doCycleLoggedOut() {
