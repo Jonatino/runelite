@@ -177,6 +177,7 @@ subprojects {
 
 application {
     mainClass.set("net.runelite.client.RuneLite")
+    mainClassName = "net.runelite.client.RuneLite"
 }
 
 tasks {

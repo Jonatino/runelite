@@ -29,6 +29,7 @@ import java.util.Date
 
 plugins {
     id("com.github.johnrengelman.shadow") version "6.1.0"
+    id("org.beryx.runtime") version "1.12.2"
     java
 }
 
@@ -186,5 +187,15 @@ tasks {
         classpath = sourceSets["main"].runtimeClasspath
         enableAssertions = true
         mainClass.set("net.runelite.client.RuneLite")
+    }
+
+    application {
+        mainClass.set("net.runelite.client.RuneLite")
+        mainClassName = "net.runelite.client.RuneLite"
+    }
+
+    runtime {
+        options.addAll("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages")
+        imageZip.set(project.file("${project.buildDir}/image-zip/hello-image.zip"))
     }
 }
