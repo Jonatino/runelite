@@ -38,7 +38,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import javax.swing.SwingUtilities;
 import lombok.AccessLevel;
 import lombok.Getter;

@@ -28,7 +28,7 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 

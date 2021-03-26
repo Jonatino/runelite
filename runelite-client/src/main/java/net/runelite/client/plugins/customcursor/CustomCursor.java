@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.customcursor;
 
 import java.awt.image.BufferedImage;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Getter;
 import net.runelite.client.util.ImageUtil;
 
@@ -63,4 +63,3 @@ public enum CustomCursor
 		return name;
 	}
 }
-

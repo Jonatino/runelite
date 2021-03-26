@@ -25,7 +25,7 @@
  */
 package net.runelite.client.plugins.friendlist;
 
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.Friend;
 import net.runelite.api.Ignore;

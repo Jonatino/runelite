@@ -27,7 +27,7 @@ package net.runelite.client.ui.overlay.worldmap;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 import net.runelite.api.Point;

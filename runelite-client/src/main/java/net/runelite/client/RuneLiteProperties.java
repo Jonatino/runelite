@@ -27,7 +27,7 @@ package net.runelite.client;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.AccessLevel;
 import lombok.Getter;
 import okhttp3.HttpUrl;

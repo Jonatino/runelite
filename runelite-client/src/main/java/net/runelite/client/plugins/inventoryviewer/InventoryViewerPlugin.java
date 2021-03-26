@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.inventoryviewer;
 
 import com.google.inject.Provides;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;

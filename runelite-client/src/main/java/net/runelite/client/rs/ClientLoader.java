@@ -49,7 +49,7 @@ import java.util.function.Supplier;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.JarInputStream;
-import javax.annotation.Nonnull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
@@ -196,7 +196,7 @@ public class ClientLoader implements Supplier<Applet>
 		}
 	}
 
-	@Nonnull
+	@NonNull
 	private RSConfig downloadFallbackConfig() throws IOException
 	{
 		RSConfig backupConfig = clientConfigLoader.fetch(HttpUrl.parse(RuneLiteProperties.getJavConfigBackup()));

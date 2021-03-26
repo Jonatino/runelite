@@ -50,7 +50,7 @@ import java.util.Locale;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import javax.swing.SwingUtilities;
 import lombok.AccessLevel;
 import lombok.Getter;

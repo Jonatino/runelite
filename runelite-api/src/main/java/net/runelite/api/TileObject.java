@@ -28,7 +28,7 @@ import net.runelite.api.coords.LocalPoint;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.Shape;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents an object on a Tile
@@ -103,7 +103,7 @@ public interface TileObject extends Locatable
 	 */
 	@Nullable
 	Shape getClickbox();
-	
+
 	/**
 	 * Gets the name of the object
 	 */

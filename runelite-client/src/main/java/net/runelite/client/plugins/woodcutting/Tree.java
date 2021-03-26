@@ -27,7 +27,7 @@ package net.runelite.client.plugins.woodcutting;
 import com.google.common.collect.ImmutableMap;
 import java.time.Duration;
 import java.util.Map;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Getter;
 import net.runelite.api.ObjectID;
 import static net.runelite.api.ObjectID.MAGIC_TREE_10834;

@@ -27,7 +27,7 @@ package net.runelite.client.plugins.barbarianassault;
 
 import com.google.inject.Provides;
 import java.awt.Image;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.ChatMessageType;

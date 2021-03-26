@@ -33,7 +33,7 @@ import java.awt.image.BufferedImage;
 import static java.lang.Math.min;
 import java.util.Arrays;
 import java.util.List;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.Getter;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;

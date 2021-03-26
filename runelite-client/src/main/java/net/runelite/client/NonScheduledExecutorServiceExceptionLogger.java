@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import net.runelite.client.util.CallableExceptionLogger;
 import static net.runelite.client.util.RunnableExceptionLogger.wrap;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 // Awkward name because plugins already referenced the ExecutorServiceExceptionLogger
 // (which only handles ScheduledExecutorServices) before this class was introduced
@@ -54,7 +54,7 @@ public class NonScheduledExecutorServiceExceptionLogger implements ExecutorServi
 		service.shutdown();
 	}
 
-	@NotNull
+	@NonNull
 	@Override
 	public List<Runnable> shutdownNow()
 	{
@@ -74,61 +74,61 @@ public class NonScheduledExecutorServiceExceptionLogger implements ExecutorServi
 	}
 
 	@Override
-	public boolean awaitTermination(long timeout, @NotNull TimeUnit unit) throws InterruptedException
+	public boolean awaitTermination(long timeout, @NonNull TimeUnit unit) throws InterruptedException
 	{
 		return service.awaitTermination(timeout, unit);
 	}
 
 	@Override
-	public void execute(@NotNull Runnable command)
+	public void execute(@NonNull Runnable command)
 	{
 		service.execute(wrap(command));
 	}
 
-	@NotNull
+	@NonNull
 	@Override
-	public <T> Future<T> submit(@NotNull Callable<T> task)
+	public <T> Future<T> submit(@NonNull Callable<T> task)
 	{
 		return service.submit(CallableExceptionLogger.wrap(task));
 	}
 
-	@NotNull
+	@NonNull
 	@Override
-	public <T> Future<T> submit(@NotNull Runnable task, T result)
+	public <T> Future<T> submit(@NonNull Runnable task, T result)
 	{
 		return service.submit(wrap(task), result);
 	}
 
-	@NotNull
+	@NonNull
 	@Override
-	public Future<?> submit(@NotNull Runnable task)
+	public Future<?> submit(@NonNull Runnable task)
 	{
 		return service.submit(wrap(task));
 	}
 
-	@NotNull
+	@NonNull
 	@Override
-	public <T> List<Future<T>> invokeAll(@NotNull Collection<? extends Callable<T>> tasks) throws InterruptedException
+	public <T> List<Future<T>> invokeAll(@NonNull Collection<? extends Callable<T>> tasks) throws InterruptedException
 	{
 		return service.invokeAll(tasks);
 	}
 
-	@NotNull
+	@NonNull
 	@Override
-	public <T> List<Future<T>> invokeAll(@NotNull Collection<? extends Callable<T>> tasks, long timeout, @NotNull TimeUnit unit) throws InterruptedException
+	public <T> List<Future<T>> invokeAll(@NonNull Collection<? extends Callable<T>> tasks, long timeout, @NonNull TimeUnit unit) throws InterruptedException
 	{
 		return service.invokeAll(tasks, timeout, unit);
 	}
 
-	@NotNull
+	@NonNull
 	@Override
-	public <T> T invokeAny(@NotNull Collection<? extends Callable<T>> tasks) throws InterruptedException, ExecutionException
+	public <T> T invokeAny(@NonNull Collection<? extends Callable<T>> tasks) throws InterruptedException, ExecutionException
 	{
 		return service.invokeAny(tasks);
 	}
 
 	@Override
-	public <T> T invokeAny(@NotNull Collection<? extends Callable<T>> tasks, long timeout, @NotNull TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException
+	public <T> T invokeAny(@NonNull Collection<? extends Callable<T>> tasks, long timeout, @NonNull TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException
 	{
 		return service.invokeAny(tasks, timeout, unit);
 	}

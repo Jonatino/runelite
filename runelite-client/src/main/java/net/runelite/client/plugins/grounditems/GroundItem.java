@@ -25,8 +25,8 @@
 package net.runelite.client.plugins.grounditems;
 
 import java.time.Instant;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Value;
@@ -46,7 +46,7 @@ class GroundItem
 	private int gePrice;
 	private int offset;
 	private boolean tradeable;
-	@Nonnull
+	@NonNull
 	private LootType lootType;
 	@Nullable
 	private Instant spawnTime;

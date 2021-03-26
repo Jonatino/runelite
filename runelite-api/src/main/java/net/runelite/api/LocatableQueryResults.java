@@ -26,7 +26,7 @@ package net.runelite.api;
 
 import java.util.Collection;
 import java.util.Comparator;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class LocatableQueryResults<EntityType extends Locatable> extends QueryResults<EntityType>
 {

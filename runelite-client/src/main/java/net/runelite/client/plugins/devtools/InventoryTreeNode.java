@@ -24,7 +24,7 @@
  */
 package net.runelite.client.plugins.devtools;
 
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import javax.swing.tree.DefaultMutableTreeNode;
 import lombok.Getter;
 

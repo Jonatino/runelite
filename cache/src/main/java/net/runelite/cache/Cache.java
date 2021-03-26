@@ -26,18 +26,14 @@ package net.runelite.cache;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import net.runelite.cache.fs.Store;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
 
 public class Cache
 {
 	public static void main(String[] args) throws IOException
 	{
-		Options options = new Options();
+/*		Options options = new Options();
 
 		options.addOption("c", "cache", true, "cache base");
 
@@ -118,7 +114,7 @@ public class Cache
 		else
 		{
 			System.err.println("Nothing to do");
-		}
+		}*/
 	}
 
 	private static Store loadStore(String cache) throws IOException

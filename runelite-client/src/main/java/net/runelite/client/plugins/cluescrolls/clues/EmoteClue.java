@@ -29,8 +29,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Getter;
 import net.runelite.api.Client;
 import static net.runelite.api.EquipmentInventorySlot.*;
@@ -193,18 +193,18 @@ public class EmoteClue extends ClueScroll implements TextClueScroll, LocationClu
 	private final Emote secondEmote;
 	private final ItemRequirement[] itemRequirements;
 
-	private EmoteClue(String text, String locationName, STASHUnit stashUnit, WorldPoint location, Emote firstEmote, @Nonnull ItemRequirement... itemRequirements)
+	private EmoteClue(String text, String locationName, STASHUnit stashUnit, WorldPoint location, Emote firstEmote, @NonNull ItemRequirement... itemRequirements)
 	{
 		this(text, locationName, stashUnit, location, firstEmote, null, itemRequirements);
 	}
 
-	private EmoteClue(String text, String locationName, STASHUnit stashUnit, WorldPoint location, Enemy enemy, Emote firstEmote, @Nonnull ItemRequirement... itemRequirements)
+	private EmoteClue(String text, String locationName, STASHUnit stashUnit, WorldPoint location, Enemy enemy, Emote firstEmote, @NonNull ItemRequirement... itemRequirements)
 	{
 		this(text, locationName, stashUnit, location, firstEmote, null, itemRequirements);
 		setEnemy(enemy);
 	}
 
-	private EmoteClue(String text, String locationName, STASHUnit stashUnit, WorldPoint location, Emote firstEmote, Emote secondEmote, @Nonnull ItemRequirement... itemRequirements)
+	private EmoteClue(String text, String locationName, STASHUnit stashUnit, WorldPoint location, Emote firstEmote, Emote secondEmote, @NonNull ItemRequirement... itemRequirements)
 	{
 		this.text = text;
 		this.locationName = locationName;
@@ -215,7 +215,7 @@ public class EmoteClue extends ClueScroll implements TextClueScroll, LocationClu
 		this.itemRequirements = itemRequirements;
 	}
 
-	private EmoteClue(String text, String locationName, @Nullable STASHUnit stashUnit, WorldPoint location, Emote firstEmote, Emote secondEmote, @Nonnull Varbits firePit, @Nonnull ItemRequirement... itemRequirements)
+	private EmoteClue(String text, String locationName, @Nullable STASHUnit stashUnit, WorldPoint location, Emote firstEmote, Emote secondEmote, @NonNull Varbits firePit, @NonNull ItemRequirement... itemRequirements)
 	{
 		this(text, locationName, stashUnit, location, firstEmote, secondEmote, itemRequirements);
 		setRequiresLight(true);

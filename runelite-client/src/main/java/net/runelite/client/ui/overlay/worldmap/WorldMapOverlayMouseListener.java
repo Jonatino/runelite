@@ -24,11 +24,11 @@
  */
 package net.runelite.client.ui.overlay.worldmap;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.util.List;
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import javax.swing.SwingUtilities;
 import net.runelite.api.Client;
 import net.runelite.api.Point;

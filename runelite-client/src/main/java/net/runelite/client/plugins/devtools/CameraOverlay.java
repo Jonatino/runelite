@@ -26,7 +26,7 @@ package net.runelite.client.plugins.devtools;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.client.ui.overlay.OverlayPanel;
 import net.runelite.client.ui.overlay.OverlayPosition;

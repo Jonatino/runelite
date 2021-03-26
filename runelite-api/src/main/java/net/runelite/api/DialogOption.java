@@ -1,6 +1,6 @@
 package net.runelite.api;
 
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.Arrays;
 
 public enum DialogOption

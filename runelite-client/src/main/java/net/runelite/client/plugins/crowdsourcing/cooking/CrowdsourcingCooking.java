@@ -25,7 +25,7 @@
 
 package net.runelite.client.plugins.crowdsourcing.cooking;
 
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.InventoryID;

@@ -27,7 +27,7 @@ package net.runelite.client.plugins.minimap;
 import com.google.inject.Provides;
 import java.awt.Color;
 import java.util.Arrays;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.ScriptID;

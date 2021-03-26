@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.party;
 
 import java.util.UUID;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import net.runelite.client.plugins.party.data.PartyData;
 
 public interface PartyPluginService

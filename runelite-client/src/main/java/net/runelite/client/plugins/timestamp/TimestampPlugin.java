@@ -32,7 +32,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.Getter;
 import net.runelite.api.Client;
 import net.runelite.api.MessageNode;

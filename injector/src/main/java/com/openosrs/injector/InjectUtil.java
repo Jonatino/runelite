@@ -8,6 +8,8 @@
 package com.openosrs.injector;
 
 import com.openosrs.injector.injection.InjectData;
+import static com.openosrs.injector.rsapi.RSApi.API_BASE;
+import static com.openosrs.injector.rsapi.RSApi.RL_API_BASE;
 import com.openosrs.injector.rsapi.RSApiClass;
 import com.openosrs.injector.rsapi.RSApiMethod;
 import java.util.List;
@@ -41,9 +43,7 @@ import net.runelite.asm.pool.Class;
 import net.runelite.asm.signature.Signature;
 import net.runelite.deob.DeobAnnotations;
 import net.runelite.deob.deobfuscators.arithmetic.DMath;
-import org.jetbrains.annotations.Nullable;
-import static com.openosrs.injector.rsapi.RSApi.API_BASE;
-import static com.openosrs.injector.rsapi.RSApi.RL_API_BASE;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public interface InjectUtil
 {

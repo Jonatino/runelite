@@ -32,7 +32,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import javax.inject.Singleton;
+import com.google.inject.Singleton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
@@ -71,7 +71,7 @@ public class LinkBrowser
 				log.debug("Opened url through xdg-open to {}", url);
 				return;
 			}
-			
+
 			log.warn("LinkBrowser.browse() could not open {}", url);
 			showMessageBox("Unable to open link. Press 'OK' and the link will be copied to your clipboard.", url);
 		}).start();
@@ -102,7 +102,7 @@ public class LinkBrowser
 				log.debug("Opened directory through xdg-open to {}", directory);
 				return;
 			}
-			
+
 			log.warn("LinkBrowser.open() could not open {}", directory);
 			showMessageBox("Unable to open folder. Press 'OK' and the folder directory will be copied to your clipboard.", directory);
 		}).start();

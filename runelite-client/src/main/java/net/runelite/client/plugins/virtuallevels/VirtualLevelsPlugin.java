@@ -26,7 +26,7 @@
 package net.runelite.client.plugins.virtuallevels;
 
 import com.google.inject.Provides;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.Experience;
 import net.runelite.api.Skill;

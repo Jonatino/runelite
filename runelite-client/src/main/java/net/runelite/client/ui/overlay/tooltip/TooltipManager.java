@@ -24,9 +24,9 @@
  */
 package net.runelite.client.ui.overlay.tooltip;
 
+import com.google.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Singleton;
 import lombok.Getter;
 
 @Singleton

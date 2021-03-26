@@ -34,8 +34,8 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -350,7 +350,7 @@ public class TableComponent implements LayoutableRenderableEntity
 		columns.get(col).setAlignment(alignment);
 	}
 
-	public void setColumnAlignments(@Nonnull final TableAlignment... alignments)
+	public void setColumnAlignments(@NonNull final TableAlignment... alignments)
 	{
 		ensureColumnSize(alignments.length);
 		for (int i = 0; i < alignments.length; i++)
@@ -399,7 +399,7 @@ public class TableComponent implements LayoutableRenderableEntity
 	}
 
 	// Helper functions for cleaner overlay code
-	public void addRow(@Nonnull final String... cells)
+	public void addRow(@NonNull final String... cells)
 	{
 		final List<TableElement> elements = new ArrayList<>();
 		for (final String cell : cells)
@@ -413,7 +413,7 @@ public class TableComponent implements LayoutableRenderableEntity
 		this.rows.add(row);
 	}
 
-	private void addRows(@Nonnull final String[]... rows)
+	private void addRows(@NonNull final String[]... rows)
 	{
 		for (String[] row : rows)
 		{
@@ -426,19 +426,19 @@ public class TableComponent implements LayoutableRenderableEntity
 		this.rows.addAll(Arrays.asList(rows));
 	}
 
-	public void setRows(@Nonnull final String[]... elements)
+	public void setRows(@NonNull final String[]... elements)
 	{
 		this.rows.clear();
 		addRows(elements);
 	}
 
-	public void setRows(@Nonnull final TableRow... elements)
+	public void setRows(@NonNull final TableRow... elements)
 	{
 		this.rows.clear();
 		this.rows.addAll(Arrays.asList(elements));
 	}
 
-	private void addColumn(@Nonnull final String col)
+	private void addColumn(@NonNull final String col)
 	{
 		this.columns.add(TableElement.builder().content(col).build());
 	}
@@ -448,13 +448,13 @@ public class TableComponent implements LayoutableRenderableEntity
 		this.columns.addAll(Arrays.asList(columns));
 	}
 
-	public void setColumns(@Nonnull final TableElement... elements)
+	public void setColumns(@NonNull final TableElement... elements)
 	{
 		this.columns.clear();
 		this.columns.addAll(Arrays.asList(elements));
 	}
 
-	public void setColumns(@Nonnull final String... columns)
+	public void setColumns(@NonNull final String... columns)
 	{
 		this.columns.clear();
 		for (String col : columns)

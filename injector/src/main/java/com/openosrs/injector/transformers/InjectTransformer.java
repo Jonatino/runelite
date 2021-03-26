@@ -11,14 +11,14 @@ import com.google.common.base.Stopwatch;
 import com.openosrs.injector.injection.InjectData;
 import lombok.RequiredArgsConstructor;
 import net.runelite.asm.Named;
-import org.gradle.api.logging.Logger;
-import org.gradle.api.logging.Logging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RequiredArgsConstructor
 public abstract class InjectTransformer implements Named
 {
 	protected final InjectData inject;
-	protected final Logger log = Logging.getLogger(this.getClass());
+	protected final Logger log = LoggerFactory.getLogger(this.getClass());
 	private Stopwatch stopwatch;
 
 	public final void transform()

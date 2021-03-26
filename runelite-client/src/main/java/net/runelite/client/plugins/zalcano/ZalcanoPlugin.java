@@ -26,7 +26,7 @@ package net.runelite.client.plugins.zalcano;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.Getter;
 import net.runelite.api.Actor;
 import net.runelite.api.Client;

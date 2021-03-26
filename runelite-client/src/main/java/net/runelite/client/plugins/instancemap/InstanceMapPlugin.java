@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.instancemap;
 
 import com.google.inject.Binder;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.WidgetMenuOptionClicked;
 import static net.runelite.api.widgets.WidgetInfo.WORLD_MAP_OPTION;

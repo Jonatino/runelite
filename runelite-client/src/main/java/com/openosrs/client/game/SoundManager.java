@@ -26,7 +26,7 @@
 package com.openosrs.client.game;
 
 import java.io.IOException;
-import javax.inject.Singleton;
+import com.google.inject.Singleton;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;

@@ -25,7 +25,7 @@
  */
 package net.runelite.client.plugins.bosstimer;
 
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.NPC;
 import net.runelite.api.events.NpcDespawned;

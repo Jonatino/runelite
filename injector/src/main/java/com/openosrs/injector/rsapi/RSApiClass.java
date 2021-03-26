@@ -18,7 +18,7 @@ import net.runelite.asm.Annotation;
 import net.runelite.asm.pool.Class;
 import net.runelite.asm.pool.Method;
 import net.runelite.asm.signature.Signature;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
@@ -90,7 +90,7 @@ public class RSApiClass extends ClassVisitor implements Iterable<RSApiMethod>
 		to.addAll(imported);
 	}
 
-	@NotNull
+	@NonNull
 	public Iterator<RSApiMethod> iterator()
 	{
 		return this.methods.iterator();

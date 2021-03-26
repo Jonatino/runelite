@@ -29,7 +29,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.time.Duration;
 import java.time.Instant;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.ObjectID;
 import net.runelite.api.Point;
 import net.runelite.client.ui.overlay.Overlay;

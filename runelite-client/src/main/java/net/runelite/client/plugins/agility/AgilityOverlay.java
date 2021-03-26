@@ -32,7 +32,7 @@ import java.awt.Polygon;
 import java.awt.Shape;
 import java.util.List;
 import java.util.Set;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.NPC;
 import net.runelite.api.NPCComposition;

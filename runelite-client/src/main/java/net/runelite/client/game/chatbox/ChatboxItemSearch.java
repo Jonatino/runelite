@@ -27,13 +27,13 @@ package net.runelite.client.game.chatbox;
 
 import com.google.common.primitives.Ints;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
-import javax.inject.Singleton;
 import lombok.Getter;
 import lombok.Value;
 import net.runelite.api.Client;

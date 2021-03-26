@@ -5,7 +5,7 @@ import com.openosrs.client.events.OPRSRepositoryChanged;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.runelite.client.eventbus.EventBus;

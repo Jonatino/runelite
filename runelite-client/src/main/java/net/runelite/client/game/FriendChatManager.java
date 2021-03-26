@@ -27,15 +27,15 @@ package net.runelite.client.game;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import net.runelite.api.FriendsChatMember;
 import net.runelite.api.FriendsChatManager;
 import net.runelite.api.FriendsChatRank;
@@ -78,7 +78,7 @@ public class FriendChatManager
 		.build(new CacheLoader<String, FriendsChatRank>()
 		{
 			@Override
-			public FriendsChatRank load(@Nonnull String key)
+			public FriendsChatRank load(@NonNull String key)
 			{
 				final FriendsChatManager friendsChatManager = client.getFriendsChatManager();
 				if (friendsChatManager == null)

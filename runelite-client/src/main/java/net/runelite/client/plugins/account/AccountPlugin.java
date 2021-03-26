@@ -26,7 +26,7 @@ package net.runelite.client.plugins.account;
 
 import java.awt.image.BufferedImage;
 import java.util.concurrent.ScheduledExecutorService;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import javax.swing.JOptionPane;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.account.AccountSession;

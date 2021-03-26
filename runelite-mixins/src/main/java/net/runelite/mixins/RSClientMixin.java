@@ -35,9 +35,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.inject.Named;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.EnumComposition;
 import net.runelite.api.Friend;
@@ -2037,7 +2037,7 @@ public abstract class RSClientMixin implements RSClient
 
 	@Inject
 	@Override
-	@Nonnull
+	@NonNull
 	public ItemComposition getItemComposition(int id)
 	{
 		assert this.isClientThread() : "getItemComposition must be called on client thread";
@@ -2046,7 +2046,7 @@ public abstract class RSClientMixin implements RSClient
 
 	@Inject
 	@Override
-	@Nonnull
+	@NonNull
 	public ItemComposition getItemDefinition(int id)
 	{
 		return getItemComposition(id);
@@ -2192,4 +2192,3 @@ public abstract class RSClientMixin implements RSClient
 		client.getCallbacks().post(new WidgetClosed(iface.getId(), iface.getModalMode(), willUnload));
 	}
 }
-

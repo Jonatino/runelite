@@ -34,7 +34,7 @@ import java.util.function.Consumer;
 import net.runelite.asm.attributes.Code;
 import net.runelite.asm.signature.Signature;
 import static net.runelite.deob.DeobAnnotations.*;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class ClassGroup implements Iterable<ClassFile>
 {
@@ -160,7 +160,7 @@ public class ClassGroup implements Iterable<ClassFile>
 		return findClass(name);
 	}
 
-	@NotNull
+	@NonNull
 	@Override
 	public Iterator<ClassFile> iterator()
 	{

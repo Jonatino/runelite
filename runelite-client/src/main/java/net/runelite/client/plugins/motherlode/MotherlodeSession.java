@@ -26,7 +26,7 @@ package net.runelite.client.plugins.motherlode;
 
 import java.time.Duration;
 import java.time.Instant;
-import javax.inject.Singleton;
+import com.google.inject.Singleton;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

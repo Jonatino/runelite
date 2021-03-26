@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.config;
 
 import java.awt.image.BufferedImage;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import javax.inject.Provider;
 import javax.swing.SwingUtilities;
 import net.runelite.api.MenuAction;

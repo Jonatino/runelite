@@ -26,7 +26,7 @@ package net.runelite.client.plugins.itemcharges;
 
 import com.google.common.collect.ImmutableMap;
 import java.util.Map;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import static net.runelite.api.ItemID.*;

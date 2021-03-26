@@ -21,7 +21,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import net.runelite.asm.Type;
 import net.runelite.asm.pool.Class;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.objectweb.asm.ClassReader;
 
 @NoArgsConstructor
@@ -130,7 +130,7 @@ public class RSApi implements Iterable<RSApiClass>
 		return null;
 	}
 
-	@NotNull
+	@NonNull
 	public Iterator<RSApiClass> iterator()
 	{
 		return classes.iterator();

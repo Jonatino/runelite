@@ -27,7 +27,7 @@
 package net.runelite.client.plugins.grandexchange;
 
 import java.awt.BorderLayout;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import lombok.Getter;

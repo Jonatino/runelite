@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import net.runelite.asm.pool.Class;
 import net.runelite.deob.DeobAnnotations;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class Interfaces implements Iterable<Class>
 {
@@ -113,7 +113,7 @@ public class Interfaces implements Iterable<Class>
 		return names;
 	}
 
-	@NotNull
+	@NonNull
 	public Iterator<Class> iterator()
 	{
 		return this.interfaces.iterator();

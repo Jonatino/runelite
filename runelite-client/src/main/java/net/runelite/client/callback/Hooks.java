@@ -37,8 +37,8 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.VolatileImage;
 import java.util.List;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.BufferProvider;
 import net.runelite.api.Client;
@@ -545,7 +545,7 @@ public class Hooks implements Callbacks
 		eventBus.post(fakeXpDrop);
 	}
 
-	
+
 	public static void clearColorBuffer(int x, int y, int width, int height, int color)
 	{
 		BufferProvider bp = client.getBufferProvider();

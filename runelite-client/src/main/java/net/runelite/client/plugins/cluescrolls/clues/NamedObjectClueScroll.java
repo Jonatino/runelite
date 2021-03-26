@@ -24,7 +24,7 @@
  */
 package net.runelite.client.plugins.cluescrolls.clues;
 
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a clue which should highlight objects of a given name rather than a specific ID and location, as some

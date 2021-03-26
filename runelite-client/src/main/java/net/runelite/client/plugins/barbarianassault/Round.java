@@ -26,7 +26,7 @@ package net.runelite.client.plugins.barbarianassault;
 
 import java.time.Duration;
 import java.time.Instant;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;

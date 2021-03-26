@@ -27,7 +27,7 @@ package net.runelite.client.plugins.xtea;
 import com.google.inject.Provides;
 import java.util.HashSet;
 import java.util.Set;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;

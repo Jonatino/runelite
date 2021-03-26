@@ -41,7 +41,7 @@ import java.util.Set;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import joptsimple.internal.Strings;
 import lombok.AccessLevel;
 import lombok.Getter;

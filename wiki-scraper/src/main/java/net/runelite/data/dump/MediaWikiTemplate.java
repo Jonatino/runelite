@@ -33,22 +33,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.annotation.Nullable;
+import javax.xml.transform.Result;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.extern.slf4j.Slf4j;
-import org.petitparser.context.Result;
-import org.petitparser.parser.Parser;
-import org.petitparser.parser.primitive.CharacterParser;
-import org.petitparser.parser.primitive.StringParser;
+import org.xml.sax.Parser;
 
 @Slf4j
 public class MediaWikiTemplate
 {
-	private static final Parser LUA_PARSER;
-	private static final Parser MEDIAWIKI_PARSER;
+	//private static final Parser LUA_PARSER;
+	//private static final Parser MEDIAWIKI_PARSER;
 
 	static
 	{
-		final Parser singleString = CharacterParser.of('\'').seq(CharacterParser.of('\'').neg().plus().flatten()).seq(CharacterParser.of('\''));
+		/*final Parser singleString = CharacterParser.of('\'').seq(CharacterParser.of('\'').neg().plus().flatten()).seq(CharacterParser.of('\''));
 		final Parser doubleString = CharacterParser.of('"').seq(CharacterParser.of('"').neg().plus().flatten()).seq(CharacterParser.of('"'));
 		final Parser string = singleString.or(doubleString).pick(1);
 
@@ -95,7 +93,7 @@ public class MediaWikiTemplate
 			.seq(notOrPair.trim().optional())
 			.pick(1);
 
-		MEDIAWIKI_PARSER = orLine.plus().trim().seq(StringParser.of("}}")).pick(0);
+		MEDIAWIKI_PARSER = orLine.plus().trim().seq(StringParser.of("}}")).pick(0);*/
 	}
 
 	@Nullable
@@ -111,7 +109,7 @@ public class MediaWikiTemplate
 		}
 
 		final Map<String, String> out = new HashMap<>();
-		final Parser wikiParser = StringParser.of("{{")
+		/*final Parser wikiParser = StringParser.of("{{")
 			.seq(StringParser.ofIgnoringCase(name).trim())
 			.seq(MEDIAWIKI_PARSER)
 			.pick(2);
@@ -135,9 +133,9 @@ public class MediaWikiTemplate
 			}
 
 			return null;
-		}
+		}*/
 
-		final List<Map.Entry<String, String>> entries = (List<Map.Entry<String, String>>) parsed.get(0);
+		/*final List<Map.Entry<String, String>> entries = (List<Map.Entry<String, String>>) parsed.get(0);
 
 		for (Map.Entry<String, String> entry : entries)
 		{
@@ -147,7 +145,7 @@ public class MediaWikiTemplate
 			}
 
 			out.put(entry.getKey(), entry.getValue());
-		}
+		}*/
 
 		if (out.isEmpty())
 		{
@@ -161,7 +159,7 @@ public class MediaWikiTemplate
 	public static MediaWikiTemplate parseLua(final String data)
 	{
 		final Map<String, String> out = new HashMap<>();
-		final List<Object> parsed = LUA_PARSER.matchesSkipping(data);
+		/*final List<Object> parsed = LUA_PARSER.matchesSkipping(data);
 
 		if (parsed.isEmpty())
 		{
@@ -185,7 +183,7 @@ public class MediaWikiTemplate
 		for (Map.Entry<String, String> entry : entries)
 		{
 			out.put(entry.getKey(), entry.getValue());
-		}
+		}*/
 
 		if (out.isEmpty())
 		{

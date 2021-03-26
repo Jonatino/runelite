@@ -26,7 +26,7 @@ package net.runelite.api.widgets;
 
 import net.runelite.api.Point;
 import java.awt.Rectangle;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;

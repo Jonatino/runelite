@@ -31,7 +31,7 @@ import java.awt.Graphics2D;
 import java.text.DecimalFormat;
 import java.time.Duration;
 import java.time.Instant;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import static net.runelite.api.AnimationID.COOKING_FIRE;
 import static net.runelite.api.AnimationID.COOKING_RANGE;
 import net.runelite.api.Client;

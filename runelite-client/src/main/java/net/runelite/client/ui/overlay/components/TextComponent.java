@@ -31,7 +31,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.regex.Pattern;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Setter;
 import net.runelite.client.ui.overlay.RenderableEntity;
 import net.runelite.client.util.ColorUtil;

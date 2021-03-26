@@ -27,7 +27,7 @@ package net.runelite.client.ui;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import javax.swing.JPanel;
 import net.runelite.api.Client;
 import net.runelite.api.Constants;

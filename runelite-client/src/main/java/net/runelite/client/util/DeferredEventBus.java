@@ -26,8 +26,8 @@ package net.runelite.client.util;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import net.runelite.client.eventbus.EventBus;
 
 @Singleton

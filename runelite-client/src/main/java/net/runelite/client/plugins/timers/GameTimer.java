@@ -29,7 +29,7 @@ package net.runelite.client.plugins.timers;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.GraphicID;

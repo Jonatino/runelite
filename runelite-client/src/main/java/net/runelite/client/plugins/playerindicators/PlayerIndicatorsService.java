@@ -26,8 +26,8 @@ package net.runelite.client.plugins.playerindicators;
 
 import java.awt.Color;
 import java.util.function.BiConsumer;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import net.runelite.api.Client;
 import net.runelite.api.Player;
 

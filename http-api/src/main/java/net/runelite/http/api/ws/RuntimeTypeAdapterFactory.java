@@ -16,6 +16,7 @@
 
 package net.runelite.http.api.ws;
 
+import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -24,10 +25,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.internal.Streams;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -127,6 +128,8 @@ public final class RuntimeTypeAdapterFactory<T> implements TypeAdapterFactory {
   private final Map<String, Class<?>> labelToSubtype = new LinkedHashMap<String, Class<?>>();
   private final Map<Class<?>, String> subtypeToLabel = new LinkedHashMap<Class<?>, String>();
 
+  private final Gson GSON = new Gson();
+
   private RuntimeTypeAdapterFactory(Class<?> baseType, String typeFieldName) {
     if (typeFieldName == null || baseType == null) {
       throw new NullPointerException();
@@ -198,7 +201,7 @@ public final class RuntimeTypeAdapterFactory<T> implements TypeAdapterFactory {
 
     return new TypeAdapter<R>() {
       @Override public R read(JsonReader in) throws IOException {
-        JsonElement jsonElement = Streams.parse(in);
+        JsonElement jsonElement = JsonParser.parseReader(in);
         JsonElement labelJsonElement = jsonElement.getAsJsonObject().remove(typeFieldName);
         if (labelJsonElement == null) {
           throw new JsonParseException("cannot deserialize " + baseType
@@ -233,7 +236,7 @@ public final class RuntimeTypeAdapterFactory<T> implements TypeAdapterFactory {
         for (Map.Entry<String, JsonElement> e : jsonObject.entrySet()) {
           clone.add(e.getKey(), e.getValue());
         }
-        Streams.write(clone, out);
+		  GSON.toJson(clone, out);
       }
     }.nullSafe();
   }

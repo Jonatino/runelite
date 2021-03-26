@@ -25,7 +25,7 @@
 
 package net.runelite.client.plugins.crowdsourcing.dialogue;
 
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.widgets.Widget;

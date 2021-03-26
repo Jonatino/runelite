@@ -24,8 +24,8 @@
  */
 package net.runelite.client.plugins.itemstats;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 @Singleton
 class ItemStatChangesServiceImpl implements ItemStatChangesService

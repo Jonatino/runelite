@@ -27,7 +27,7 @@ package net.runelite.client.plugins.keyremapping;
 
 import com.google.inject.Provides;
 import java.awt.Color;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;

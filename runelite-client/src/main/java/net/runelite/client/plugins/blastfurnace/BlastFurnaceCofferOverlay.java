@@ -26,7 +26,7 @@ package net.runelite.client.plugins.blastfurnace;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
 import static net.runelite.api.Varbits.BLAST_FURNACE_COFFER;

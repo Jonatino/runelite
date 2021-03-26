@@ -24,12 +24,12 @@
  */
 package net.runelite.client.input;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import net.runelite.client.config.RuneLiteConfig;
 
 @Singleton

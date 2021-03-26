@@ -25,15 +25,19 @@
 
 description = "RuneLite API"
 
+plugins {
+    id("org.checkerframework") version "0.5.17"
+}
+
 dependencies {
-    annotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.4")
+    annotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.18")
 
-    compileOnly(group = "org.projectlombok", name = "lombok", version = "1.18.4")
+    compileOnly(group = "org.projectlombok", name = "lombok", version = "1.18.18")
+    compileOnly(group ="org.checkerframework", name = "checker-qual", version = "3.11.0")
 
-    implementation(group = "com.google.code.findbugs", name = "jsr305", version = "3.0.2")
     implementation(group = "com.google.guava", name = "guava", version = "23.2-jre")
-    implementation(group = "org.apache.commons", name = "commons-text", version = "1.2")
-    implementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.12")
+    implementation(group = "org.apache.commons", name = "commons-text", version = "1.9")
+    implementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.30")
 
     testImplementation(group = "junit", name = "junit", version = "4.12")
 }

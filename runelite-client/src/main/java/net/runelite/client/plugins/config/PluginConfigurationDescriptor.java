@@ -24,7 +24,7 @@
  */
 package net.runelite.client.plugins.config;
 
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import javax.swing.JMenuItem;
 import lombok.Value;
 import net.runelite.client.config.Config;

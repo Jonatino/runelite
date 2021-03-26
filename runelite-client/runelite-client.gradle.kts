@@ -29,6 +29,7 @@ import java.util.Date
 
 plugins {
     id("com.github.johnrengelman.shadow") version "6.1.0"
+    id("org.checkerframework") version "0.5.17"
     java
 }
 
@@ -43,36 +44,38 @@ apply<BootstrapPlugin>()
 description = "RuneLite Client"
 
 dependencies {
-    annotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.4")
+    annotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.18")
     annotationProcessor(group = "org.pf4j", name = "pf4j", version = "3.5.0")
 
     api(project(":runelite-api"))
 
     compileOnly(group = "javax.annotation", name = "javax.annotation-api", version = "1.3.2")
-    compileOnly(group = "org.projectlombok", name = "lombok", version = "1.18.4")
+    compileOnly(group = "org.projectlombok", name = "lombok", version = "1.18.18")
     compileOnly(group = "net.runelite", name = "orange-extensions", version = "1.0")
+    compileOnly(group ="org.checkerframework", name = "checker-qual", version = "3.11.0")
 
     implementation(project(":http-api"))
     implementation(project(":runelite-jshell"))
-    implementation(group = "ch.qos.logback", name = "logback-classic", version = "1.2.3")
-    implementation(group = "com.google.code.gson", name = "gson", version = "2.8.5")
+    implementation(group = "com.google.code.gson", name = "gson", version = "2.8.6")
     implementation(group = "com.google.guava", name = "guava", version = "23.2-jre")
-    implementation(group = "com.google.inject", name = "guice", version = "4.1.0", classifier = "no_aop")
+    implementation(group = "com.google.inject", name = "guice", version = "5.0.1") {
+        exclude("aopalliance", "aopalliance")
+    }
     implementation(group = "com.h2database", name = "h2", version = "1.4.200")
     implementation(group = "com.jakewharton.rxrelay3", name = "rxrelay", version = "3.0.0")
-    implementation(group = "com.squareup.okhttp3", name = "okhttp", version = "3.7.0")
+    implementation(group = "com.squareup.okhttp3", name = "okhttp", version = "4.9.1")
+    implementation(group = "com.squareup.okio", name = "okio", version = "2.10.0")
     implementation(group = "io.reactivex.rxjava3", name = "rxjava", version = "3.0.10")
     implementation(group = "net.java.dev.jna", name = "jna", version = "5.7.0")
-    implementation(group = "org.jgroups", name = "jgroups", version = "5.0.4.Final")
+    implementation(group = "org.jgroups", name = "jgroups", version = "5.1.5.Final")
     implementation(group = "net.java.dev.jna", name = "jna-platform", version = "5.7.0")
     implementation(group = "net.runelite", name = "discord", version = "1.4")
     implementation(group = "net.runelite.pushingpixels", name = "substance", version = "8.0.02")
     implementation(group = "net.sf.jopt-simple", name = "jopt-simple", version = "5.0.1")
-    implementation(group = "org.apache.commons", name = "commons-text", version = "1.2")
+    implementation(group = "org.apache.commons", name = "commons-text", version = "1.9")
     implementation(group = "commons-io", name = "commons-io", version = "2.8.0")
-    implementation(group = "org.jetbrains", name = "annotations", version = "20.1.0")
     implementation(group = "com.github.zafarkhaja", name = "java-semver", version = "0.9.0")
-    implementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.12")
+    implementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.30")
     implementation(group = "org.pf4j", name = "pf4j", version = "3.6.0") {
         exclude(group = "org.slf4j")
     }
@@ -95,9 +98,9 @@ dependencies {
     runtimeOnly(group = "net.runelite.jocl", name = "jocl", version = "1.0", classifier = "macos-x64")
     runtimeOnly(group = "net.runelite.jocl", name = "jocl", version = "1.0", classifier = "macos-arm64")
 
-    testAnnotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.4")
+    testAnnotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.18")
 
-    testCompileOnly(group = "org.projectlombok", name = "lombok", version = "1.18.4")
+    testCompileOnly(group = "org.projectlombok", name = "lombok", version = "1.18.18")
 
     testImplementation(group = "com.google.inject.extensions", name = "guice-grapher", version = "4.1.0")
     testImplementation(group = "com.google.inject.extensions", name = "guice-testlib", version = "4.1.0")
@@ -106,7 +109,7 @@ dependencies {
     testImplementation(group = "org.mockito", name = "mockito-core", version = "3.1.0")
     testImplementation(group = "org.mockito", name = "mockito-inline", version = "3.1.0")
     testImplementation(group = "com.squareup.okhttp3", name = "mockwebserver", version = "3.7.0")
-    testImplementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.12")
+    testImplementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.30")
 }
 
 fun formatDate(date: Date?) = with(date ?: Date()) {
@@ -187,4 +190,9 @@ tasks {
         enableAssertions = true
         mainClass.set("net.runelite.client.RuneLite")
     }
+}
+
+extraJavaModuleInfo {
+    //"net.runelite", name = "discord", version = "1.4"
+    automaticModule("net.runelite.discord-1.4.jar", "net.runelite.discord")
 }

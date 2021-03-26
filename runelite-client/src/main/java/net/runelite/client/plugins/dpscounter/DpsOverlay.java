@@ -30,7 +30,7 @@ import java.awt.Graphics2D;
 import java.text.DecimalFormat;
 import java.time.Duration;
 import java.util.Map;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import static net.runelite.api.MenuAction.RUNELITE_OVERLAY;
 import net.runelite.api.Player;

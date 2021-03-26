@@ -24,13 +24,13 @@
  */
 package net.runelite.client.game;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
-import javax.annotation.Nullable;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.http.api.npc.NpcInfo;
 import net.runelite.http.api.npc.NpcInfoClient;

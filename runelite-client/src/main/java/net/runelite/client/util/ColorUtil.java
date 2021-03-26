@@ -27,7 +27,7 @@ package net.runelite.client.util;
 import com.google.common.primitives.Ints;
 import java.awt.Color;
 import java.util.regex.Pattern;
-import javax.annotation.Nonnull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class ColorUtil
 {
@@ -241,7 +241,7 @@ public class ColorUtil
 	 * @param object object with hashCode
 	 * @return color
 	 */
-	public static Color fromObject(@Nonnull final Object object)
+	public static Color fromObject(@NonNull final Object object)
 	{
 		int i = object.hashCode();
 		float h = (i % 360) / 360f;

@@ -27,6 +27,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 
 plugins {
     id("com.github.hauner.jarTest") version "1.0.1"
+    id("org.checkerframework") version "0.5.17"
 }
 
 val deobjars = configurations.create("deobjars")
@@ -35,17 +36,18 @@ dependencies {
     deobjars(group = "net.runelite.rs", name = "vanilla", version = ProjectVersions.rsversion.toString())
     deobjars(project(":runescape-client"))
 
-    annotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.4")
+    annotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.18")
+
+    compileOnly(group ="org.checkerframework", name = "checker-qual", version = "3.11.0")
 
     implementation(project(":runelite-api"))
     implementation(project(":runescape-api"))
-    implementation(group = "org.jetbrains", name = "annotations", version = "20.1.0")
     implementation(group = "org.ow2.asm", name = "asm", version = "9.0")
     implementation(group = "org.ow2.asm", name = "asm-util", version = "9.0")
     implementation(group = "net.runelite", name = "fernflower", version = "07082019")
     implementation(group = "com.google.code.gson", name = "gson", version = "2.8.6")
     implementation(group = "com.google.guava", name = "guava", version = "23.2-jre")
-    implementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.12")
+    implementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.30")
 
     runtimeOnly(group = "org.slf4j", name = "slf4j-simple", version = "1.7.12")
 

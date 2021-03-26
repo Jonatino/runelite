@@ -30,7 +30,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Actor;
 import static net.runelite.api.AnimationID.*;
 import net.runelite.api.Client;

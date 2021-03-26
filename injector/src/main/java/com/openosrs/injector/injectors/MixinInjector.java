@@ -32,6 +32,7 @@ package com.openosrs.injector.injectors;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableMap;
+import com.google.inject.Provider;
 import com.openosrs.injector.InjectException;
 import com.openosrs.injector.InjectUtil;
 import com.openosrs.injector.injection.InjectData;
@@ -40,9 +41,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.ServiceLoader;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
-import javax.inject.Provider;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import lombok.Value;
 import net.runelite.asm.Annotation;
 import net.runelite.asm.ClassFile;
@@ -73,7 +74,7 @@ import net.runelite.asm.attributes.code.instructions.PutField;
 import net.runelite.asm.signature.Signature;
 import net.runelite.deob.DeobAnnotations;
 import net.runelite.deob.util.JarUtil;
-import org.jetbrains.annotations.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.objectweb.asm.Opcodes;
 
 public class MixinInjector extends AbstractInjector
@@ -776,7 +777,7 @@ public class MixinInjector extends AbstractInjector
 	@Value
 	private static class CopiedMethod
 	{
-		@Nonnull
+		@NonNull
 		Method copy;
 		@Nullable Integer garbage;
 	}
@@ -784,14 +785,14 @@ public class MixinInjector extends AbstractInjector
 	@Value
 	private static class ShadowField
 	{
-		@Nonnull
+		@NonNull
 		Field targetField;
 		@Nullable Number obfuscatedGetter;
 	}
 
 	private static Provider<ClassFile> mixinProvider(ClassFile mixin)
 	{
-		return new Provider<>()
+		return new Provider()
 		{
 			byte[] bytes = null;
 

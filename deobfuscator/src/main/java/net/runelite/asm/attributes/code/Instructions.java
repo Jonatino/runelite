@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import net.runelite.asm.attributes.Code;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class Instructions implements Iterable<Instruction>
 {
@@ -195,7 +195,7 @@ public class Instructions implements Iterable<Instruction>
 		return this.instructions.size();
 	}
 
-	@NotNull
+	@NonNull
 	public Iterator<Instruction> iterator()
 	{
 		return this.instructions.iterator();

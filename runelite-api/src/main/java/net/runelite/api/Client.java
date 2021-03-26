@@ -31,8 +31,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import net.runelite.api.annotations.VisibleForExternalPlugins;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
@@ -400,7 +400,7 @@ public interface Client extends GameEngine
 	 * @return the corresponding item composition
 	 * @see ItemID
 	 */
-	@Nonnull
+	@NonNull
 	ItemComposition getItemComposition(int id);
 
 	/**
@@ -410,7 +410,7 @@ public interface Client extends GameEngine
 	 * @return the corresponding item composition
 	 * @see ItemID
 	 */
-	@Nonnull
+	@NonNull
 	ItemComposition getItemDefinition(int id);
 
 	/**
@@ -2076,12 +2076,12 @@ public interface Client extends GameEngine
 	/**
 	 * Sets values related to jagex compliance
 	 */
-	void setComplianceValue(@Nonnull String key, boolean value);
+	void setComplianceValue(@NonNull String key, boolean value);
 
 	/**
 	 * Gets values related to jagex compliance
 	 */
-	boolean getComplianceValue(@Nonnull String key);
+	boolean getComplianceValue(@NonNull String key);
 
 	/**
 	 * Gets the status of client mirror

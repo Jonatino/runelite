@@ -30,6 +30,7 @@
 package com.openosrs.injector.injectors;
 
 import com.google.common.collect.Lists;
+import com.google.inject.Provider;
 import com.openosrs.injector.InjectException;
 import com.openosrs.injector.InjectUtil;
 import com.openosrs.injector.injection.InjectData;
@@ -37,8 +38,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.ServiceLoader;
 import java.util.Set;
-import javax.inject.Provider;
 import lombok.AllArgsConstructor;
 import net.runelite.asm.Annotation;
 import net.runelite.asm.ClassFile;

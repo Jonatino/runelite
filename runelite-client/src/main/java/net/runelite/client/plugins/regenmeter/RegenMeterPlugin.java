@@ -28,7 +28,7 @@
 package net.runelite.client.plugins.regenmeter;
 
 import com.google.inject.Provides;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.Getter;
 import net.runelite.api.Client;
 import net.runelite.api.Constants;

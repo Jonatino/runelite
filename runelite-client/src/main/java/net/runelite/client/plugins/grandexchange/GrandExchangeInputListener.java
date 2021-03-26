@@ -26,7 +26,7 @@ package net.runelite.client.plugins.grandexchange;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import javax.swing.SwingUtilities;
 import net.runelite.api.Client;
 import net.runelite.api.MenuEntry;

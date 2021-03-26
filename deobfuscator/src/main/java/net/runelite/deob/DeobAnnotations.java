@@ -24,7 +24,7 @@
  */
 package net.runelite.deob;
 
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import net.runelite.asm.attributes.Annotated;
 import net.runelite.asm.ClassFile;
 import net.runelite.asm.Field;
@@ -32,7 +32,7 @@ import net.runelite.asm.Method;
 import net.runelite.asm.Type;
 import net.runelite.asm.Annotation;
 import net.runelite.asm.signature.Signature;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class DeobAnnotations
 {
@@ -63,25 +63,25 @@ public class DeobAnnotations
 	}
 
 	@Nullable
-	public static String getObfuscatedName(@NotNull Annotated an)
+	public static String getObfuscatedName(@NonNull Annotated an)
 	{
 		return getStringValue(an, OBFUSCATED_NAME);
 	}
 
 	@Nullable
-	public static String getExportedName(@NotNull Annotated an)
+	public static String getExportedName(@NonNull Annotated an)
 	{
 		return getStringValue(an, EXPORT);
 	}
 
 	@Nullable
-	public static String getImplements(@NotNull ClassFile cf)
+	public static String getImplements(@NonNull ClassFile cf)
 	{
 		return getStringValue(cf, IMPLEMENTS);
 	}
 
 	@Nullable
-	public static Number getObfuscatedGetter(@NotNull Field field)
+	public static Number getObfuscatedGetter(@NonNull Field field)
 	{
 		final var a = field.findAnnotation(OBFUSCATED_GETTER);
 		if (a == null)
@@ -95,7 +95,7 @@ public class DeobAnnotations
 	}
 
 	@Nullable
-	public static String getDecoder(@NotNull Method method)
+	public static String getDecoder(@NonNull Method method)
 	{
 		Annotation a = method.findAnnotation(OBFUSCATED_SIGNATURE);
 		return a == null ? null : (String) a.get("garbageValue");

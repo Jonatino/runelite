@@ -25,8 +25,8 @@
 package net.runelite.client.plugins.party;
 
 import java.util.UUID;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import net.runelite.client.plugins.party.data.PartyData;
 
 @Singleton

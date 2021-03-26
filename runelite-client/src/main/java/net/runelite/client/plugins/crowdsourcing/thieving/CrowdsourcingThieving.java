@@ -26,7 +26,7 @@
 package net.runelite.client.plugins.crowdsourcing.thieving;
 
 import java.util.regex.Pattern;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.InventoryID;

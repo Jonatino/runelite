@@ -30,13 +30,14 @@
  */
 package com.openosrs.injector.injectors;
 
+import com.google.inject.Provider;
 import com.openosrs.injector.InjectException;
 import com.openosrs.injector.InjectUtil;
 import com.openosrs.injector.injection.InjectData;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-import javax.inject.Provider;
+import java.util.ServiceLoader;
 import net.runelite.asm.Annotation;
 import net.runelite.asm.ClassFile;
 import net.runelite.asm.Method;

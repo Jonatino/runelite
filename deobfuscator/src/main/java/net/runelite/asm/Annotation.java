@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import org.jetbrains.annotations.NotNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.Opcodes;
 
@@ -200,7 +200,7 @@ public class Annotation extends AnnotationVisitor implements Comparable<Annotati
 	}
 
 	@Override
-	public int compareTo(@NotNull Annotation that)
+	public int compareTo(@NonNull Annotation that)
 	{
 		return this.type.toString().compareTo(that.type.toString());
 	}

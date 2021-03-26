@@ -26,7 +26,7 @@ package net.runelite.client.plugins.timers;
 
 import com.google.common.collect.ImmutableList;
 import java.util.Collection;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import net.runelite.api.widgets.WidgetInfo;
 
 enum TeleportWidget

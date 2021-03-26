@@ -27,7 +27,7 @@ package net.runelite.api.coords;
 
 import net.runelite.api.Client;
 import net.runelite.api.Perspective;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Value;
 
 /**

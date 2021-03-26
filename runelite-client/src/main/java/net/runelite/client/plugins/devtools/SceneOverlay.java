@@ -33,7 +33,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import java.util.List;
 import java.util.stream.Stream;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Actor;
 import net.runelite.api.Client;
 import net.runelite.api.NPC;

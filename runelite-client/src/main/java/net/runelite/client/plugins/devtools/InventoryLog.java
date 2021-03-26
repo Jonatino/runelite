@@ -24,7 +24,7 @@
  */
 package net.runelite.client.plugins.devtools;
 
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Value;
 import net.runelite.api.Item;
 
@@ -37,4 +37,3 @@ class InventoryLog
 	Item[] items;
 	int tick;
 }
-

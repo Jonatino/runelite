@@ -24,7 +24,7 @@
  */
 package net.runelite.client.plugins.statusbars;
 
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import com.google.inject.Provides;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.plugins.Plugin;

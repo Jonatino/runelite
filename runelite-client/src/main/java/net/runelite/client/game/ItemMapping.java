@@ -28,7 +28,7 @@ package net.runelite.client.game;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import java.util.Collection;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Getter;
 import static net.runelite.api.ItemID.*;
 

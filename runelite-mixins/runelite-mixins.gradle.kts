@@ -24,10 +24,15 @@
 
 description = "RuneLite Mixins"
 
+plugins {
+    id("org.checkerframework") version "0.5.17"
+}
+
 dependencies {
+    compileOnly(group ="org.checkerframework", name = "checker-qual", version = "3.11.0")
     compileOnly(group = "com.google.guava", name = "guava", version = "23.2-jre")
     compileOnly(group = "javax.inject", name = "javax.inject", version = "1")
-    compileOnly(group = "org.slf4j", name = "slf4j-api", version = "1.7.12")
+    compileOnly(group = "org.slf4j", name = "slf4j-api", version = "1.7.30")
     compileOnly(group = "commons-io", name = "commons-io", version = "2.8.0")
     compileOnly(project(":injection-annotations"))
     compileOnly(project(":runescape-api"))

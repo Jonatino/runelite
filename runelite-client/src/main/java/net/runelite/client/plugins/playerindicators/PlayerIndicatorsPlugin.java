@@ -26,7 +26,7 @@ package net.runelite.client.plugins.playerindicators;
 
 import com.google.inject.Provides;
 import java.awt.Color;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.Value;
 import net.runelite.api.FriendsChatRank;
 import static net.runelite.api.FriendsChatRank.UNRANKED;

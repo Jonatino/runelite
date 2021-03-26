@@ -32,7 +32,7 @@ import java.awt.Image;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.Point;

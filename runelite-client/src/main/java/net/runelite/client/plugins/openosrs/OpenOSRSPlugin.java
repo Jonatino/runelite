@@ -26,12 +26,11 @@
  */
 package net.runelite.client.plugins.openosrs;
 
-import ch.qos.logback.classic.Logger;
 import com.openosrs.client.config.OpenOSRSConfig;
 import net.runelite.client.plugins.openosrs.externals.ExternalPluginManagerPanel;
 import java.awt.image.BufferedImage;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.client.config.Keybind;
@@ -44,6 +43,7 @@ import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.util.HotkeyListener;
 import net.runelite.client.util.ImageUtil;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @PluginDescriptor(

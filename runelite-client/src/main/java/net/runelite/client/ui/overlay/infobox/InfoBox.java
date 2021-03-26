@@ -28,7 +28,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,7 +37,7 @@ import net.runelite.client.ui.overlay.OverlayMenuEntry;
 
 public abstract class InfoBox
 {
-	@Nonnull
+	@NonNull
 	@Getter(AccessLevel.PACKAGE)
 	private final Plugin plugin;
 
@@ -61,7 +61,7 @@ public abstract class InfoBox
 	@Setter
 	private List<OverlayMenuEntry> menuEntries = new ArrayList<>();
 
-	public InfoBox(BufferedImage image, @Nonnull Plugin plugin)
+	public InfoBox(BufferedImage image, @NonNull Plugin plugin)
 	{
 		this.plugin = plugin;
 		setImage(image);

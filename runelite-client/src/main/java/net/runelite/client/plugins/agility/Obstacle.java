@@ -25,7 +25,7 @@
  */
 package net.runelite.client.plugins.agility;
 
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Value;
 import net.runelite.api.Tile;

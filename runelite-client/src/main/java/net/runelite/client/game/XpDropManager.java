@@ -24,10 +24,10 @@
  */
 package net.runelite.client.game;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import java.util.EnumMap;
 import java.util.Map;
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import net.runelite.api.Client;
 import net.runelite.api.Skill;
 import net.runelite.api.events.StatChanged;

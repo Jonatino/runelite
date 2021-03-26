@@ -25,8 +25,8 @@
 package net.runelite.client.plugins.chatcommands;
 
 import java.awt.event.KeyEvent;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import net.runelite.api.Client;
 import net.runelite.api.ScriptID;
 import net.runelite.api.VarClientInt;

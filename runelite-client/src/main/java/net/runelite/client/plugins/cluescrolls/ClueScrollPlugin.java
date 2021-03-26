@@ -40,10 +40,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.inject.Inject;
-import javax.inject.Named;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import joptsimple.internal.Strings;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -980,7 +980,7 @@ public class ClueScrollPlugin extends Plugin
 	 * @param clue   The active clue scroll
 	 * @param object The spawned or scanned object
 	 */
-	private void checkClueNamedObject(@Nullable final ClueScroll clue, @Nonnull final TileObject object)
+	private void checkClueNamedObject(@Nullable final ClueScroll clue, @NonNull final TileObject object)
 	{
 		if (!(clue instanceof NamedObjectClueScroll))
 		{

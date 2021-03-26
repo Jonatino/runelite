@@ -27,10 +27,9 @@ package net.runelite.client.plugins.cluescrolls.clues;
 import com.google.common.collect.ImmutableMap;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Getter;
-import lombok.NonNull;
 import net.runelite.api.Varbits;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
@@ -65,7 +64,7 @@ public class CoordinateClue extends ClueScroll implements TextClueScroll, Locati
 			this.lightSource = null;
 		}
 
-		private CoordinateClueInfo(@Nonnull String directions, Enemy enemy, boolean lightRequired, Varbits lightSource)
+		private CoordinateClueInfo(@NonNull String directions, Enemy enemy, boolean lightRequired, Varbits lightSource)
 		{
 			this.directions = directions;
 			this.enemy = enemy;

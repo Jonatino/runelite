@@ -24,7 +24,7 @@
  */
 package net.runelite.client.plugins.fps;
 
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.events.FocusChanged;
 
 /**

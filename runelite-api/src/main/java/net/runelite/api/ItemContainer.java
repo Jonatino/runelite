@@ -24,8 +24,8 @@
  */
 package net.runelite.api;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents an inventory that contains items.
@@ -37,7 +37,7 @@ public interface ItemContainer extends Node
 	 *
 	 * @return the items held
 	 */
-	@Nonnull
+	@NonNull
 	Item[] getItems();
 
 	/**

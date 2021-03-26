@@ -27,7 +27,7 @@ package net.runelite.client.plugins.xpglobes;
 import com.google.inject.Guice;
 import com.google.inject.testing.fieldbinder.Bind;
 import com.google.inject.testing.fieldbinder.BoundFieldModule;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Experience;
 import net.runelite.api.Skill;
 import net.runelite.api.events.StatChanged;

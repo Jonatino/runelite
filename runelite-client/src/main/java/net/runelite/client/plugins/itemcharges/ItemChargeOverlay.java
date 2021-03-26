@@ -29,7 +29,7 @@ package net.runelite.client.plugins.itemcharges;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.ItemID;
 import net.runelite.api.widgets.WidgetItem;
 import static net.runelite.client.plugins.itemcharges.ItemChargeType.*;

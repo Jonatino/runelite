@@ -45,7 +45,7 @@ import java.util.Queue;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -661,7 +661,7 @@ public class GroundItemsPlugin extends Plugin
 					.append(")");
 			}
 		}
-		
+
 		notifier.notify(notificationStringBuilder.toString());
 	}
 

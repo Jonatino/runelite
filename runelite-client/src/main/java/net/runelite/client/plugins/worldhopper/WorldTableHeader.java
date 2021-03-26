@@ -30,7 +30,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import javax.annotation.Nonnull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -70,7 +70,7 @@ class WorldTableHeader extends JPanel
 	// Determines if this header column is being used to order the list
 	private boolean ordering = false;
 
-	WorldTableHeader(String title, boolean ordered, boolean ascending, @Nonnull Runnable onRefresh)
+	WorldTableHeader(String title, boolean ordered, boolean ascending, @NonNull Runnable onRefresh)
 	{
 		setLayout(new BorderLayout(5, 0));
 		setBorder(new CompoundBorder(

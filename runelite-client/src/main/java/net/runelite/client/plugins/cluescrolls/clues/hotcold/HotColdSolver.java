@@ -28,8 +28,8 @@ package net.runelite.client.plugins.cluescrolls.clues.hotcold;
 import com.google.common.annotations.VisibleForTesting;
 import java.awt.Rectangle;
 import java.util.Set;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Getter;
 import net.runelite.api.coords.WorldPoint;
 
@@ -65,7 +65,7 @@ public class HotColdSolver
 	 * @return A set of {@link HotColdLocation}s which are still possible after the filtering occurs. This return value
 	 *         is the same as would be returned by {@code getPossibleLocations()}.
 	 */
-	public Set<HotColdLocation> signal(@Nonnull final WorldPoint worldPoint, @Nonnull final HotColdTemperature temperature, @Nullable final HotColdTemperatureChange temperatureChange)
+	public Set<HotColdLocation> signal(@NonNull final WorldPoint worldPoint, @NonNull final HotColdTemperature temperature, @Nullable final HotColdTemperatureChange temperatureChange)
 	{
 		// when the strange device reads a temperature, that means that the center of the final dig location
 		// is a range of squares away from the player's current location (Chebyshev AKA Chess-board distance)

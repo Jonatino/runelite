@@ -27,7 +27,7 @@ package net.runelite.client.plugins.barbarianassault;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.runelite.api.Client;

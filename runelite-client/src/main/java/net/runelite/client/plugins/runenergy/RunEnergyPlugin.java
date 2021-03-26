@@ -27,7 +27,7 @@ package net.runelite.client.plugins.runenergy;
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.Provides;
 import java.util.Arrays;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.runelite.api.Client;

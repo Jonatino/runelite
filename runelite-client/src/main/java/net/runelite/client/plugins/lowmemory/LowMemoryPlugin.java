@@ -24,7 +24,7 @@
  */
 package net.runelite.client.plugins.lowmemory;
 
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.events.GameStateChanged;

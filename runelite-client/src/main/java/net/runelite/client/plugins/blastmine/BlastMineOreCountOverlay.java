@@ -27,7 +27,7 @@ package net.runelite.client.plugins.blastmine;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.ItemID;
 import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
@@ -69,7 +69,7 @@ class BlastMineOreCountOverlay extends OverlayPanel
 		{
 			return null;
 		}
-		
+
 		if (config.showOreOverlay())
 		{
 			blastMineWidget.setHidden(true);

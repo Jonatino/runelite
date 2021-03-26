@@ -26,7 +26,7 @@
 package com.openosrs.client.game;
 
 import com.google.common.collect.ImmutableMap;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.runelite.api.ItemID;

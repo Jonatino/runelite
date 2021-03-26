@@ -28,7 +28,7 @@ import com.google.common.collect.ImmutableList;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.List;
-import javax.annotation.Nonnull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import lombok.Getter;
 import net.runelite.api.Item;
 import net.runelite.api.NPC;
@@ -96,10 +96,10 @@ public class FaloTheBardClue extends ClueScroll implements TextClueScroll, NpcCl
 	}
 
 	private final String text;
-	@Nonnull
+	@NonNull
 	private final ItemRequirement[] itemRequirements;
 
-	private FaloTheBardClue(String text, @Nonnull ItemRequirement... itemRequirements)
+	private FaloTheBardClue(String text, @NonNull ItemRequirement... itemRequirements)
 	{
 		this.text = text;
 		this.itemRequirements = itemRequirements;

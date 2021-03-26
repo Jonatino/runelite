@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.groundmarkers;
 
 import java.awt.Color;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Value;
 import net.runelite.api.coords.WorldPoint;
 

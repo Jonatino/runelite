@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.roguesden;
 
 import java.util.HashMap;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.GameState;

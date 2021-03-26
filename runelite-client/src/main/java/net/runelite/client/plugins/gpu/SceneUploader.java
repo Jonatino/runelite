@@ -25,8 +25,8 @@
 package net.runelite.client.plugins.gpu;
 
 import com.google.common.base.Stopwatch;
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.Constants;

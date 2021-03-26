@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.mta.graveyard;
 
 import java.awt.image.BufferedImage;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.InventoryID;
 import net.runelite.api.Item;

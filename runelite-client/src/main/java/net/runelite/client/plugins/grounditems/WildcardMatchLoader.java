@@ -29,7 +29,7 @@ import com.google.common.cache.CacheLoader;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import javax.annotation.Nonnull;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import net.runelite.client.util.WildcardMatcher;
 
 class WildcardMatchLoader extends CacheLoader<NamedQuantity, Boolean>
@@ -45,7 +45,7 @@ class WildcardMatchLoader extends CacheLoader<NamedQuantity, Boolean>
 	}
 
 	@Override
-	public Boolean load(@Nonnull final NamedQuantity key)
+	public Boolean load(@NonNull final NamedQuantity key)
 	{
 		if (Strings.isNullOrEmpty(key.getName()))
 		{

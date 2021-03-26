@@ -31,7 +31,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.Map;
 import java.util.UUID;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.MenuAction;
 import net.runelite.client.plugins.party.data.PartyData;
 import net.runelite.client.ui.overlay.OverlayMenuEntry;

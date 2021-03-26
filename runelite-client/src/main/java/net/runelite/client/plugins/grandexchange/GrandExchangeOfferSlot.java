@@ -36,7 +36,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
@@ -289,4 +289,3 @@ public class GrandExchangeOfferSlot extends JPanel
 		return ColorScheme.PROGRESS_INPROGRESS_COLOR;
 	}
 }
-

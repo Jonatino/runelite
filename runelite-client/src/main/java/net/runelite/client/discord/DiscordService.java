@@ -25,11 +25,11 @@
 package net.runelite.client.discord;
 
 import com.google.common.base.Strings;
+import com.google.inject.name.Named;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.discord.events.DiscordDisconnected;

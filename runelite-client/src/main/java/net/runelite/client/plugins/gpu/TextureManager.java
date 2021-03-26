@@ -26,7 +26,7 @@ package net.runelite.client.plugins.gpu;
 
 import com.jogamp.opengl.GL4;
 import java.nio.ByteBuffer;
-import javax.inject.Singleton;
+import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Texture;
 import net.runelite.api.TextureProvider;

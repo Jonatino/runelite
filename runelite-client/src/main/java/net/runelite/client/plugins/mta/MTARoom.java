@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.mta;
 
 import java.awt.Graphics2D;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 

@@ -24,10 +24,10 @@
  */
 package net.runelite.client.ui.overlay.worldmap;
 
+import com.google.inject.Singleton;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Predicate;
-import javax.inject.Singleton;
 import lombok.AccessLevel;
 import lombok.Getter;
 

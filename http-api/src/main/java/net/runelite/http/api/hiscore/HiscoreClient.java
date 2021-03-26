@@ -34,9 +34,6 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -154,14 +151,14 @@ public class HiscoreClient
 
 	private static HiscoreResult parseResponse(String username, String responseStr) throws IOException
 	{
-		CSVParser parser = CSVParser.parse(responseStr, CSVFormat.DEFAULT);
+		//CSVParser parser = CSVParser.parse(responseStr, CSVFormat.DEFAULT); // TODO find new csv lib which supports jdk 9 modules
 
 		HiscoreResultBuilder hiscoreBuilder = new HiscoreResultBuilder();
 		hiscoreBuilder.setPlayer(username);
 
 		int count = 0;
 
-		for (CSVRecord record : parser.getRecords())
+/*		for (CSVRecord record : parser.getRecords())
 		{
 			if (count++ >= HiscoreSkill.values().length)
 			{
@@ -182,7 +179,7 @@ public class HiscoreClient
 
 			Skill skill = new Skill(rank, level, experience);
 			hiscoreBuilder.setNextSkill(skill);
-		}
+		}*/
 
 		return hiscoreBuilder.build();
 	}

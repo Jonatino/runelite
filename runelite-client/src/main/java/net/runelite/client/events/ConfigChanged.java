@@ -24,7 +24,7 @@
  */
 package net.runelite.client.events;
 
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Data;
 import net.runelite.client.config.RuneScapeProfile;
 

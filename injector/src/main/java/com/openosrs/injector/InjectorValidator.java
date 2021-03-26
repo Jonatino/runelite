@@ -14,14 +14,14 @@ import com.openosrs.injector.rsapi.RSApiMethod;
 import lombok.RequiredArgsConstructor;
 import net.runelite.asm.ClassFile;
 import net.runelite.asm.pool.Class;
-import org.gradle.api.logging.Logger;
-import org.gradle.api.logging.Logging;
 import static com.openosrs.injector.rsapi.RSApi.API_BASE;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RequiredArgsConstructor
 public class InjectorValidator implements Validator
 {
-	private static final Logger log = Logging.getLogger(InjectorValidator.class);
+	private static final Logger log = LoggerFactory.getLogger(InjectorValidator.class);
 	private static final String OK = "OK", ERROR = "ERROR", WTF = "WTF";
 	private final InjectData inject;
 

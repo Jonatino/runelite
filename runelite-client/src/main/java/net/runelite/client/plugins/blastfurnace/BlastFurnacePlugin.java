@@ -28,7 +28,7 @@ package net.runelite.client.plugins.blastfurnace;
 import com.google.inject.Provides;
 import java.time.Duration;
 import java.time.Instant;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.Client;

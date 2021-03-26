@@ -29,7 +29,7 @@ import com.google.common.io.Files;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import net.runelite.client.RuneLite;

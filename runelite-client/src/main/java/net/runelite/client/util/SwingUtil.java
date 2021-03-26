@@ -43,8 +43,8 @@ import java.awt.image.BufferedImage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Enumeration;
 import java.util.function.BiConsumer;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -107,7 +107,7 @@ public class SwingUtil
 	 *
 	 * @param laf the swing look and feel
 	 */
-	public static void setTheme(@Nonnull final LookAndFeel laf)
+	public static void setTheme(@NonNull final LookAndFeel laf)
 	{
 		try
 		{
@@ -125,7 +125,7 @@ public class SwingUtil
 	 *
 	 * @param font the new font to use
 	 */
-	public static void setFont(@Nonnull final Font font)
+	public static void setFont(@NonNull final Font font)
 	{
 		final FontUIResource f = new FontUIResource(font);
 		final Enumeration keys = UIManager.getDefaults().keys();
@@ -151,7 +151,7 @@ public class SwingUtil
 	 * @return the tray icon
 	 */
 	@Nullable
-	public static TrayIcon createTrayIcon(@Nonnull final Image icon, @Nonnull final String title, @Nonnull final Frame frame)
+	public static TrayIcon createTrayIcon(@NonNull final Image icon, @NonNull final String title, @NonNull final Frame frame)
 	{
 		if (!SystemTray.isSupported())
 		{
@@ -195,7 +195,7 @@ public class SwingUtil
 	 * @return the swing button
 	 */
 	public static JButton createSwingButton(
-		@Nonnull final NavigationButton navigationButton,
+		@NonNull final NavigationButton navigationButton,
 		int iconSize,
 		@Nullable final BiConsumer<NavigationButton, JButton> specialCallback)
 	{

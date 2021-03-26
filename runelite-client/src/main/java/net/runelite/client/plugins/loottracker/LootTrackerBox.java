@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.ToLongFunction;
 import java.util.stream.Collectors;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;

@@ -26,11 +26,11 @@ package net.runelite.client.game;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.LoadingCache;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import java.io.IOException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import net.runelite.http.api.hiscore.HiscoreClient;

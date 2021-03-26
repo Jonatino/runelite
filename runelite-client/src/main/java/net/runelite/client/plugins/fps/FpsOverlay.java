@@ -27,7 +27,7 @@ package net.runelite.client.plugins.fps;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.Point;
 import net.runelite.api.events.FocusChanged;
@@ -102,7 +102,7 @@ public class FpsOverlay extends Overlay
 		{
 			xOffset += logoutButton.getWidth();
 		}
-		
+
 		final String text = client.getFPS() + FPS_STRING;
 		final int textWidth = graphics.getFontMetrics().stringWidth(text);
 		final int textHeight = graphics.getFontMetrics().getAscent() - graphics.getFontMetrics().getDescent();

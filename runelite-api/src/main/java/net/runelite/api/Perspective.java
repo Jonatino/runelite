@@ -32,8 +32,8 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import static net.runelite.api.Constants.TILE_FLAG_BRIDGE;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
@@ -81,7 +81,7 @@ public class Perspective
 	 * 3D-space
 	 */
 	@Nullable
-	public static Point localToCanvas(@Nonnull Client client, @Nonnull LocalPoint point, int plane)
+	public static Point localToCanvas(@NonNull Client client, @NonNull LocalPoint point, int plane)
 	{
 		return localToCanvas(client, point, plane, 0);
 	}
@@ -98,7 +98,7 @@ public class Perspective
 	 * 3D-space
 	 */
 	@Nullable
-	public static Point localToCanvas(@Nonnull Client client, @Nonnull LocalPoint point, int plane, int zOffset)
+	public static Point localToCanvas(@NonNull Client client, @NonNull LocalPoint point, int plane, int zOffset)
 	{
 		final int tileHeight = getTileHeight(client, point, plane);
 		return localToCanvas(client, point.getX(), point.getY(), tileHeight - zOffset);
@@ -115,7 +115,7 @@ public class Perspective
 	 * @return a {@link Point} on screen corresponding to the position in
 	 * 3D-space
 	 */
-	public static Point localToCanvas(@Nonnull Client client, int x, int y, int z)
+	public static Point localToCanvas(@NonNull Client client, int x, int y, int z)
 	{
 		if (x >= 128 && y >= 128 && x <= 13056 && y <= 13056)
 		{
@@ -228,7 +228,7 @@ public class Perspective
 	 * 3D-space
 	 */
 	@Nullable
-	public static Point localToMinimap(@Nonnull Client client, @Nonnull LocalPoint point)
+	public static Point localToMinimap(@NonNull Client client, @NonNull LocalPoint point)
 	{
 		return localToMinimap(client, point, 6400);
 	}
@@ -244,7 +244,7 @@ public class Perspective
 	 * 3D-space
 	 */
 	@Nullable
-	public static Point localToMinimap(@Nonnull Client client, @Nonnull LocalPoint point, int distance)
+	public static Point localToMinimap(@NonNull Client client, @NonNull LocalPoint point, int distance)
 	{
 		LocalPoint localLocation = client.getLocalPlayer().getLocalLocation();
 		int x = point.getX() / 32 - localLocation.getX() / 32;
@@ -300,7 +300,7 @@ public class Perspective
 	 * @param plane the client plane/ground level
 	 * @return the offset from the ground of the tile
 	 */
-	public static int getTileHeight(@Nonnull Client client, @Nonnull LocalPoint point, int plane)
+	public static int getTileHeight(@NonNull Client client, @NonNull LocalPoint point, int plane)
 	{
 		int sceneX = point.getSceneX();
 		int sceneY = point.getSceneY();
@@ -334,7 +334,7 @@ public class Perspective
 	 * @param plane
 	 * @return
 	 */
-	private static int getHeight(@Nonnull Client client, int localX, int localY, int plane)
+	private static int getHeight(@NonNull Client client, int localX, int localY, int plane)
 	{
 		int sceneX = localX >> LOCAL_COORD_BITS;
 		int sceneY = localY >> LOCAL_COORD_BITS;
@@ -360,7 +360,7 @@ public class Perspective
 	 * @return a {@link Polygon} on screen corresponding to the given
 	 * localLocation.
 	 */
-	public static Polygon getCanvasTilePoly(@Nonnull Client client, @Nonnull LocalPoint localLocation)
+	public static Polygon getCanvasTilePoly(@NonNull Client client, @NonNull LocalPoint localLocation)
 	{
 		return getCanvasTileAreaPoly(client, localLocation, 1);
 	}
@@ -374,7 +374,7 @@ public class Perspective
 	 * @return a {@link Polygon} on screen corresponding to the given
 	 * localLocation.
 	 */
-	public static Polygon getCanvasTilePoly(@Nonnull Client client, @Nonnull LocalPoint localLocation, int zOffset)
+	public static Polygon getCanvasTilePoly(@NonNull Client client, @NonNull LocalPoint localLocation, int zOffset)
 	{
 		return getCanvasTileAreaPoly(client, localLocation, 1, 1, client.getPlane(), zOffset);
 	}
@@ -387,7 +387,7 @@ public class Perspective
 	 * @param size the size of the area (ie. 3x3 AoE evaluates to size 3)
 	 * @return a polygon representing the tiles in the area
 	 */
-	public static Polygon getCanvasTileAreaPoly(@Nonnull Client client, @Nonnull LocalPoint localLocation, int size)
+	public static Polygon getCanvasTileAreaPoly(@NonNull Client client, @NonNull LocalPoint localLocation, int size)
 	{
 		return getCanvasTileAreaPoly(client, localLocation, size, size, client.getPlane(), 0);
 	}
@@ -404,8 +404,8 @@ public class Perspective
 	 * @return a polygon representing the tiles in the area
 	 */
 	public static Polygon getCanvasTileAreaPoly(
-		@Nonnull Client client,
-		@Nonnull LocalPoint localLocation,
+		@NonNull Client client,
+		@NonNull LocalPoint localLocation,
 		int sizeX,
 		int sizeY,
 		int plane,
@@ -469,9 +469,9 @@ public class Perspective
 	 * localLocation.
 	 */
 	public static Point getCanvasTextLocation(
-		@Nonnull Client client,
-		@Nonnull Graphics2D graphics,
-		@Nonnull LocalPoint localLocation,
+		@NonNull Client client,
+		@NonNull Graphics2D graphics,
+		@NonNull LocalPoint localLocation,
 		@Nullable String text,
 		int zOffset)
 	{
@@ -507,9 +507,9 @@ public class Perspective
 	 * localLocation.
 	 */
 	public static Point getCanvasImageLocation(
-		@Nonnull Client client,
-		@Nonnull LocalPoint localLocation,
-		@Nonnull BufferedImage image,
+		@NonNull Client client,
+		@NonNull LocalPoint localLocation,
+		@NonNull BufferedImage image,
 		int zOffset)
 	{
 		int plane = client.getPlane();
@@ -537,9 +537,9 @@ public class Perspective
 	 * localLocation.
 	 */
 	public static Point getMiniMapImageLocation(
-		@Nonnull Client client,
-		@Nonnull LocalPoint localLocation,
-		@Nonnull BufferedImage image)
+		@NonNull Client client,
+		@NonNull LocalPoint localLocation,
+		@NonNull BufferedImage image)
 	{
 		Point p = Perspective.localToMinimap(client, localLocation);
 
@@ -564,9 +564,9 @@ public class Perspective
 	 * @return a {@link Point} on screen corresponding to the given localLocation.
 	 */
 	public static Point getCanvasSpriteLocation(
-		@Nonnull Client client,
-		@Nonnull LocalPoint localLocation,
-		@Nonnull SpritePixels spritePixels,
+		@NonNull Client client,
+		@NonNull LocalPoint localLocation,
+		@NonNull SpritePixels spritePixels,
 		int zOffset)
 	{
 		int plane = client.getPlane();
@@ -597,7 +597,7 @@ public class Perspective
 	 * @return the clickable area of the model
 	 */
 	@Nullable
-	public static Shape getClickbox(@Nonnull Client client, Model model, int orientation, LocalPoint point)
+	public static Shape getClickbox(@NonNull Client client, Model model, int orientation, LocalPoint point)
 	{
 		if (model == null)
 		{
@@ -781,10 +781,10 @@ public class Perspective
 	 * localLocation.
 	 */
 	public static Point getCanvasTextMiniMapLocation(
-		@Nonnull Client client,
-		@Nonnull Graphics2D graphics,
-		@Nonnull LocalPoint localLocation,
-		@Nonnull String text)
+		@NonNull Client client,
+		@NonNull Graphics2D graphics,
+		@NonNull LocalPoint localLocation,
+		@NonNull String text)
 	{
 		Point p = Perspective.localToMinimap(client, localLocation);
 
@@ -809,7 +809,7 @@ public class Perspective
 	 * @param endLocation end location of the polygon
 	 * @return a {@link Polygon}
 	 */
-	private static Polygon linePoly(@Nonnull Client client, @Nonnull LocalPoint startLocation, @Nonnull LocalPoint endLocation)
+	private static Polygon linePoly(@NonNull Client client, @NonNull LocalPoint startLocation, @NonNull LocalPoint endLocation)
 	{
 		LocalPoint startPoint = new LocalPoint(
 			startLocation.getX() - (LOCAL_TILE_SIZE / 2),
@@ -838,7 +838,7 @@ public class Perspective
 	 * @param endLocation end location of the polygon
 	 * @return a {@link List} of {@link Polygon}
 	 */
-	public static List<Polygon> getLinePolyList(@Nonnull Client client, @Nonnull WorldPoint startLocation, @Nonnull WorldPoint endLocation)
+	public static List<Polygon> getLinePolyList(@NonNull Client client, @NonNull WorldPoint startLocation, @NonNull WorldPoint endLocation)
 	{
 		List<Polygon> pList = new ArrayList<>();
 		int sizeX = Math.abs(endLocation.getX() - startLocation.getX()) + 1;

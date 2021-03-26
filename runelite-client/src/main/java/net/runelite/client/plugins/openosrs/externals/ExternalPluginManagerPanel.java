@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -170,7 +170,7 @@ public class ExternalPluginManagerPanel extends PluginPanel
 					{
 						return;
 					}
-					
+
 					if (checkbox.isSelected())
 					{
 						externalPluginManager.setWarning(false);

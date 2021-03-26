@@ -29,9 +29,9 @@ import com.google.inject.Singleton;
 import java.time.Instant;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.inject.Inject;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import com.google.inject.Inject;
 import lombok.Getter;
 import lombok.Setter;
 import net.runelite.api.Client;
@@ -121,7 +121,7 @@ public class FarmingContractManager
 		return hasContract() ? contract.getContractName() : null;
 	}
 
-	public boolean shouldHighlightFarmingTabPanel(@Nonnull FarmingPatch patch)
+	public boolean shouldHighlightFarmingTabPanel(@NonNull FarmingPatch patch)
 	{
 		PatchPrediction patchPrediction = farmingTracker.predictPatch(patch);
 		if (contract != null &&

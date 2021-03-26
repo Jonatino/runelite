@@ -24,12 +24,12 @@
  */
 package net.runelite.client;
 
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.Logger;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Provider;
+import com.google.inject.Singleton;
 import com.openosrs.client.game.PlayerManager;
 import java.io.File;
 import java.lang.management.ManagementFactory;
@@ -43,9 +43,7 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
 import java.util.Optional;
-import javax.annotation.Nullable;
-import javax.inject.Provider;
-import javax.inject.Singleton;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -85,6 +83,7 @@ import net.runelite.http.api.worlds.World;
 import net.runelite.http.api.worlds.WorldResult;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Singleton

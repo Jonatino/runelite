@@ -38,8 +38,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Comparator;
 import java.util.function.Consumer;
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.ThreadSafe;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
@@ -75,7 +74,7 @@ public class EventBus
 
 	private final Consumer<Throwable> exceptionHandler;
 
-	@Nonnull
+	@NonNull
 	private ImmutableMultimap<Class<?>, Subscriber> subscribers = ImmutableMultimap.of();
 
 	/**
@@ -93,7 +92,7 @@ public class EventBus
 	 * @param object subscriber to register
 	 * @throws IllegalArgumentException in case subscriber method name is wrong (correct format is 'on' + EventName
 	 */
-	public synchronized void register(@Nonnull final Object object)
+	public synchronized void register(@NonNull final Object object)
 	{
 		final ImmutableMultimap.Builder<Class<?>, Subscriber> builder = ImmutableMultimap.builder();
 		builder.putAll(subscribers);
@@ -181,7 +180,7 @@ public class EventBus
 	 *
 	 * @param object object to unsubscribe from
 	 */
-	public synchronized void unregister(@Nonnull final Object object)
+	public synchronized void unregister(@NonNull final Object object)
 	{
 		final Multimap<Class<?>, Subscriber> map = HashMultimap.create();
 		map.putAll(subscribers);
@@ -226,7 +225,7 @@ public class EventBus
 	 *
 	 * @param event event to post
 	 */
-	public void post(@Nonnull final Object event)
+	public void post(@NonNull final Object event)
 	{
 		for (final Subscriber subscriber : subscribers.get(event.getClass()))
 		{

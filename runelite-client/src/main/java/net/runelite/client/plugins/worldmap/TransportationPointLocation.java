@@ -30,7 +30,7 @@ package net.runelite.client.plugins.worldmap;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import net.runelite.api.coords.WorldPoint;
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 @Getter
 @AllArgsConstructor

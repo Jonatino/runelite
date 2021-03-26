@@ -25,7 +25,7 @@
 package net.runelite.client.plugins.mta;
 
 import com.google.inject.Provides;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.client.config.ConfigManager;

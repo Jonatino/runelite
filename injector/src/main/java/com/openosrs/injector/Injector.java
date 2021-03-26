@@ -29,12 +29,12 @@ import static net.runelite.deob.util.JarUtil.load;
 import static net.runelite.deob.util.JarUtil.save;
 import java.io.File;
 import java.util.Objects;
-import org.gradle.api.logging.Logger;
-import org.gradle.api.logging.Logging;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Injector extends InjectData implements InjectTaskHandler
 {
-	static final Logger log = Logging.getLogger(Injector.class);
+	static final Logger log = LoggerFactory.getLogger(Injector.class);
 	static Injector injector = new Injector();
 	static File injectedClient =
 		new File("../runelite-client/src/main/resources/net/runelite/client/injected-client.oprs");
@@ -106,7 +106,7 @@ public class Injector extends InjectData implements InjectTaskHandler
 
 		injector.inject();
 
-		log.lifecycle("{} {}", name, injector.getCompletionMsg());
+		log.info("{} {}", name, injector.getCompletionMsg());
 
 		if (injector instanceof Validator)
 		{
@@ -132,7 +132,7 @@ public class Injector extends InjectData implements InjectTaskHandler
 
 		transformer.transform();
 
-		log.lifecycle("{} {}", name, transformer.getCompletionMsg());
+		log.info("{} {}", name, transformer.getCompletionMsg());
 	}
 
 	public void runChildInjector(com.openosrs.injector.injectors.Injector injector)
