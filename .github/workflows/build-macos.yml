@@ -1,0 +1,48 @@
+name: Macos - Build and Package
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.14
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.14
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Jlink with Gradle
+        run: ./gradlew :runelite-client:runtime
+      - run: echo ${{ github.sha }} >> ./runelite-client/build/pvphero-client/client-build-hash.txt
+      - name: Upload client to artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: pvphero-client-macos
+          path: ./runelite-client/build/pvphero-client
+          retention-days: 1
+  deploy-macos:
+    needs: build-macos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@master
+        with:
+          name: pvphero-client-macos
+          path: ./pvphero-client-macos/
+      - run: zip -r ../pvphero-client-macos.zip ./
+        working-directory: ./pvphero-client-macos/
+      - name: Upload file to bucket
+        uses: zdurham/s3-upload-github-action@master
+        with:
+          args: --acl public-read
+        env:
+          FILE: ./pvphero-client-macos.zip
+          AWS_REGION: 'us-east-2'
+          S3_BUCKET: 'pvphero'
+          S3_KEY: 'client/macos/'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_SECRET }}

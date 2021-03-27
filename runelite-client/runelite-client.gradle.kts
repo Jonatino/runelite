@@ -167,10 +167,6 @@ tasks {
         }
     }
 
-    shadowJar {
-        archiveClassifier.set("shaded")
-    }
-
     processResources {
         dependsOn(":runelite-script-assembler-plugin:assembleMojo")
 
@@ -196,6 +192,7 @@ tasks {
 
     runtime {
         options.addAll("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages")
-        imageZip.set(project.file("${project.buildDir}/image-zip/hello-image.zip"))
+        imageZip.set(project.file("${project.buildDir}/pvphero-client.zip"))
+        imageDir.set(File("${project.buildDir}/pvphero-client"))
     }
 }
